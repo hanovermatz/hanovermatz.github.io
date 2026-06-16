@@ -1,0 +1,29 @@
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (if you later add build tools)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build files (if using a static site generator)
+_site/
+.jekyll-cache/
+.sass-cache/
+
+# Environment
+.env
+.env.local
