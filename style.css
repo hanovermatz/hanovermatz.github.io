@@ -7,11 +7,11 @@
     --secondary-color: #3498db;
     --accent-color: #e74c3c;
     --light-bg: #ecf0f1;
-    --text-color: #2c3e50;
+    --text-color: #2d3748; /* Charcoal cuts down screen eye strain */
     --text-light: #7f8c8d;
     --border-color: #bdc3c7;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.2);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -25,21 +25,21 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 18px; 
-    line-height: 1.7; /* Increased for breathing room */
-    color: #2d3748; /* Softer off-black charcoal cuts down eye strain */
+    line-height: 1.7; /* Breathing room for reading academic prose */
+    color: var(--text-color);
     background-color: #ffffff;
 }
 
 .container {
-    max-width: 950px; /* Snaps layout to an optimal, readable line width */
+    max-width: 950px; /* Snaps layout lines to optimal readability lengths */
     margin: 0 auto;
     padding: 0 25px;
 }
 
 /* ============================================
-   Banner Section (Optimized for Bold Colors & Contrast)
+   Banner Section 
    ============================================ */
 
 .banner {
@@ -50,7 +50,7 @@ body {
         rgba(15, 23, 42, 0.85) 100%
     ), url('banner-antibodies.png');
     
-    min-height: 70vh; 
+    min-height: 65vh; 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -62,18 +62,17 @@ body {
     color: #ffffff;
     
     width: 100%;
-    box-sizing: border-box;
     position: relative;
 }
 
 .banner-content {
     padding: 20px;
-    max-width: 950px; /* Slightly wider to give larger text space */
+    max-width: 900px;
     z-index: 2;
 }
 
 .banner-content h1 {
-    font-size: 4.8rem; /* Bumbed up slightly to balance layout ratio */
+    font-size: 4.5rem;
     margin-top: 0;
     margin-bottom: 20px;
     font-weight: 700;
@@ -82,7 +81,7 @@ body {
 }
 
 .banner-content p {
-    font-size: 2rem; /* Enhanced visibility */
+    font-size: 1.85rem;
     margin: 0;
     font-weight: 300;
     line-height: 1.5;
@@ -91,7 +90,7 @@ body {
 }
 
 /* ============================================
-   Navigation
+   Navigation Bar
    ============================================ */
 
 .navbar {
@@ -115,14 +114,14 @@ body {
 .navbar li {
     flex: 1;
     text-align: center;
-    min-width: 110px; /* Expanded minimum boundary allocation */
+    min-width: 110px; 
 }
 
 .navbar a {
     display: block;
     color: white;
     text-decoration: none;
-    padding: 18px 20px; /* Increased clickable vertical density padding */
+    padding: 18px 20px; 
     transition: background-color 0.3s ease;
     font-weight: 600;
     font-size: 1.05rem;
@@ -133,15 +132,15 @@ body {
 }
 
 /* ============================================
-   Sections
+   Global Section Settings
    ============================================ */
 
 .section {
-    padding: 90px 20px; /* Extra padding structure balance */
+    padding: 90px 20px; 
 }
 
 .section h2 {
-    font-size: 2.65rem;
+    font-size: 2.5rem;
     text-align: center;
     margin-bottom: 50px;
     color: var(--primary-color);
@@ -162,7 +161,7 @@ body {
 }
 
 /* ============================================
-   About Section
+   About / Profile Section
    ============================================ */
 
 .about {
@@ -203,9 +202,8 @@ body {
 
 .about-text p {
     margin-bottom: 18px;
-    font-size: 1.15rem; /* Clean, bold layout prose presentation */
+    font-size: 1.15rem; 
     line-height: 1.8;
-    color: var(--text-color);
 }
 
 .research-interests {
@@ -229,7 +227,7 @@ body {
 }
 
 /* ============================================
-   Research Highlights
+   Research Highlights Grid Layout
    ============================================ */
 
 .research-highlights {
@@ -248,7 +246,6 @@ body {
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -276,11 +273,11 @@ body {
 .highlight-card p {
     padding: 0 25px 25px;
     color: var(--text-light);
-    font-size: 1.05rem; /* Clean readable font size inside project containers */
+    font-size: 1.05rem;
 }
 
 /* ============================================
-   Research Highlight Publication Link Previews
+   Research Highlight Paper Preview Components
    ============================================ */
 
 .paper-preview-card {
@@ -300,7 +297,7 @@ body {
 
 .preview-tag {
     display: inline-block;
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -312,7 +309,7 @@ body {
 }
 
 .preview-title {
-    font-size: 1.05rem;
+    font-size: 0.98rem;
     line-height: 1.45;
     color: var(--text-color);
     margin: 0 0 8px 0 !important;
@@ -321,7 +318,7 @@ body {
 }
 
 .preview-citation {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-light);
     margin: 0 0 12px 0 !important;
     padding: 0 !important;
@@ -329,7 +326,7 @@ body {
 
 .preview-link {
     display: inline-block;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--secondary-color);
     text-decoration: none;
@@ -342,7 +339,7 @@ body {
 }
 
 /* ============================================
-   Publications Section
+   Publications Section (Automated Feed Processing Styling)
    ============================================ */
 
 .publications {
@@ -354,7 +351,7 @@ body {
     margin: 0 auto;
 }
 
-/* Style each dynamic ORCID item as a sleek, isolated card */
+/* Style each dynamic ORCID layout item cleanly */
 #publications-list li {
     background: white;
     border-left: 5px solid var(--secondary-color);
@@ -362,17 +359,16 @@ body {
     margin-bottom: 20px !important;
     border-radius: 0 8px 8px 0;
     box-shadow: var(--shadow);
-    display: block; /* Changes list structure layout */
+    display: block; 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Subtle micro-interaction lift when hovered */
 #publications-list li:hover {
     transform: translateX(4px);
     box-shadow: var(--shadow-lg);
 }
 
-/* Turns the View Publication text string into an intentional action button */
+/* Transforms raw anchor texts into micro-interactive pill action items */
 #publications-list a {
     display: inline-block;
     margin-top: 12px;
@@ -392,7 +388,7 @@ body {
 }
 
 /* ============================================
-   Media Section
+   Media & Outreach Section
    ============================================ */
 
 .media {
@@ -401,7 +397,7 @@ body {
 
 .media-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
     gap: 40px;
     max-width: 1100px; 
     margin: 0 auto;
@@ -437,10 +433,6 @@ body {
     font-size: 0.95rem;
 }
 
-/* ============================================
-   Podcast & Video Embed Styling
-   ============================================ */
-
 .podcast-embed {
     margin: 15px 0;
     padding: 15px;
@@ -485,7 +477,7 @@ body {
 }
 
 .contact p {
-    font-size: 1.25rem; /* Expanded visibility text sizing */
+    font-size: 1.25rem; 
     margin-bottom: 30px;
 }
 
@@ -497,7 +489,7 @@ body {
 }
 
 /* ============================================
-   Button Styles
+   Buttons & Links Layout Settings
    ============================================ */
 
 .link-button {
@@ -524,436 +516,6 @@ body {
     background-color: white;
     color: var(--primary-color);
     text-decoration: none;
-/* ============================================
-   Banner Section
-   ============================================ */
-.banner {
-    /* Directional gradient: Starts clean and deepens right behind your title strings */
-    background-image: linear-gradient(
-        to bottom, 
-        rgba(20, 30, 48, 0.35) 0%, 
-        rgba(15, 23, 42, 0.70) 60%, 
-        rgba(15, 23, 42, 0.85) 100%
-    ), url('banner-antibodies.png');
-    
-    min-height: 70vh; 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #ffffff;
-    
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-}
-
-.banner-content {
-    padding: 20px;
-    max-width: 900px;
-    z-index: 2;
-}
-
-.banner-content h1 {
-    font-size: 4.5rem;
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    /* Soft text shadow adds crisp readability borders over the artwork background */
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-.banner-content p {
-    font-size: 1.85rem;
-    margin: 0;
-    font-weight: 300;
-    line-height: 1.5;
-    opacity: 0.95;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-}
-
-/* ============================================
-   Navigation
-   ============================================ */
-
-.navbar {
-    background-color: var(--primary-color);
-    padding: 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: var(--shadow);
-}
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.navbar li {
-    flex: 1;
-    text-align: center;
-    min-width: 100px;
-}
-
-.navbar a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 15px 20px;
-    transition: background-color 0.3s ease;
-    font-weight: 500;
-}
-
-.navbar a:hover {
-    background-color: var(--secondary-color);
-}
-
-/* ============================================
-   Sections
-   ============================================ */
-
-.section {
-    padding: 80px 20px;
-}
-
-.section h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 50px;
-    color: var(--primary-color);
-    position: relative;
-    padding-bottom: 20px;
-}
-
-.section h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
-    border-radius: 2px;
-}
-
-/* ============================================
-   About Section
-   ============================================ */
-
-.about {
-    background-color: #f9f9f9;
-}
-
-.about-content {
-    display: flex;
-    gap: 50px;
-    align-items: center;
-}
-
-.profile-picture-container {
-    flex: 1;
-    min-width: 250px;
-}
-
-.profile-picture {
-    width: 100%;
-    max-width: 350px;
-    border-radius: 10px;
-    box-shadow: var(--shadow-lg);
-    border: 4px solid var(--secondary-color);
-}
-
-.about-text {
-    flex: 1;
-}
-
-.about-text h2 {
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-.about-text h2::after {
-    display: none;
-}
-
-.about-text p {
-    margin-bottom: 15px;
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: var(--text-color);
-}
-
-.research-interests {
-    margin-top: 30px;
-}
-
-.research-interests h3 {
-    color: var(--secondary-color);
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-}
-
-.research-interests ul {
-    list-style-position: inside;
-    color: var(--text-light);
-}
-
-.research-interests li {
-    margin-bottom: 8px;
-}
-
-/* ============================================
-   Research Highlights
-   ============================================ */
-
-.research-highlights {
-    background-color: #ffffff;
-}
-
-.highlights-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.highlight-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.highlight-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
-}
-
-.highlight-gif {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    background-color: var(--light-bg);
-}
-
-.highlight-card h3 {
-    padding: 20px 20px 10px;
-    color: var(--primary-color);
-    font-size: 1.3rem;
-}
-
-.highlight-card p {
-    padding: 0 20px 20px;
-    color: var(--text-light);
-    font-size: 0.95rem;
-}
-
-/* ============================================
-   Publications Section
-   ============================================ */
-
-.publications {
-    background-color: #f9f9f9;
-}
-
-.publications-list {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.publication-item {
-    background: white;
-    border-left: 5px solid var(--secondary-color);
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 5px;
-    box-shadow: var(--shadow);
-    display: flex;
-    gap: 30px;
-}
-
-.publication-year {
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--secondary-color);
-    min-width: 70px;
-    text-align: center;
-}
-
-.publication-content {
-    flex: 1;
-}
-
-.publication-item h3 {
-    margin-bottom: 8px;
-    color: var(--primary-color);
-}
-
-.authors {
-    color: var(--text-light);
-    font-size: 0.9rem;
-    margin-bottom: 5px;
-}
-
-.journal {
-    color: var(--text-light);
-    margin-bottom: 10px;
-}
-
-.description {
-    margin: 15px 0;
-    line-height: 1.6;
-}
-
-.publication-links {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-/* ============================================
-   Media Section
-   ============================================ */
-
-.media {
-    background-color: #ffffff;
-}
-
-.media-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
-    gap: 40px;
-    max-width: 1100px; 
-    margin: 0 auto;
-}
-
-.media-item {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease;
-}
-
-.media-item:hover {
-    transform: translateY(-5px);
-}
-
-.media-item h3 {
-    color: var(--primary-color);
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-}
-
-.media-item p {
-    color: var(--text-color);
-    margin-bottom: 8px;
-}
-
-.date {
-    color: var(--text-light);
-    font-size: 0.85rem;
-}
-
-/* ============================================
-   Podcast & Video Embed Styling
-   ============================================ */
-
-.podcast-embed {
-    margin: 15px 0;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.podcast-embed iframe {
-    width: 100%;
-    border-radius: 8px;
-}
-
-.video-embed {
-    margin: 15px 0;
-    padding: 15px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-}
-
-.video-embed iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-}
-
-/* ============================================
-   Contact Section
-   ============================================ */
-
-.contact {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    color: white;
-    text-align: center;
-}
-
-.contact p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-}
-
-.contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-/* ============================================
-   Button Styles
-   ============================================ */
-
-.link-button {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: var(--secondary-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.link-button:hover {
-    background-color: var(--accent-color);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.link-button-large {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: white;
-    color: var(--primary-color);
-    text-decoration: none;
     border-radius: 5px;
     transition: all 0.3s ease;
     font-weight: 600;
@@ -974,7 +536,7 @@ body {
     background-color: var(--primary-color);
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 25px;
     font-size: 0.9rem;
 }
 
@@ -986,210 +548,45 @@ body {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
 @keyframes slideInLeft {
     from { opacity: 0; transform: translateX(-50px); }
     to { opacity: 1; transform: translateX(0); }
 }
-
 @keyframes slideInRight {
     from { opacity: 0; transform: translateX(50px); }
     to { opacity: 1; transform: translateX(0); }
 }
-
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-.fade-in {
-    animation: fadeIn 1.2s ease-out forwards;
-}
-
-.fade-in-delay {
-    animation: fadeIn 1.2s ease-out 0.4s both;
-}
-
-.slide-in-left {
-    animation: slideInLeft 0.8s ease-out forwards;
-}
-
-.slide-in-right {
-    animation: slideInRight 0.8s ease-out forwards;
-}
-
-.fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
-}
+.fade-in { animation: fadeIn 1.2s ease-out forwards; }
+.fade-in-delay { animation: fadeIn 1.2s ease-out 0.4s both; }
+.slide-in-left { animation: slideInLeft 0.8s ease-out forwards; }
+.slide-in-right { animation: slideInRight 0.8s ease-out forwards; }
+.fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
 
 /* ============================================
-   Responsive Design Rules
+   Responsive Layout Breakpoints (Mobile Optimization)
    ============================================ */
 
 @media (max-width: 768px) {
-    .banner-content h1 {
-        font-size: 2.8rem;
-    }
-
-    .banner-content p {
-        font-size: 1.4rem;
-    }
-
-    .about-content {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .profile-picture {
-        max-width: 250px;
-    }
-
-    .section h2 {
-        font-size: 2rem;
-    }
-
-    .publication-item {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .navbar ul {
-        flex-direction: column;
-    }
-
-    .navbar li {
-        flex: none;
-    }
-
-    .contact-links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .link-button-large {
-        width: 200px;
-    }
-
-    .media-item {
-        padding: 20px;
-    }
-
-    .podcast-embed {
-        margin: 10px 0;
-        padding: 10px;
-    }
-
-    .video-embed {
-        margin: 10px 0;
-        padding-bottom: 56.25%;
-    }
+    .banner-content h1 { font-size: 2.8rem; }
+    .banner-content p { font-size: 1.4rem; }
+    .about-content { flex-direction: column; gap: 30px; }
+    .profile-picture { max-width: 250px; }
+    .section h2 { font-size: 2rem; }
+    .navbar ul { flex-direction: column; }
+    .navbar li { flex: none; }
+    .contact-links { flex-direction: column; align-items: center; }
+    .link-button-large { width: 200px; }
+    .media-grid { grid-template-columns: 1fr; }
+    .media-item { padding: 20px; }
 }
 
 @media (max-width: 480px) {
-    .banner {
-        padding: 60px 15px;
-    }
-
-    .banner-content h1 {
-        font-size: 1.8rem;
-    }
-
-    .section {
-        padding: 40px 15px;
-    }
-
-    .section h2 {
-        font-size: 1.5rem;
-        margin-bottom: 30px;
-    }
-
-    .highlights-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .media-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .media-item {
-        padding: 15px;
-    }
-    
-    /* Cleaned mobile display properties so video and podcast objects show properly */
-    .podcast-embed, .video-embed {
-        display: block;
-    }
-}
-/* ============================================
-   Research Highlight Publication Link Previews
-   ============================================ */
-
-/* Enforce uniform space and alignment layout inside your primary project squares */
-.highlight-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
-
-/* Embedded preview card container style rules */
-.paper-preview-card {
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    margin: 0 20px 20px 20px;
-    padding: 15px;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-    text-align: left;
-}
-
-.paper-preview-card:hover {
-    background-color: #f1f5f9;
-    border-color: var(--secondary-color);
-}
-
-/* Metadata tag badge properties */
-.preview-tag {
-    display: inline-block;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    background-color: #e2e8f0;
-    color: var(--primary-color);
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-bottom: 8px;
-}
-
-/* Article preview text styling */
-.preview-title {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    color: var(--text-color);
-    margin: 0 0 6px 0 !important;
-    padding: 0 !important;
-    font-weight: 600;
-}
-
-.preview-citation {
-    font-size: 0.82rem;
-    color: var(--text-light);
-    margin: 0 0 10px 0 !important;
-    padding: 0 !important;
-}
-
-/* Action button link styling */
-.preview-link {
-    display: inline-block;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--secondary-color);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.preview-link:hover {
-    color: var(--accent-color);
-    text-decoration: underline;
-}
+    .banner { padding: 60px 15px; }
+    .banner-content h1 { font-size: 1.8rem; }
+    .section { padding: 40px 15px; }
+    .section h2 { font-size: 1.5rem; margin-bottom: 30px;
