@@ -256,9 +256,9 @@ body {
     flex: 1;
     width: 100%;
     max-width: 420px;
-    height: auto; /* Changed from 280px to auto to prevent vertical cropping */
-    aspect-ratio: 3 / 2; /* Maintains a beautiful editorial proportion naturally */
-    object-fit: contain; /* Ensures the whole frame fits inside without clipping edges */
+    height: auto; 
+    aspect-ratio: 3 / 2; 
+    object-fit: cover; /* Fixed: Changes from 'contain' to fill the canvas edge-to-edge beautifully */
     border-radius: 12px;
     box-shadow: var(--shadow-lg);
     background-color: var(--light-bg);
@@ -453,7 +453,7 @@ body {
 }
 
 .podcast-embed iframe {
-    width: 100-percent;
+    width: 100%; /* Fixed: Changed from '100-percent' to '100%' */
     border: none;
     border-radius: 8px;
 }
