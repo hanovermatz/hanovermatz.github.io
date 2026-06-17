@@ -268,13 +268,16 @@ The adaptive immune system is the product of millions of years of evolution in j
 </script>
 
 <script>
+    // Only observe elements that are NOT in the publications section
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in-up');
             }
         });
-    });
+    }, { threshold: 0.1 });
+
+    // Select only the specific sections you want to animate
     document.querySelectorAll('.highlight-card, .media-item').forEach(el => observer.observe(el));
 </script>
 </body>
