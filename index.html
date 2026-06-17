@@ -264,5 +264,16 @@ The adaptive immune system is the product of millions of years of evolution in j
         });
     });
 </script>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-up');
+            }
+        });
+    });
+    document.querySelectorAll('.highlight-card, .media-item').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
