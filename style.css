@@ -7,7 +7,7 @@
     --secondary-color: #3498db;
     --accent-color: #e74c3c;
     --light-bg: #ecf0f1;
-    --text-color: #2d3748; /* Charcoal cuts down screen eye strain */
+    --text-color: #2d3748; 
     --text-light: #7f8c8d;
     --border-color: #bdc3c7;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -26,14 +26,16 @@ html {
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 18px; 
-    line-height: 1.7; /* Breathing room for reading academic prose */
+    font-size: 1.125rem; /* 18px fallback */
+    line-height: 1.75; 
     color: var(--text-color);
     background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-    max-width: 950px; /* Snaps layout lines to optimal readability lengths */
+    max-width: 950px; 
     margin: 0 auto;
     padding: 0 25px;
 }
@@ -47,7 +49,7 @@ body {
         to bottom, 
         rgba(20, 30, 48, 0.35) 0%, 
         rgba(15, 23, 42, 0.70) 60%, 
-        rgba(15, 23, 42, 0.85) 100%
+        rgba(15, 23, 42, 0.85) 100-percent
     ), url('banner-antibodies.png');
     
     min-height: 65vh; 
@@ -72,7 +74,7 @@ body {
 }
 
 .banner-content h1 {
-    font-size: 4.5rem;
+    font-size: clamp(2.5rem, 6vw, 4.5rem); /* Dynamically scales fluidly down to mobile sizing */
     margin-top: 0;
     margin-bottom: 20px;
     font-weight: 700;
@@ -81,7 +83,7 @@ body {
 }
 
 .banner-content p {
-    font-size: 1.85rem;
+    font-size: clamp(1.25rem, 3vw, 1.85rem);
     margin: 0;
     font-weight: 300;
     line-height: 1.5;
@@ -95,7 +97,6 @@ body {
 
 .navbar {
     background-color: var(--primary-color);
-    padding: 0;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -106,29 +107,29 @@ body {
     list-style: none;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .navbar li {
-    flex: 1;
-    text-align: center;
-    min-width: 110px; 
+    display: inline-block;
 }
 
 .navbar a {
     display: block;
     color: white;
     text-decoration: none;
-    padding: 18px 20px; 
-    transition: background-color 0.3s ease;
+    padding: 18px 24px; 
+    transition: background-color 0.2s ease, color 0.2s ease;
     font-weight: 600;
     font-size: 1.05rem;
 }
 
-.navbar a:hover {
+.navbar a:hover,
+.navbar a:focus {
     background-color: var(--secondary-color);
+    outline: none;
 }
 
 /* ============================================
@@ -136,11 +137,11 @@ body {
    ============================================ */
 
 .section {
-    padding: 90px 20px; 
+    padding: clamp(50px, 8vw, 90px) 20px; 
 }
 
 .section h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     text-align: center;
     margin-bottom: 50px;
     color: var(--primary-color);
@@ -182,13 +183,14 @@ body {
 .profile-picture {
     width: 100%;
     max-width: 350px;
+    height: auto;
     border-radius: 10px;
     box-shadow: var(--shadow-lg);
     border: 4px solid var(--secondary-color);
 }
 
 .about-text {
-    flex: 1;
+    flex: 1.5;
 }
 
 .about-text h2 {
@@ -234,49 +236,33 @@ body {
     background-color: #ffffff;
 }
 
-/* Container becomes a clean vertical stack instead of a rigid matrix grid */
 .highlights-grid {
     display: flex;
     flex-direction: column;
-    gap: 70px; /* Generous breathing space between major topics */
+    gap: 70px; 
     max-width: 950px;
     margin: 0 auto;
 }
 
-/* Individual highlight blocks turned into flexible horizontal split rows */
 .highlight-card {
-    background: transparent;
-    border-radius: 0;
-    overflow: visible;
-    box-shadow: none;
-    transition: none;
-    
     display: flex;
-    flex-direction: row; /* Puts visual asset and body text side-by-side */
+    flex-direction: row; 
     align-items: center;
     gap: 50px;
     width: 100%;
 }
 
-/* Disables hover lifting animation since these behave as full sections now */
-.highlight-card:hover {
-    transform: none;
-    box-shadow: none;
-}
-
-/* Left/Right structural allocations */
 .highlight-gif {
     flex: 1;
     width: 100%;
     max-width: 420px;
-    height: 280px; /* Bushed up slightly for high impact clarity */
+    height: 280px; 
     object-fit: cover;
     border-radius: 12px;
     box-shadow: var(--shadow-lg);
     background-color: var(--light-bg);
 }
 
-/* Text & paper components grouping block */
 .highlight-card-text-wrapper {
     flex: 1.2;
     display: flex;
@@ -285,7 +271,6 @@ body {
     text-align: left;
 }
 
-/* Cleans structural padding off titles and blocks */
 .highlight-card h3 {
     padding: 0 0 12px 0;
     color: var(--primary-color);
@@ -299,16 +284,10 @@ body {
     line-height: 1.7;
 }
 
-/* Adjusts the paper citation box margins to flow seamlessly inline */
-.paper-preview-card {
-    margin: 0; 
-    width: 100%;
-}
-
-/* MAGIC STAGGERING RULE: Alternates every second card item layout direction */
 .highlight-card:nth-child(even) {
     flex-direction: row-reverse;
 }
+
 /* ============================================
    Research Highlight Paper Preview Components
    ============================================ */
@@ -317,10 +296,11 @@ body {
     background-color: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
-    margin: 0 25px 25px 25px;
+    margin: 0; 
     padding: 18px;
     transition: background-color 0.2s ease, border-color 0.2s ease;
     text-align: left;
+    width: 100%;
 }
 
 .paper-preview-card:hover {
@@ -345,16 +325,14 @@ body {
     font-size: 0.98rem;
     line-height: 1.45;
     color: var(--text-color);
-    margin: 0 0 8px 0 !important;
-    padding: 0 !important;
+    margin-bottom: 8px;
     font-weight: 600;
 }
 
 .preview-citation {
     font-size: 0.85rem;
     color: var(--text-light);
-    margin: 0 0 12px 0 !important;
-    padding: 0 !important;
+    margin-bottom: 12px;
 }
 
 .preview-link {
@@ -372,7 +350,7 @@ body {
 }
 
 /* ============================================
-   Publications Section (Automated Feed Processing Styling)
+   Publications Section
    ============================================ */
 
 .publications {
@@ -382,14 +360,14 @@ body {
 .publications-list {
     max-width: 900px;
     margin: 0 auto;
+    list-style: none; /* Strip standard bullets if using dynamically rendered ORCID rows */
 }
 
-/* Style each dynamic ORCID layout item cleanly */
 #publications-list li {
     background: white;
     border-left: 5px solid var(--secondary-color);
     padding: 25px;
-    margin-bottom: 20px !important;
+    margin-bottom: 20px;
     border-radius: 0 8px 8px 0;
     box-shadow: var(--shadow);
     display: block; 
@@ -401,7 +379,6 @@ body {
     box-shadow: var(--shadow-lg);
 }
 
-/* Transforms raw anchor texts into micro-interactive pill action items */
 #publications-list a {
     display: inline-block;
     margin-top: 12px;
@@ -430,7 +407,7 @@ body {
 
 .media-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Prevents horizontal clipping on small screens */
     gap: 40px;
     max-width: 1100px; 
     margin: 0 auto;
@@ -475,18 +452,18 @@ body {
 }
 
 .podcast-embed iframe {
-    width: 100%;
+    width: 100-percent;
+    border: none;
     border-radius: 8px;
 }
 
 .video-embed {
     margin: 15px 0;
-    padding: 15px;
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
     position: relative;
-    padding-bottom: 56.25%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
     height: 0;
 }
 
@@ -496,6 +473,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    border: none;
     border-radius: 8px;
 }
 
@@ -532,7 +510,7 @@ body {
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease-out;
     font-size: 1rem;
     font-weight: 600;
 }
@@ -550,7 +528,7 @@ body {
     color: var(--primary-color);
     text-decoration: none;
     border-radius: 5px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease-out;
     font-weight: 600;
     margin: 10px;
 }
@@ -574,7 +552,7 @@ body {
 }
 
 /* ============================================
-   Animations Configuration Engine
+   Optimized Animations Engine (GPU Accelerated)
    ============================================ */
 
 @keyframes fadeIn {
@@ -582,44 +560,100 @@ body {
     to { opacity: 1; }
 }
 @keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-50px); }
+    from { opacity: 0; transform: translateX(-15px); }
     to { opacity: 1; transform: translateX(0); }
 }
 @keyframes slideInRight {
-    from { opacity: 0; transform: translateX(50px); }
+    from { opacity: 0; transform: translateX(15px); }
     to { opacity: 1; transform: translateX(0); }
 }
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
+    from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-.fade-in { animation: fadeIn 1.2s ease-out forwards; }
-.fade-in-delay { animation: fadeIn 1.2s ease-out 0.4s both; }
-.slide-in-left { animation: slideInLeft 0.8s ease-out forwards; }
-.slide-in-right { animation: slideInRight 0.8s ease-out forwards; }
-.fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+.fade-in { animation: fadeIn 1s ease-out forwards; }
+.fade-in-delay { animation: fadeIn 1s ease-out 0.3s both; }
+.slide-in-left { animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.slide-in-right { animation: slideInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.fade-in-up { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* Prefer reduced motion media queries respect system preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
 
 /* ============================================
    Responsive Layout Breakpoints (Mobile Optimization)
    ============================================ */
 
 @media (max-width: 768px) {
-    .banner-content h1 { font-size: 2.8rem; }
-    .banner-content p { font-size: 1.4rem; }
-    .about-content { flex-direction: column; gap: 30px; }
-    .profile-picture { max-width: 250px; }
-    .section h2 { font-size: 2rem; }
-    .navbar ul { flex-direction: column; }
-    .navbar li { flex: none; }
-    .contact-links { flex-direction: column; align-items: center; }
-    .link-button-large { width: 200px; }
-    .media-grid { grid-template-columns: 1fr; }
-    .media-item { padding: 20px; }
-}
+    .about-content { 
+        flex-direction: column; 
+        gap: 35px; 
+    }
+    
+    .profile-picture-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .profile-picture { 
+        max-width: 280px; 
+    }
+    
+    .about-text {
+        text-align: left;
+    }
 
-@media (max-width: 480px) {
-    .banner { padding: 60px 15px; }
-    .banner-content h1 { font-size: 1.8rem; }
-    .section { padding: 40px 15px; }
-    .section h2 { font-size: 1.5rem; margin-bottom: 30px;
+    .navbar ul { 
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 10px;
+    }
+    
+    .navbar li { 
+        flex: 0 0 auto; 
+    }
+    
+    .navbar a {
+        padding: 15px 18px;
+        font-size: 0.95rem;
+    }
+
+    .contact-links { 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 10px;
+    }
+    
+    .link-button-large { 
+        width: 100%; 
+        max-width: 280px;
+        margin: 0;
+    }
+    
+    .media-grid { 
+        grid-template-columns: 1fr; 
+    }
+
+    .highlight-card, 
+    .highlight-card:nth-child(even) {
+        flex-direction: column !important; 
+        gap: 25px;
+    }
+    
+    .highlight-gif {
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 2;
+    }
+}
