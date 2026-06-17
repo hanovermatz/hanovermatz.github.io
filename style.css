@@ -261,7 +261,12 @@ body {
    4. About Section + Graphic
    ============================================ */
 .about { background-color: #f9f9f9; }
-.about-content { display: flex; gap: 50px; align-items: center; }
+.about-content { 
+    display: flex; 
+    gap: 30px; 
+    align-items: center; 
+    flex-wrap: wrap; /* NEW: Forces stacking on mobile */
+}
 .profile-picture-container { flex: 1; min-width: 250px; text-align: center; }
 .profile-picture { width: 100%; max-width: 350px; border-radius: 10px; box-shadow: var(--shadow-lg); border: 4px solid var(--secondary-color); }
 
@@ -400,4 +405,34 @@ body {
     max-width: 600px;
     margin: 0 auto 30px auto; /* Centers the paragraph block */
     color: var(--text-color);
+}
+/* --- Mobile Responsive Adjustments --- */
+@media (max-width: 768px) {
+    /* About section: Stack elements */
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-text h2 { 
+        text-align: center; 
+    }
+
+    /* Research Highlights: Stack cards and images */
+    .highlight-card, 
+    .highlight-card:nth-child(even) {
+        flex-direction: column !important;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .highlight-gif {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    /* Ensure containers don't overflow */
+    .container {
+        padding: 0 15px;
+    }
 }
