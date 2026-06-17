@@ -15,21 +15,28 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 1.125rem;
     line-height: 1.75; 
     color: var(--text-color);
     background-color: #ffffff;
-    width: 100%;
-    overflow-x: hidden;
 }
 
-.container { max-width: 1100px; margin: 0 auto; padding: 0 25px; width: 100%; }
+.container { max-width: 950px; margin: 0 auto; padding: 0 25px; }
 
 /* ============================================
-   2. Layout & Sections
+   2. Scroll-Animation Engine
+   ============================================ */
+.highlight-card, .media-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in-up { opacity: 1 !important; transform: translateY(0) !important; }
+
+/* ============================================
+   3. Sections & Layout
    ============================================ */
 .banner {
     position: relative;
@@ -43,68 +50,47 @@ body {
     text-align: center;
     color: #ffffff;
 }
+.banner-content h1 { font-size: clamp(3rem, 8vw, 6rem); margin-bottom: 20px; font-weight: 700; }
+.banner-content p { font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 300; }
+
+.navbar { background-color: var(--primary-color); position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow); }
+.navbar ul { list-style: none; display: flex; justify-content: center; }
+.navbar a { display: block; color: white; text-decoration: none; padding: 18px 24px; font-weight: 600; }
 
 .section { padding: 80px 20px; }
 .section h2 { font-size: 2.5rem; text-align: center; margin-bottom: 50px; color: var(--primary-color); }
 
 /* ============================================
-   3. Research Highlights (Original Stable Version)
+   4. About Section & Graphics
+   ============================================ */
+.about { background-color: #f9f9f9; }
+.about-content { display: flex; gap: 50px; align-items: center; }
+.profile-picture-container { flex: 1; text-align: center; }
+.profile-picture { width: 100%; max-width: 350px; border-radius: 10px; box-shadow: var(--shadow-lg); border: 4px solid var(--secondary-color); }
+.mechanism-graphic { width: 100%; max-width: 350px; margin-top: 25px; border-radius: 8px; border: 4px solid var(--secondary-color); }
+.about-text { flex: 1.5; }
+
+/* ============================================
+   5. Research & Media (Restored)
    ============================================ */
 .highlights-grid { display: flex; flex-direction: column; gap: 70px; }
 .highlight-card { display: flex; flex-direction: row; align-items: center; gap: 50px; }
-.highlight-gif {
-    flex: 1;
-    max-width: 500px;
-    aspect-ratio: 16 / 9;
-    object-fit: contain;
-    border-radius: 12px;
-    box-shadow: var(--shadow-lg);
-    border: 4px solid var(--secondary-color);
-}
+.highlight-gif { flex: 1; max-width: 500px; aspect-ratio: 16 / 9; object-fit: contain; border-radius: 12px; border: 4px solid var(--secondary-color); }
 .highlight-card:nth-child(even) { flex-direction: row-reverse; }
 
-/* ============================================
-   4. Buttons & Interactive Elements
-   ============================================ */
-.link-button-large {
-    background: transparent;
-    border: 2px solid var(--primary-color) !important;
-    color: var(--primary-color) !important;
-    padding: 14px 28px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-block;
-    margin-top: 15px;
-}
-
-.link-button-large:hover {
-    background: var(--primary-color) !important;
-    color: #ffffff !important;
-}
-
-.preview-link {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    border: 2px solid var(--primary-color);
-    border-radius: 50px;
-    text-decoration: none;
-    color: var(--primary-color) !important;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.preview-link:hover {
-    background-color: var(--primary-color);
-    color: #ffffff !important;
-}
+.media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+.media-item { background: #f5f7fa; padding: 35px; border-radius: 10px; }
+.video-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border: 4px solid var(--secondary-color); border-radius: 12px; overflow: hidden; }
+.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
 /* ============================================
-   5. Mobile Responsiveness
+   6. Buttons & Utilities
    ============================================ */
+.link-button-large { display: inline-block; padding: 14px 28px; border: 2px solid var(--primary-color); border-radius: 8px; text-decoration: none; color: var(--primary-color); font-weight: 600; transition: 0.3s; }
+.link-button-large:hover { background: var(--primary-color); color: white; }
+.preview-link { display: inline-block; padding: 10px 20px; border: 2px solid var(--primary-color); border-radius: 50px; text-decoration: none; color: var(--primary-color); font-weight: 600; margin-top: 15px; }
+
 @media (max-width: 768px) {
-    .highlight-card, .about-content { flex-direction: column !important; text-align: center; }
-    .highlight-gif { width: 100% !important; max-width: 100% !important; }
+    .about-content, .highlight-card { flex-direction: column !important; text-align: center; }
+    .media-grid { grid-template-columns: 1fr; }
 }
