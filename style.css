@@ -49,7 +49,7 @@ body {
         to bottom, 
         rgba(20, 30, 48, 0.35) 0%, 
         rgba(15, 23, 42, 0.70) 60%, 
-        rgba(15, 23, 42, 0.85) 100-percent
+        rgba(15, 23, 42, 0.85) 100% /* Fixed typo here */
     ), url('banner-antibodies.png');
     
     min-height: 65vh; 
@@ -256,8 +256,9 @@ body {
     flex: 1;
     width: 100%;
     max-width: 420px;
-    height: 280px; 
-    object-fit: cover;
+    height: auto; /* Changed from 280px to auto to prevent vertical cropping */
+    aspect-ratio: 3 / 2; /* Maintains a beautiful editorial proportion naturally */
+    object-fit: contain; /* Ensures the whole frame fits inside without clipping edges */
     border-radius: 12px;
     box-shadow: var(--shadow-lg);
     background-color: var(--light-bg);
