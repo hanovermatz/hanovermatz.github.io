@@ -110,19 +110,55 @@ body {
 /* ============================================
    5. Research & Media
    ============================================ */
-.highlights-grid { display: flex; flex-direction: column; gap: 70px; }
-.highlight-card { display: flex; flex-direction: row; align-items: center; gap: 50px; }
-.highlight-gif {
-    flex: 1;
-    max-width: 500px;
-    aspect-ratio: 16 / 9;
-    object-fit: contain;
-    border-radius: 12px;
-    box-shadow: var(--shadow-lg);
-    background-color: #f8f9fa;
-    border: 4px solid var(--secondary-color);
+/* --- Updated Research Timeline --- */
+.highlights-timeline {
+    position: relative;
+    padding-left: 40px; /* Moves content to the right to make room for the line */
 }
-.highlight-card:nth-child(even) { flex-direction: row-reverse; }
+
+/* The vertical line behind the content */
+.highlights-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15px; 
+    width: 6px;
+    height: 100%;
+    background: var(--secondary-color);
+    z-index: 0;
+}
+
+.highlights-grid { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 70px; 
+    position: relative;
+}
+
+.highlight-card { 
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    gap: 50px; 
+    position: relative;
+    background: #ffffff; /* This hides the line behind the card */
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.highlight-gif {
+    flex: 1;
+    max-width: 500px;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 4px solid var(--secondary-color);
+    background-color: #f8f9fa;
+    z-index: 1; /* Keeps GIF on top of the line */
+}
+
+/* Reset the staggered direction to keep it simple and stable */
+.highlight-card:nth-child(even) { flex-direction: row; }
 
 .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
 .media-item { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 35px; border-radius: 10px; }
