@@ -166,3 +166,48 @@ body {
     border-radius: 0 8px 8px 0;
     box-shadow: var(--shadow);
 }
+/* --- Professional Button Styles --- */
+.link-button-large {
+    background: transparent;
+    border: 2px solid var(--primary-color) !important;
+    color: var(--primary-color) !important;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.link-button-large:hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+}
+
+/* --- Scroll Animation --- */
+.scroll-prompt {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.scroll-prompt .arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(45deg);
+    margin: 10px auto;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
+    40% { transform: translateY(-10px) rotate(45deg); }
+    60% { transform: translateY(-5px) rotate(45deg); }
+}
