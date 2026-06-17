@@ -1,101 +1,79 @@
 /* ============================================
-   1. Global Styles & Variables
+   1. Global Styles & Reset
    ============================================ */
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
     --accent-color: #e74c3c;
-    --light-bg: #ecf0f1;
-    --text-color: #2d3748; 
-    --text-light: #7f8c8d;
-    --border-color: #bdc3c7;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html, body { width: 100%; overflow-x: hidden; }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 1.125rem;
-    line-height: 1.75; 
-    color: var(--text-color);
-    background-color: #ffffff;
-    font-variant-numeric: tabular-nums;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden; /* Prevents horizontal scroll globally */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.75;
+    color: #2d3748;
 }
 
 .container { max-width: 950px; width: 100%; margin: 0 auto; padding: 0 20px; }
 
 /* ============================================
-   2. Components & Layout
+   2. Responsive Image & Media Fixes
    ============================================ */
-.banner {
-    position: relative;
-    background-image: linear-gradient(to bottom, rgba(20, 30, 48, 0.35) 0%, rgba(15, 23, 42, 0.70) 60%, rgba(15, 23, 42, 0.85) 100%), url('banner-antibodies.png');
-    min-height: 65vh; 
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #ffffff;
+/* Ensure all images stay within their container */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-.navbar { background-color: var(--primary-color); position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow); }
-.navbar ul { list-style: none; display: flex; justify-content: center; }
-.navbar a { display: block; color: white; text-decoration: none; padding: 18px 24px; font-weight: 600; }
-
-.section { padding: 80px 20px; }
-.section h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); text-align: center; margin-bottom: 50px; color: var(--primary-color); }
-
-/* --- Media Grid & Embeds --- */
-.media-grid { 
-    display: grid; 
-    grid-template-columns: 1fr; /* Mobile-first: single column */
-    gap: 30px; 
-    width: 100%; 
+/* Mobile-Specific Constraint for Large Graphics */
+@media (max-width: 768px) {
+    .profile-picture, 
+    .mechanism-graphic, 
+    .highlight-gif {
+        max-height: 250px;
+        object-fit: contain; /* Prevents stretching/distortion */
+    }
 }
 
-@media (min-width: 768px) {
-    .media-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-}
-
+/* --- Fixed Video/Iframe Container --- */
 .video-embed, .podcast-embed {
     width: 100%;
     position: relative;
     overflow: hidden;
     border-radius: 12px;
     border: 4px solid var(--secondary-color);
+    aspect-ratio: 16 / 9; /* Keeps the container proportional */
 }
 
 .video-embed iframe, .podcast-embed iframe {
     width: 100%;
-    height: 300px;
+    height: 100%;
     display: block;
     border: none;
 }
 
-/* --- Publications List --- */
-.publications-list {
-    max-width: 900px;
-    margin: 0 auto;
-    list-style: none;
-    max-height: 50vh;
-    overflow-y: auto;
-    padding: 10px;
+/* ============================================
+   3. Layout Grid
+   ============================================ */
+.media-grid, .about-content, .highlights-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-/* --- Animations & Utilities --- */
-.highlight-card, .media-item { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
-.fade-in-up { opacity: 1 !important; transform: translateY(0) !important; }
-
-@media (max-width: 768px) {
-    .about-content { flex-direction: column; text-align: center; }
-    .highlight-card { flex-direction: column !important; }
+@media (min-width: 768px) {
+    .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+    .about-content { flex-direction: row; }
+    .highlight-card { flex-direction: row !important; }
 }
+
+/* ============================================
+   4. Miscellaneous
+   ============================================ */
+.section { padding: 60px 0; }
+.banner { min-height: 50vh; display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; }
