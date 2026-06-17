@@ -637,3 +637,76 @@ body {
         display: block;
     }
 }
+/* ============================================
+   Research Highlight Publication Link Previews
+   ============================================ */
+
+/* Enforce uniform space and alignment layout inside your primary project squares */
+.highlight-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Embedded preview card container style rules */
+.paper-preview-card {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin: 0 20px 20px 20px;
+    padding: 15px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    text-align: left;
+}
+
+.paper-preview-card:hover {
+    background-color: #f1f5f9;
+    border-color: var(--secondary-color);
+}
+
+/* Metadata tag badge properties */
+.preview-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background-color: #e2e8f0;
+    color: var(--primary-color);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+/* Article preview text styling */
+.preview-title {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: var(--text-color);
+    margin: 0 0 6px 0 !important;
+    padding: 0 !important;
+    font-weight: 600;
+}
+
+.preview-citation {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    margin: 0 0 10px 0 !important;
+    padding: 0 !important;
+}
+
+/* Action button link styling */
+.preview-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.preview-link:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
