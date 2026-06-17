@@ -43,7 +43,7 @@ body {
 
 .banner {
     /* 1. Links your background image and adds a subtle dark overlay for text readability */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('banner antibodies.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('banner antibodies.png');
     
     /* 2. Controls the sizing (adjust 70vh up or down to change how tall the banner is) */
     min-height: 70vh; 
