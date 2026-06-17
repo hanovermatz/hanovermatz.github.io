@@ -358,12 +358,38 @@ body {
     background-color: #f9f9f9;
 }
 
+/* This is the container wrapper around your list */
 .publications-list {
     max-width: 900px;
     margin: 0 auto;
-    list-style: none; /* Strip standard bullets if using dynamically rendered ORCID rows */
+    list-style: none;
+    
+    max-height: 600px; 
+    overflow-y: auto;  
+    overflow-x: hidden; /* NEW: Prevents any tiny micro-horizontal shaking when items animate */
+    padding: 10px 15px 10px 5px; /* MODIFIED: Adds top, bottom, and left padding to give the cards room to "breathe" and lift on hover without clipping */
 }
 
+/* Optional: Custom styled scrollbar for modern browsers (Chrome, Safari, Edge) */
+.publications-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.publications-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.publications-list::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+.publications-list::-webkit-scrollbar-thumb:hover {
+    background: var(--text-light);
+}
+
+/* Individual list item styles remain unchanged */
 #publications-list li {
     background: white;
     border-left: 5px solid var(--secondary-color);
@@ -397,7 +423,6 @@ body {
     background-color: var(--secondary-color);
     color: white;
 }
-
 /* ============================================
    Media & Outreach Section
    ============================================ */
