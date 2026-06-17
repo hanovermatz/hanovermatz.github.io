@@ -285,3 +285,18 @@ body {
         text-align: center;
     }
 }
+/* Spacing for paper preview cards */
+.paper-preview-card {
+    margin-top: 25px; /* Adds space above the card */
+    margin-bottom: 25px; /* Adds space below the card if there's following content */
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #fcfcfc;
+}
+
+/* Optional: Clean up the title inside the card */
+.preview-title {
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
