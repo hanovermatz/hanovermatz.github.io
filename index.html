@@ -82,49 +82,16 @@ The adaptive immune system is the product of millions of years of evolution in j
     <section id="publications" class="section publications">
         <div class="container">
             <h2>Publications</h2>
-            <div class="publications-list">
-                <article class="publication-item slide-in-left">
-                    <div class="publication-year">2024</div>
-                    <div class="publication-content">
-                        <h3>Publication Title 1</h3>
-                        <p class="authors">Your Name, Co-author 1, Co-author 2</p>
-                        <p class="journal"><em>Journal Name</em>, Volume X, Issue Y</p>
-                        <p class="description">Brief abstract or summary of the publication.</p>
-                        <div class="publication-links">
-                            <a href="#" class="link-button">Read Paper</a>
-                            <a href="#" class="link-button">DOI</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="publication-item slide-in-left">
-                    <div class="publication-year">2023</div>
-                    <div class="publication-content">
-                        <h3>Publication Title 2</h3>
-                        <p class="authors">Your Name, Co-author 1, Co-author 2</p>
-                        <p class="journal"><em>Journal Name</em>, Volume X, Issue Y</p>
-                        <p class="description">Brief abstract or summary of the publication.</p>
-                        <div class="publication-links">
-                            <a href="#" class="link-button">Read Paper</a>
-                            <a href="#" class="link-button">DOI</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="publication-item slide-in-left">
-                    <div class="publication-year">2023</div>
-                    <div class="publication-content">
-                        <h3>Publication Title 3</h3>
-                        <p class="authors">Your Name, Co-author 1, Co-author 2</p>
-                        <p class="journal"><em>Journal Name</em>, Volume X, Issue Y</p>
-                        <p class="description">Brief abstract or summary of the publication.</p>
-                        <div class="publication-links">
-                            <a href="#" class="link-button">Read Paper</a>
-                            <a href="#" class="link-button">DOI</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
+            <p style="margin-bottom: 2rem; color: #666;">
+                Automated feed pulled live from my 
+                <a href="https://orcid.org/0000-0002-0669-1696" target="_blank" style="color: var(--primary-color);">ORCID Profile</a>.
+            </p>
+            
+            <!-- Dynamic publications target wrapper -->
+            <div id="publications-loading" class="loading-status">Loading publications from ORCID...</div>
+            <ul id="publications-list" class="publications-list" style="display: none; list-style: none; padding: 0;">
+                <!-- JavaScript will generate the list elements here dynamically -->
+            </ul>
         </div>
     </section>
 
@@ -174,5 +141,85 @@ The adaptive immune system is the product of millions of years of evolution in j
     </footer>
 
     <script src="script.js"></script>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Overwrite this string with your exact 16-digit ORCID iD
+            const orcidId = "0000-0003-3329-8735"; 
+            const apiUrl = `https://pub.orcid.org/v3.0/${orcidId}/works`;
+            
+            const loadingDiv = document.getElementById("publications-loading");
+            const listUl = document.getElementById("publications-list");
+
+            fetch(apiUrl, {
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (!response.ok) throw new Error("Could not contact ORCID feed.");
+                return response.json();
+            })
+            .then(data => {
+                const groups = data.group || [];
+                if (groups.length === 0) {
+                    loadingDiv.innerText = "No publications found on this ORCID profile.";
+                    return;
+                }
+
+                let publications = [];
+
+                // Parse out Title, Year, and DOI link for every item
+                groups.forEach(group => {
+                    const summary = group['work-summary'][0];
+                    if (!summary) return;
+
+                    const title = summary.title?.title?.value || "Untitled Work";
+                    const year = summary['publication-date']?.year?.value || "n.d.";
+                    
+                    // Check for external identifier / DOI link
+                    let doiUrl = "";
+                    if (summary['external-ids'] && summary['external-ids']['external-id']) {
+                        const ids = summary['external-ids']['external-id'];
+                        const doiObj = ids.find(id => id['external-id-type'] === 'doi');
+                        if (doiObj && doiObj['external-id-value']) {
+                            // Normalize DOI to a direct URL string
+                            const cleanDoi = doiObj['external-id-value'].trim();
+                            doiUrl = cleanDoi.startsWith('http') ? cleanDoi : `https://doi.org/${cleanDoi}`;
+                        }
+                    }
+
+                    publications.push({ title, year, doiUrl });
+                });
+
+                // Sort chronologically (newest publications first)
+                publications.sort((a, b) => {
+                    if (a.year === "n.d.") return 1;
+                    if (b.year === "n.d.") return -1;
+                    return b.year - a.year;
+                });
+
+                // Map items into layout elements
+                publications.forEach(pub => {
+                    const li = document.createElement("li");
+                    li.style.marginBottom = "1.5rem";
+                    li.style.lineHeight = "1.6";
+                    
+                    let innerHTML = `<strong>${pub.title}</strong> (${pub.year})`;
+                    if (pub.doiUrl) {
+                        innerHTML += ` <br><a href="${pub.doiUrl}" target="_blank" style="color: var(--primary-color); font-size: 0.92rem; text-decoration: none;">View Publication ↗</a>`;
+                    }
+                    
+                    li.innerHTML = innerHTML;
+                    listUl.appendChild(li);
+                });
+
+                // Smooth display state swap
+                loadingDiv.style.display = "none";
+                listUl.style.display = "block";
+            })
+            .catch(error => {
+                console.error("ORCID Fetch Error:", error);
+                loadingDiv.innerHTML = `Unable to pull live feed. View my work directly on <a href="https://orcid.org/${orcidId}" target="_blank">ORCID</a>.`;
+            });
+        });
+    </script>
 </body>
 </html>
