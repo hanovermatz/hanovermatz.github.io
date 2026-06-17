@@ -675,3 +675,32 @@ body {
         padding: 15px;
     }
 }
+.podcast-preview-card {
+    background: #f8f9fa;
+    border-left: 4px solid #0056b3; /* Or your preferred theme accent color */
+    padding: 15px;
+    border-radius: 4px;
+    margin: 15px 0;
+    text-align: left;
+}
+
+.podcast-preview-card .preview-host {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #6c757d;
+    font-weight: bold;
+}
+
+.podcast-preview-card h4 {
+    margin: 5px 0;
+    color: #212529;
+    font-size: 1.1rem;
+}
+
+.podcast-preview-card .preview-description {
+    font-size: 0.9rem;
+    color: #495057;
+    margin: 0;
+    line-height: 1.4;
+}
