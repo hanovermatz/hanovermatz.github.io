@@ -270,3 +270,9 @@ body {
         gap: 15px;
     }
 }
+/* Center the Evolutionary Immunology heading on mobile */
+@media (max-width: 768px) {
+    .about-text h2 {
+        text-align: center;
+    }
+}
