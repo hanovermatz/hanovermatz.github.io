@@ -1,46 +1,32 @@
 /* ============================================
-   1. Global Styles & Variables
+   1. Base Setup
    ============================================ */
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
     --accent-color: #e74c3c;
-    --light-bg: #ecf0f1;
-    --text-color: #2d3748;
-    --text-light: #7f8c8d;
-    --border-color: #bdc3c7;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 1.125rem;
     line-height: 1.75;
-    color: var(--text-color);
-    background-color: #ffffff;
+    color: #2d3748;
 }
 
 .container { max-width: 950px; margin: 0 auto; padding: 0 25px; }
 
 /* ============================================
-   2. Scroll-Animation Engine
-   ============================================ */
-.highlight-card, .media-item {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-.fade-in-up { opacity: 1 !important; transform: translateY(0) !important; }
-
-/* ============================================
-   3. Banner
+   2. Components & Layout
    ============================================ */
 .banner {
     position: relative;
-    background-image: linear-gradient(to bottom, rgba(20, 30, 48, 0.35) 0%, rgba(15, 23, 42, 0.70) 60%, rgba(15, 23, 42, 0.85) 100%), url('banner-antibodies.png');
+    background-image: linear-gradient(to bottom, rgba(20, 30, 48, 0.35) 0%, rgba(15, 23, 42, 0.85) 100%), url('banner-antibodies.png');
     min-height: 65vh;
     background-position: center;
     background-size: cover;
@@ -50,263 +36,40 @@ body {
     text-align: center;
     color: #ffffff;
 }
-.banner-content h1 { font-size: clamp(3rem, 8vw, 6rem); margin-bottom: 20px; font-weight: 700; }
-.banner-content p  { font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 300; }
 
-/* Banner fade-in animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-.fade-in       { animation: fadeIn 1s ease forwards; }
-.fade-in-delay { animation: fadeIn 1s ease 0.4s both; }
-
-/* Scroll prompt */
-.scroll-prompt {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    opacity: 0.75;
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
-    animation: fadeIn 1s ease 1.2s both;
-}
-.scroll-prompt .arrow {
-    width: 12px;
-    height: 12px;
-    border-right: 2px solid #fff;
-    border-bottom: 2px solid #fff;
-    transform: rotate(45deg);
-    animation: bounce 1.4s infinite;
-}
-@keyframes bounce {
-    0%, 100% { transform: rotate(45deg) translateY(0); }
-    50%       { transform: rotate(45deg) translateY(5px); }
-}
-
-/* ============================================
-   4. Navigation
-   ============================================ */
 .navbar { background-color: var(--primary-color); position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow); }
-.navbar ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; }
-.navbar a { display: block; color: white; text-decoration: none; padding: 18px 24px; font-weight: 600; transition: background 0.2s; }
-.navbar a:hover { background: rgba(255,255,255,0.1); }
+.navbar ul { list-style: none; display: flex; justify-content: center; max-width: 1200px; margin: 0 auto; }
+.navbar a { display: block; color: white; text-decoration: none; padding: 18px 24px; font-weight: 600; }
 
-/* ============================================
-   5. Sections & Layout
-   ============================================ */
-.section { padding: 80px 20px; }
+.section { padding: 90px 20px; }
 .section h2 { font-size: 2.5rem; text-align: center; margin-bottom: 50px; color: var(--primary-color); }
 
 /* ============================================
-   6. About Section
+   3. Responsive Grid
    ============================================ */
-.about { background-color: #f9f9f9; }
-.about-content { display: flex; gap: 50px; align-items: flex-start; }
+.about-content { display: flex; gap: 50px; align-items: center; }
+.highlights-grid { display: flex; flex-direction: column; gap: 70px; }
+.highlight-card { display: flex; align-items: center; gap: 50px; }
+.media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
 
-.profile-picture-container { flex: 1; display: flex; flex-direction: column; align-items: center; }
-.profile-picture {
-    width: 100%;
-    max-width: 350px;
-    border-radius: 10px;
-    box-shadow: var(--shadow-lg);
-    border: 4px solid var(--secondary-color);
+/* --- Mobile Fixes (These are safe) --- */
+@media (max-width: 768px) {
+    .about-content, .highlight-card { flex-direction: column !important; text-align: center; }
+    .media-grid { grid-template-columns: 1fr; }
+    .profile-picture, .mechanism-graphic, .highlight-gif { max-width: 100%; height: auto; }
 }
-.mechanism-graphic {
-    width: 100%;
-    max-width: 350px;
-    margin-top: 25px;
-    border-radius: 8px;
-    border: 4px solid var(--secondary-color);
-}
-
-.about-text { flex: 1.5; }
-.about-text p { margin-bottom: 1.2rem; }
-
-.research-interests { margin-top: 1.5rem; }
-.research-interests h3 { font-size: 1.2rem; color: var(--primary-color); margin-bottom: 0.6rem; }
-.research-interests ul { padding-left: 1.4rem; }
-.research-interests li { margin-bottom: 0.3rem; }
 
 /* ============================================
-   7. Research Highlights
+   4. Buttons (Fixed Visibility)
    ============================================ */
-.highlights-grid { display: flex; flex-direction: column; gap: 70px; }
-
-.highlight-card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 50px;
-}
-.highlight-card:nth-child(even) { flex-direction: row-reverse; }
-
-/* The image */
-.highlight-gif {
-    flex: 0 0 auto;
-    width: 42%;
-    max-width: 420px;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 4px solid var(--secondary-color);
-}
-
-/* The text column */
-.highlight-card-text-wrapper {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-.highlight-card-text-wrapper h3 {
-    font-size: 1.4rem;
-    color: var(--primary-color);
-    margin-bottom: 4px;
-}
-.highlight-card-text-wrapper p { color: var(--text-color); }
-
-/* Paper preview card inside highlight */
-.paper-preview-card {
-    background: #f0f4f8;
-    border-left: 4px solid var(--secondary-color);
-    border-radius: 6px;
-    padding: 16px 20px;
-    margin-top: 8px;
-}
-.preview-tag {
+.contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+.link-button-large {
     display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--secondary-color);
-    margin-bottom: 6px;
-}
-.preview-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 4px;
-    line-height: 1.4;
-}
-.preview-citation {
-    font-size: 0.88rem;
-    color: var(--text-light);
-    margin-bottom: 2px;
-}
-.preview-link {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 18px;
+    padding: 16px 32px;
     border: 2px solid var(--primary-color);
     border-radius: 50px;
     text-decoration: none;
     color: var(--primary-color);
     font-weight: 600;
-    font-size: 0.88rem;
-    transition: 0.25s;
 }
-.preview-link:hover { background: var(--primary-color); color: #fff; }
-
-/* ============================================
-   8. Publications
-   ============================================ */
-.loading-status { color: var(--text-light); font-style: italic; text-align: center; padding: 20px 0; }
-
-.publications-list { list-style: none; padding: 0; }
-.publications-list li {
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border-color);
-    line-height: 1.6;
-}
-.publications-list li:last-child { border-bottom: none; }
-
-/* ============================================
-   9. Media Section
-   ============================================ */
-.media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
-
-.media-item { background: #f5f7fa; padding: 35px; border-radius: 10px; }
-.media-item h3 { color: var(--primary-color); margin-bottom: 6px; }
-
-.podcast-subtitle { font-size: 0.9rem; color: var(--text-light); margin-bottom: 14px; }
-
-/* Responsive video embed (YouTube / iframes) */
-.video-embed {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%;
-    height: 0;
-    border: 4px solid var(--secondary-color);
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 4px;
-}
-.video-embed iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    border: none;
-}
-
-.podcast-embed { border-radius: 12px; overflow: hidden; margin-bottom: 4px; }
-
-/* ============================================
-   10. Contact Section
-   ============================================ */
-.contact { background-color: #f9f9f9; text-align: center; }
-.contact p { margin-bottom: 2rem; }
-.contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
-
-/* ============================================
-   11. Buttons & Utilities
-   ============================================ */
-.link-button-large {
-    display: inline-block;
-    padding: 14px 28px;
-    border: 2px solid var(--primary-color);
-    border-radius: 8px;
-    text-decoration: none;
-    color: var(--primary-color);
-    font-weight: 600;
-    transition: 0.3s;
-}
-.link-button-large:hover { background: var(--primary-color); color: white; }
-
-/* ============================================
-   12. Footer
-   ============================================ */
-.footer { background: var(--primary-color); color: #ecf0f1; text-align: center; padding: 24px 20px; font-size: 0.9rem; }
-
-/* ============================================
-   13. Slide-in animations (About section)
-   ============================================ */
-@keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-30px); }
-    to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes slideInRight {
-    from { opacity: 0; transform: translateX(30px); }
-    to   { opacity: 1; transform: translateX(0); }
-}
-.slide-in-left  { animation: slideInLeft  0.9s ease both; }
-.slide-in-right { animation: slideInRight 0.9s ease 0.2s both; }
-
-/* ============================================
-   14. Responsive
-   ============================================ */
-@media (max-width: 768px) {
-    .about-content { flex-direction: column; text-align: center; }
-    .profile-picture-container { width: 100%; }
-
-    .highlight-card,
-    .highlight-card:nth-child(even) { flex-direction: column !important; text-align: center; }
-    .highlight-gif { width: 100%; max-width: 100%; }
-
-    .media-grid { grid-template-columns: 1fr; }
-    .contact-links { flex-direction: column; align-items: center; }
-}
+.link-button-large:hover { background-color: var(--primary-color); color: white; }
