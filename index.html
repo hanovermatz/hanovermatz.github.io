@@ -214,6 +214,8 @@ The adaptive immune system is the product of millions of years of evolution in j
 
                 const title = summary.title?.title?.value || "Untitled Work";
                 const year = summary['publication-date']?.year?.value || "n.d.";
+                // Extract Journal Title safely
+                const journal = summary['journal-title'] ? summary['journal-title'].value : null;
                 
                 let doiUrl = "";
                 if (summary['external-ids'] && summary['external-ids']['external-id']) {
@@ -225,7 +227,7 @@ The adaptive immune system is the product of millions of years of evolution in j
                     }
                 }
 
-                publications.push({ title, year, doiUrl });
+                publications.push({ title, year, journal, doiUrl });
             });
 
             publications.sort((a, b) => {
@@ -238,12 +240,15 @@ The adaptive immune system is the product of millions of years of evolution in j
 
             publications.forEach(pub => {
                 const li = document.createElement("li");
-                li.style.marginBottom = "1.5rem";
-                li.style.lineHeight = "1.6";
                 
+                // Construct the inner HTML with the journal title if it exists
                 let innerHTML = `<strong>${pub.title}</strong> (${pub.year})`;
+                if (pub.journal) {
+                    innerHTML += `<br><em style="color: var(--text-light);">${pub.journal}</em>`;
+                }
+                
                 if (pub.doiUrl) {
-                    innerHTML += ` <br><a href="${pub.doiUrl}" target="_blank" style="color: var(--secondary-color); font-size: 0.92rem; text-decoration: none;">View Publication ↗</a>`;
+                    innerHTML += `<br><a href="${pub.doiUrl}" target="_blank" style="color: var(--secondary-color); font-size: 0.92rem; text-decoration: none;">View Publication ↗</a>`;
                 }
                 
                 li.innerHTML = innerHTML;
