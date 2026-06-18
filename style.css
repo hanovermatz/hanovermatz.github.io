@@ -1,78 +1,25 @@
-/* ============================================
-   1. Base Setup
-   ============================================ */
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
-    --accent-color: #e74c3c;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+body { font-family: sans-serif; line-height: 1.6; color: #333; }
+.container { max-width: 950px; margin: 0 auto; padding: 0 20px; }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 1.125rem;
-    line-height: 1.75;
-    color: #2d3748;
-}
+.banner { min-height: 50vh; display: flex; align-items: center; justify-content: center; background: #2c3e50; color: white; }
+.navbar { background: #34495e; padding: 1rem; text-align: center; position: sticky; top: 0; }
+.navbar a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
 
-.container { max-width: 1000px; margin: 0 auto; padding: 0 25px; }
+.section { padding: 60px 0; }
+.about-content { display: flex; gap: 40px; align-items: center; }
+.profile-picture, .mechanism-graphic { max-width: 300px; display: block; margin-bottom: 10px; }
 
-/* ============================================
-   2. Banner & Navigation
-   ============================================ */
-.banner {
-    position: relative;
-    background-image: linear-gradient(to bottom, rgba(20, 30, 48, 0.35) 0%, rgba(15, 23, 42, 0.85) 100%), url('banner-antibodies.png');
-    min-height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #ffffff;
-}
+.highlights-grid { display: flex; flex-direction: column; gap: 40px; }
+.highlight-card { display: flex; align-items: center; gap: 30px; }
+.highlight-gif { max-width: 200px; }
 
-.navbar { background-color: var(--primary-color); position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow); }
-.navbar ul { list-style: none; display: flex; justify-content: center; }
-.navbar a { display: block; color: white; text-decoration: none; padding: 18px 24px; font-weight: 600; }
-
-.section { padding: 80px 20px; }
-.section h2 { font-size: 2.5rem; text-align: center; margin-bottom: 50px; color: var(--primary-color); }
-
-/* ============================================
-   3. Content Layout (Flex & Grid)
-   ============================================ */
-/* About Section */
-.about-content { display: flex; gap: 50px; align-items: center; }
-.profile-picture-container { flex: 1; text-align: center; }
-.about-text { flex: 1.5; }
-
-/* Research Section */
-.highlights-grid { display: flex; flex-direction: column; gap: 60px; }
-.highlight-card { display: flex; align-items: center; gap: 40px; }
-.highlight-card:nth-child(even) { flex-direction: row-reverse; }
-
-/* Media Section */
-.media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-.media-item { background: #f8f9fa; padding: 30px; border-radius: 12px; }
-
-/* Image and Media Constraints */
-.profile-picture { width: 100%; max-width: 350px; border-radius: 12px; border: 3px solid var(--secondary-color); margin: 0 auto; }
-.mechanism-graphic { width: 100%; max-width: 350px; border-radius: 12px; border: 3px solid var(--secondary-color); margin-top: 25px; }
-.highlight-gif { width: 100%; max-width: 500px; border-radius: 12px; border: 3px solid var(--secondary-color); }
-.video-container { width: 100%; aspect-ratio: 16/9; margin-top: 15px; background: #000; border-radius: 8px; overflow: hidden; }
+.media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.video-container { width: 100%; aspect-ratio: 16/9; background: #000; }
 iframe { width: 100%; height: 100%; border: none; }
-
-/* ============================================
-   4. Buttons & Mobile Responsiveness
-   ============================================ */
-.link-button-large { display: inline-block; padding: 12px 24px; border: 2px solid var(--primary-color); border-radius: 8px; text-decoration: none; color: var(--primary-color); font-weight: 600; margin-top: 15px; transition: 0.3s; }
-.link-button-large:hover { background-color: var(--primary-color); color: white; }
-
-@media (max-width: 768px) {
-    .about-content, .highlight-card { flex-direction: column !important; text-align: center; }
-    .media-grid { grid-template-columns: 1fr; }
-}
