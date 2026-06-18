@@ -19,7 +19,7 @@ body {
     color: #2d3748;
 }
 
-.container { max-width: 950px; margin: 0 auto; padding: 0 25px; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 25px; }
 
 /* ============================================
    2. Components & Layout
@@ -27,9 +27,7 @@ body {
 .banner {
     position: relative;
     background-image: linear-gradient(to bottom, rgba(20, 30, 48, 0.35) 0%, rgba(15, 23, 42, 0.85) 100%), url('banner-antibodies.png');
-    min-height: 65vh;
-    background-position: center;
-    background-size: cover;
+    min-height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,38 +36,41 @@ body {
 }
 
 .navbar { background-color: var(--primary-color); position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow); }
-.navbar ul { list-style: none; display: flex; justify-content: center; max-width: 1200px; margin: 0 auto; }
+.navbar ul { list-style: none; display: flex; justify-content: center; }
 .navbar a { display: block; color: white; text-decoration: none; padding: 18px 24px; font-weight: 600; }
 
-.section { padding: 90px 20px; }
+.section { padding: 80px 20px; }
 .section h2 { font-size: 2.5rem; text-align: center; margin-bottom: 50px; color: var(--primary-color); }
 
 /* ============================================
-   3. Responsive Grid
+   3. Content Layout (Flex & Grid)
    ============================================ */
+/* About Section */
 .about-content { display: flex; gap: 50px; align-items: center; }
-.highlights-grid { display: flex; flex-direction: column; gap: 70px; }
-.highlight-card { display: flex; align-items: center; gap: 50px; }
-.media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+.profile-picture-container { flex: 1; text-align: center; }
+.about-text { flex: 1.5; }
 
-/* --- Mobile Fixes (These are safe) --- */
+/* Research Section */
+.highlights-grid { display: flex; flex-direction: column; gap: 60px; }
+.highlight-card { display: flex; align-items: center; gap: 40px; }
+.highlight-card:nth-child(even) { flex-direction: row-reverse; }
+
+/* Media Section */
+.media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+.media-item { background: #f8f9fa; padding: 30px; border-radius: 12px; }
+
+/* Media/Image Elements */
+.profile-picture, .mechanism-graphic, .highlight-gif { width: 100%; border-radius: 12px; border: 3px solid var(--secondary-color); }
+.video-container { width: 100%; aspect-ratio: 16/9; margin-top: 15px; }
+iframe { width: 100%; height: 100%; border: none; }
+
+/* ============================================
+   4. Buttons & Mobile
+   ============================================ */
+.link-button-large { display: inline-block; padding: 12px 24px; border: 2px solid var(--primary-color); border-radius: 8px; text-decoration: none; color: var(--primary-color); font-weight: 600; margin-top: 15px; transition: 0.3s; }
+.link-button-large:hover { background-color: var(--primary-color); color: white; }
+
 @media (max-width: 768px) {
     .about-content, .highlight-card { flex-direction: column !important; text-align: center; }
     .media-grid { grid-template-columns: 1fr; }
-    .profile-picture, .mechanism-graphic, .highlight-gif { max-width: 100%; height: auto; }
 }
-
-/* ============================================
-   4. Buttons (Fixed Visibility)
-   ============================================ */
-.contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
-.link-button-large {
-    display: inline-block;
-    padding: 16px 32px;
-    border: 2px solid var(--primary-color);
-    border-radius: 50px;
-    text-decoration: none;
-    color: var(--primary-color);
-    font-weight: 600;
-}
-.link-button-large:hover { background-color: var(--primary-color); color: white; }
