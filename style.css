@@ -246,7 +246,10 @@ body {
     .about-content, .highlight-card { 
         flex-direction: column !important; 
         text-align: center; 
+   .about-text h2 {
+        text-align: center;
     }
+}
 
     /* Force images to be responsive so they don't break the layout */
     .profile-picture, .mechanism-graphic, .highlight-gif {
