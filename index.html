@@ -8,7 +8,6 @@
 </head>
 <body>
 
-    <!-- Banner Section -->
     <section class="banner">
         <div class="banner-content">
             <h1>Hanover Matz, PhD</h1>
@@ -16,7 +15,6 @@
         </div>
     </section>
 
-    <!-- Navigation -->
     <nav class="navbar">
         <ul>
             <li><a href="#about">About</a></li>
@@ -27,24 +25,21 @@
         </ul>
     </nav>
 
-    <!-- About/Profile Section -->
     <section id="about" class="section">
         <div class="container">
             <div class="about-content">
                 <div class="profile-picture-container">
                     <img src="Matz_headshot.jpg" alt="Profile Picture" class="profile-picture">
-                    <img src="mechanism-graphic.png" alt="B cell mechanism" class="mechanism-graphic">
+                    <img src="mechanism-graphic.png" alt="Mechanism" class="mechanism-graphic">
                 </div>
                 <div class="about-text">
                     <h2>Evolutionary Immunology</h2>
                     <p>I am an immunologist studying the fundamental principles of adaptive immunity. My work synthesizes molecular biology, immunology, and comparative evolutionary approaches to better understand the human immune system.</p>
-                    <p>The adaptive immune system is the product of millions of years of evolution in jawed vertebrates. Investigating the dynamics of the immune system in different vertebrate species informs the fundamental principles governing immune protection, which can be optimized in the context of vaccine design, cancer, and autoimmunity.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Research Highlights -->
     <section id="research" class="section">
         <div class="container">
             <h2>Research Highlights</h2>
@@ -53,37 +48,27 @@
                     <img src="plasma cell.gif" alt="B cell biology" class="highlight-gif">
                     <div>
                         <h3>Mechanisms of B cell biology</h3>
-                        <p>B cells undergo mutation and selection in germinal centers to improve antibody affinity. My work explores how this process can be modulated for therapeutics.</p>
+                        <p>B cells produce antibodies that defend the host from infectious pathogens.</p>
                     </div>
                 </div>
                 <div class="highlight-card">
                     <img src="nurse shark.webp" alt="Shark immunity" class="highlight-gif">
                     <div>
                         <h3>Evolution of B cell selection</h3>
-                        <p>Sharks possess organized B cell sites, revealing that the fundamental machinery of human germinal centers is conserved across hundreds of millions of years of evolution.</p>
+                        <p>Sharks are the oldest living organisms with an immune system like humans.</p>
                     </div>
                 </div>
                 <div class="highlight-card">
                     <img src="virus and vaccine.gif" alt="Vaccine design" class="highlight-gif">
                     <div>
                         <h3>Vaccine design and combating disease</h3>
-                        <p>By studying how pathogens evolve under immune pressure, we can better design vaccines to induce durable, protective immunity.</p>
+                        <p>What we learn from human and comparative studies informs how we modulate vaccines.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Publications Section -->
-    <section id="publications" class="section">
-        <div class="container">
-            <h2>Publications</h2>
-            <div id="publications-loading">Loading publications...</div>
-            <ul id="publications-list" style="display: none; list-style: none;"></ul>
-        </div>
-    </section>
-
-    <!-- Media Section -->
     <section id="media" class="section">
         <div class="container">
             <h2>Media & Outreach</h2>
@@ -93,44 +78,15 @@
                     <div class="video-container">
                         <iframe src="https://open.spotify.com/embed/episode/2Z0nb76KEN9F9ABTcBTzme"></iframe>
                     </div>
-                    <a href="https://www.immunologypodcast.com/" class="link-button-large">View Episode Notes</a>
                 </div>
                 <div class="media-item">
                     <h3>News Feature</h3>
                     <div class="video-container">
                         <iframe src="https://www.youtube.com/embed/9g6w2P0A8d8"></iframe>
                     </div>
-                    <a href="https://www.firstalert4.com/" class="link-button-large">Read Full Article</a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container" style="text-align: center;">
-            <h2>Get in Touch</h2>
-            <p>Interested in collaborating? Feel free to reach out!</p>
-            <a href="mailto:matz@wustl.edu" class="link-button-large">Email Me</a>
-        </div>
-    </section>
-
-    <!-- ORCID Script -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const orcidId = "0000-0002-0669-1696";
-            fetch(`https://pub.orcid.org/v3.0/${orcidId}/works`, { headers: { 'Accept': 'application/vnd.orcid+json' } })
-            .then(res => res.json())
-            .then(data => {
-                const list = document.getElementById("publications-list");
-                document.getElementById("publications-loading").style.display = "none";
-                list.style.display = "block";
-                data.group.slice(0, 3).forEach(g => {
-                    const title = g['work-summary'][0].title.title.value;
-                    list.innerHTML += `<li style="margin-bottom: 15px;"><strong>${title}</strong></li>`;
-                });
-            });
-        });
-    </script>
 </body>
 </html>
