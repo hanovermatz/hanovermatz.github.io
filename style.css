@@ -319,3 +319,9 @@ body {
     background-color: var(--primary-color);
     color: white;
 }
+/* Dimensions Badge Alignment */
+.__dimensions_badge_embed__ {
+    display: inline-block;
+    margin-right: 15px;
+    vertical-align: middle;
+}
