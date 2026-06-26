@@ -9,6 +9,7 @@
     <script async src="https://integration-badge.dimensions.ai/static/ai/badge.js"></script>
 </head>
 <body>
+
     <section class="banner">
         <div class="banner-content">
             <h1 class="fade-in">Hanover Matz, PhD</h1>
@@ -171,4 +172,109 @@
         <p>© 2026 Hanover Matz, PhD. All rights reserved.</p>
     </footer>
 
-    <script
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const orcidId = "0000-0002-0669-1696"; 
+            const apiUrl = `https://pub.orcid.org/v3.0/${orcidId}/works`;
+            
+            const loadingDiv = document.getElementById("publications-loading");
+            const listUl = document.getElementById("publications-list");
+
+            fetch(apiUrl, {
+                headers: { 'Accept': 'application/vnd.orcid+json' }
+            })
+            .then(response => {
+                if (!response.ok) throw new Error("Could not contact ORCID feed.");
+                return response.json();
+            })
+            .then(data => {
+                const groups = data.group || [];
+                if (groups.length === 0) {
+                    loadingDiv.innerText = "No publications found on this ORCID profile.";
+                    return;
+                }
+
+                let publications = [];
+
+                groups.forEach(group => {
+                    const summary = group['work-summary'] ? group['work-summary'][0] : null;
+                    if (!summary) return;
+
+                    const title = summary.title?.title?.value || "Untitled Work";
+                    const year = summary['publication-date']?.year?.value || "n.d.";
+                    const journal = summary['journal-title'] ? summary['journal-title'].value : null;
+                    
+                    let rawDoi = "";
+                    let doiUrl = "";
+                    if (summary['external-ids'] && summary['external-ids']['external-id']) {
+                        const ids = summary['external-ids']['external-id'];
+                        const doiObj = ids.find(id => id['external-id-type'] === 'doi');
+                        if (doiObj && doiObj['external-id-value']) {
+                            const cleanDoi = doiObj['external-id-value'].trim();
+                            rawDoi = cleanDoi.replace(/^https?:\/\/doi\.org\//, ""); 
+                            doiUrl = cleanDoi.startsWith('http') ? cleanDoi : `https://doi.org/${cleanDoi}`;
+                        }
+                    }
+
+                    publications.push({ title, year, journal, doiUrl, rawDoi });
+                });
+
+                // Sort Chronologically
+                publications.sort((a, b) => {
+                    if (a.year === "n.d.") return 1;
+                    if (b.year === "n.d.") return -1;
+                    return b.year - a.year;
+                });
+
+                listUl.innerHTML = "";
+
+                publications.forEach(pub => {
+                    const li = document.createElement("li");
+                    li.style.marginBottom = "25px";
+                    li.style.lineHeight = "1.6";
+                    
+                    let innerHTML = `<strong>${pub.title}</strong> (${pub.year})`;
+                    if (pub.journal) {
+                        innerHTML += `<br><em style="color: var(--text-light);">${pub.journal}</em>`;
+                    }
+                    
+                    if (pub.rawDoi) {
+                        innerHTML += `<div class="orcid-badge-wrapper" style="margin-top: 10px;">`;
+                        innerHTML += `<span class="__dimensions_badge_embed__" data-doi="${pub.rawDoi}" data-style="small_rectangle" data-legend="hover-right"></span>`;
+                        innerHTML += `<a href="${pub.doiUrl}" target="_blank" style="color: var(--secondary-color); font-size: 0.92rem; text-decoration: none; margin-left: 12px; vertical-align: middle;">View Publication ↗</a>`;
+                        innerHTML += `</div>`;
+                    } else if (pub.doiUrl) {
+                        innerHTML += `<br><a href="${pub.doiUrl}" target="_blank" style="color: var(--secondary-color); font-size: 0.92rem; text-decoration: none;">View Publication ↗</a>`;
+                    }
+                    
+                    li.innerHTML = innerHTML;
+                    listUl.appendChild(li);
+                });
+
+                loadingDiv.style.display = "none";
+                listUl.style.display = "block";
+
+                if (window.__dimensions_embed) {
+                    window.__dimensions_embed.addBadges();
+                }
+            })
+            .catch(error => {
+                console.error("ORCID Fetch Error:", error);
+                loadingDiv.innerHTML = `Unable to pull live feed. View my work directly on <a href="https://orcid.org/${orcidId}" target="_blank">ORCID</a>.`;
+            });
+        });
+    </script>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.highlight-card, .media-item').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
