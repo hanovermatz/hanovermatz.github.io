@@ -6,15 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evolutionary Immunology</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- 1. Dimensions Circle Badge API -->
     <script async src="https://integration-badge.dimensions.ai/static/ai/badge.js"></script>
+    
+    <!-- 2. Altmetric Donut Badge API -->
+    <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+    
+    <!-- Inline Custom Styles for Circle Badges Alignment -->
+    <style>
+        .metrics-badge-container {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-top: 12px;
+        }
+        /* Ensures the widgets fit comfortably on the screen */
+        .metrics-badge-container div, .metrics-badge-container span {
+            vertical-align: middle;
+        }
+    </style>
 </head>
 <body>
 
+    <!-- Banner Section -->
     <section class="banner">
         <div class="banner-content">
             <h1 class="fade-in">Hanover Matz, PhD</h1>
             <p class="fade-in-delay">Advancing our knowledge of the human immune system</p>
             
+            <!-- Subtle Scroll Prompt -->
             <div class="scroll-prompt">
                 <span>Scroll to explore</span>
                 <div class="arrow"></div>
@@ -22,6 +43,7 @@
         </div>
     </section>
 
+    <!-- Navigation -->
     <nav class="navbar">
         <ul>
             <li><a href="#about">About</a></li>
@@ -32,6 +54,7 @@
         </ul>
     </nav>
 
+    <!-- About/Profile Section -->
     <section id="about" class="section about">
         <div class="container">
             <div class="about-content">
@@ -59,12 +82,14 @@
             </div>
         </div>
     </section>
-
+    
+    <!-- Research Highlights Section -->
     <section id="research" class="section research-highlights">
         <div class="container">
             <h2>Research Highlights</h2>
             <div class="highlights-grid">
                 
+                <!-- Highlight Card 1 -->
                 <div class="highlight-card">
                     <img src="plasma cell.gif" alt="Research Highlight 1" class="highlight-gif">
                     <div class="highlight-card-text-wrapper">
@@ -75,12 +100,18 @@
                             <span class="preview-tag">Associated Paper</span>
                             <h4 class="preview-title">mRNA-based influenza vaccine expands the B cell response breadth in humans</h4>
                             <p class="preview-citation">Matz H. et al. <em>Nature Immunology</em> (2026)</p>
-                            <span class="__dimensions_badge_embed__" data-doi="10.1038/s41590-026-02569-5" data-style="small_rectangle" data-legend="hover-right"></span>
-                            <a href="https://doi.org/10.1038/s41590-026-02569-5" target="_blank" class="preview-link">View Publication ↗</a>
+                            
+                            <!-- Circular Dual Badges for Highlight 1 -->
+                            <div class="metrics-badge-container">
+                                <span class="__dimensions_badge_embed__" data-doi="10.1038/s41590-026-02569-5" data-style="small_circle"></span>
+                                <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1038/s41590-026-02569-5"></div>
+                                <a href="https://doi.org/10.1038/s41590-026-02569-5" target="_blank" class="preview-link" style="margin-left: auto; margin-top: 0;">View Publication ↗</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Highlight Card 2 -->
                 <div class="highlight-card">
                     <img src="nurse shark.webp" alt="Research Highlight 2" class="highlight-gif">
                     <div class="highlight-card-text-wrapper">
@@ -91,12 +122,18 @@
                             <span class="preview-tag">Associated Paper</span>
                             <h4 class="preview-title">Organized B cell sites in cartilaginous fishes reveal the evolutionary foundation of germinal centers</h4>
                             <p class="preview-citation">Matz H. et al. <em>Cell Reports</em> (2023)</p>
-                            <span class="__dimensions_badge_embed__" data-doi="10.1016/j.celrep.2023.112664" data-style="small_rectangle" data-legend="hover-right"></span>
-                            <a href="https://doi.org/10.1016/j.celrep.2023.112664" target="_blank" class="preview-link">View Publication ↗</a>
+                            
+                            <!-- Circular Dual Badges for Highlight 2 -->
+                            <div class="metrics-badge-container">
+                                <span class="__dimensions_badge_embed__" data-doi="10.1016/j.celrep.2023.112664" data-style="small_circle"></span>
+                                <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1016/j.celrep.2023.112664"></div>
+                                <a href="https://doi.org/10.1016/j.celrep.2023.112664" target="_blank" class="preview-link" style="margin-left: auto; margin-top: 0;">View Publication ↗</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Highlight Card 3 -->
                 <div class="highlight-card">
                     <img src="virus and vaccine.gif" alt="Research Highlight 3" class="highlight-gif">
                     <div class="highlight-card-text-wrapper">
@@ -107,8 +144,13 @@
                             <span class="preview-tag">Associated Paper</span>
                             <h4 class="preview-title">Vaccination against influenza viruses annually: Renewing or narrowing the protective shield?</h4>
                             <p class="preview-citation">Matz H. and Ellebedy A. <em>Journal of Experimental Medicine</em> (2025)</p>
-                            <span class="__dimensions_badge_embed__" data-doi="10.1084/jem.20241283" data-style="small_rectangle" data-legend="hover-right"></span>
-                            <a href="https://doi.org/10.1084/jem.20241283" target="_blank" class="preview-link">View Publication ↗</a>
+                            
+                            <!-- Circular Dual Badges for Highlight 3 -->
+                            <div class="metrics-badge-container">
+                                <span class="__dimensions_badge_embed__" data-doi="10.1084/jem.20241283" data-style="small_circle"></span>
+                                <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1084/jem.20241283"></div>
+                                <a href="https://doi.org/10.1084/jem.20241283" target="_blank" class="preview-link" style="margin-left: auto; margin-top: 0;">View Publication ↗</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -117,6 +159,7 @@
         </div>
     </section>
 
+    <!-- Publications Section -->
     <section id="publications" class="section publications">
         <div class="container">
             <h2>Publications</h2>
@@ -127,10 +170,12 @@
             
             <div id="publications-loading" class="loading-status">Loading publications from ORCID...</div>
             <ul id="publications-list" class="publications-list" style="display: none; list-style: none; padding: 0;">
-                </ul>
+                <!-- Filled Dynamically -->
+            </ul>
         </div>
     </section>
 
+    <!-- Media Section -->
     <section id="media" class="section media">
         <div class="container">
             <h2>Media & Outreach</h2>
@@ -156,6 +201,7 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="section contact">
         <div class="container">
             <h2>Get in Touch</h2>
@@ -168,10 +214,12 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>© 2026 Hanover Matz, PhD. All rights reserved.</p>
     </footer>
 
+    <!-- Master ORCID Fetch + Sorting + Multi-Badge Rendering Engine -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const orcidId = "0000-0002-0669-1696"; 
@@ -230,7 +278,7 @@
 
                 publications.forEach(pub => {
                     const li = document.createElement("li");
-                    li.style.marginBottom = "25px";
+                    li.style.marginBottom = "30px";
                     li.style.lineHeight = "1.6";
                     
                     let innerHTML = `<strong>${pub.title}</strong> (${pub.year})`;
@@ -238,10 +286,15 @@
                         innerHTML += `<br><em style="color: var(--text-light);">${pub.journal}</em>`;
                     }
                     
+                    // Generate side-by-side circular layouts if DOI matches
                     if (pub.rawDoi) {
-                        innerHTML += `<div class="orcid-badge-wrapper" style="margin-top: 10px;">`;
-                        innerHTML += `<span class="__dimensions_badge_embed__" data-doi="${pub.rawDoi}" data-style="small_rectangle" data-legend="hover-right"></span>`;
-                        innerHTML += `<a href="${pub.doiUrl}" target="_blank" style="color: var(--secondary-color); font-size: 0.92rem; text-decoration: none; margin-left: 12px; vertical-align: middle;">View Publication ↗</a>`;
+                        innerHTML += `<div class="metrics-badge-container">`;
+                        // Dimensions Circle Configuration
+                        innerHTML += `<span class="__dimensions_badge_embed__" data-doi="${pub.rawDoi}" data-style="small_circle"></span>`;
+                        // Altmetric Donut Configuration
+                        innerHTML += `<div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="${pub.rawDoi}"></div>`;
+                        
+                        innerHTML += `<a href="${pub.doiUrl}" target="_blank" style="color: var(--secondary-color); font-size: 0.92rem; text-decoration: none; margin-left: auto;">View Publication ↗</a>`;
                         innerHTML += `</div>`;
                     } else if (pub.doiUrl) {
                         innerHTML += `<br><a href="${pub.doiUrl}" target="_blank" style="color: var(--secondary-color); font-size: 0.92rem; text-decoration: none;">View Publication ↗</a>`;
@@ -254,8 +307,12 @@
                 loadingDiv.style.display = "none";
                 listUl.style.display = "block";
 
+                // Wake up the layout engines for both packages to scan the new list DOM nodes
                 if (window.__dimensions_embed) {
                     window.__dimensions_embed.addBadges();
+                }
+                if (window.altmetric_embed_init) {
+                    window.altmetric_embed_init();
                 }
             })
             .catch(error => {
@@ -265,6 +322,7 @@
         });
     </script>
 
+    <!-- Intersection Animation Observer -->
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
