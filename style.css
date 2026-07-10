@@ -106,6 +106,13 @@ body {
 .about-text { flex: 1.5; }
 .about-text h2 { text-align: left; }
 .about-text h2::after { display: none; }
+.about-text p { margin-bottom: 1.5rem; }
+
+.research-interests {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
 
 /* ============================================
    5. Research & Media
@@ -146,7 +153,9 @@ body {
     border: none;
 }
 
-/* --- Publications List --- */
+/* ============================================
+   6. Publications Section & Integration Elements
+   ============================================ */
 .publications-list {
     max-width: 900px;
     margin: 0 auto;
@@ -166,7 +175,50 @@ body {
     border-radius: 0 8px 8px 0;
     box-shadow: var(--shadow);
 }
-/* --- Professional Button Styles --- */
+
+.paper-preview-card {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.preview-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--secondary-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.preview-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50px; 
+    color: var(--primary-color) !important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.preview-link:hover {
+    background-color: var(--primary-color);
+    color: white !important;
+}
+
+.__dimensions_badge_embed__ {
+    display: inline-block;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+/* ============================================
+   7. Contact & Buttons
+   ============================================ */
 .link-button-large {
     background: transparent;
     border: 2px solid var(--primary-color) !important;
@@ -184,7 +236,18 @@ body {
     color: #ffffff !important;
 }
 
-/* --- Scroll Animation --- */
+#contact {
+    text-align: center;
+}
+
+#contact p {
+    margin-bottom: 20px;
+    max-width: 600px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Subtle Elements */
 .scroll-prompt {
     position: absolute;
     bottom: 30px;
@@ -211,47 +274,20 @@ body {
     40% { transform: translateY(-10px) rotate(45deg); }
     60% { transform: translateY(-5px) rotate(45deg); }
 }
-/* Center the Get in Touch section content */
-#contact {
-    text-align: center;
-}
 
-#contact p {
-    margin-bottom: 20px;
-    max-width: 600px; /* Keeps the text readable by preventing it from being too wide */
-    margin-left: auto;
-    margin-right: auto;
-}
-/* --- Professional Publication Buttons --- */
-.preview-link {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    border: 2px solid var(--primary-color);
-    border-radius: 50px;
-    text-decoration: none;
-    color: var(--primary-color) !important;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-
-.preview-link:hover {
-    background-color: var(--primary-color);
-    color: #ffffff !important;
-}
-/* --- Mobile Responsive Stability Fixes --- */
+/* ============================================
+   8. Media Queries & Responsive Design
+   ============================================ */
 @media (max-width: 768px) {
-    /* Stack columns and ensure text is centered */
     .about-content, .highlight-card { 
         flex-direction: column !important; 
         text-align: center; 
-   .about-text h2 {
+    }
+    
+    .about-text h2 {
         text-align: center;
     }
-}
 
-    /* Force images to be responsive so they don't break the layout */
     .profile-picture, .mechanism-graphic, .highlight-gif {
         width: 100% !important;
         max-width: 400px !important;
@@ -259,69 +295,28 @@ body {
         margin: 0 auto 20px auto;
     }
 
-    /* Ensure media grid collapses to one column */
     .media-grid { 
         grid-template-columns: 1fr !important; 
     }
 
-    /* Prevent text from overflowing */
     .section { padding: 50px 20px !important; }
     
-    /* Ensure buttons stack neatly */
     .contact-links {
+        display: flex;
         flex-direction: column;
         gap: 15px;
     }
 }
-/* About Section Spacing */
-.about-text p {
-    margin-bottom: 1.5rem;
-}
 
-.research-interests {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid #eee;
-}
-
-/* Research Highlight Buttons */
-.paper-preview-card {
-    margin-top: 15px;
-    padding: 15px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    /* Removed border-left: 4px solid var(--secondary-color); */
-}
-
-.preview-tag {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: var(--secondary-color);
-    display: block;
-    margin-bottom: 5px;
-}
-
-.preview-link {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    border: 2px solid var(--primary-color);
-    border-radius: 50px; /* Pill shape */
-    color: var(--primary-color); /* Visible text */
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.preview-link:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-/* Dimensions Badge Alignment */
-.__dimensions_badge_embed__ {
-    display: inline-block;
-    margin-right: 15px;
-    vertical-align: middle;
+@media (max-width: 600px) {
+    .metrics-badge-container {
+        flex-wrap: wrap; 
+        gap: 10px;
+    }
+    
+    .metrics-badge-container a {
+        margin-left: 0 !important; 
+        width: 100%;               
+        margin-top: 5px;
+    }
 }
