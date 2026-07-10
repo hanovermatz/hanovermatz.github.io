@@ -307,13 +307,17 @@
                 loadingDiv.style.display = "none";
                 listUl.style.display = "block";
 
-                // Wake up the layout engines for both packages to scan the new list DOM nodes
-                if (window.__dimensions_embed) {
-                    window.__dimensions_embed.addBadges();
-                }
-                if (window.altmetric_embed_init) {
-                    window.altmetric_embed_init();
-                }
+               // New robust triggering block:
+if (window.__dimensions_embed) {
+    window.__dimensions_embed.addBadges();
+}
+
+// Force Altmetric to hard-scan the newly created DOM nodes
+if (typeof _altmetric_embed_init === 'function') {
+    _altmetric_embed_init();
+} else if (window.altmetric_embed_init) {
+    window.altmetric_embed_init();
+}
             })
             .catch(error => {
                 console.error("ORCID Fetch Error:", error);
