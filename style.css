@@ -98,7 +98,7 @@ body {
 .site-logo-gif {
     display: block;
     width: 100%;
-    max-width: 150px;         /* Adjust this value to resize your GIF */
+    max-width: 350px;         /* Adjust this value to resize your GIF */
     height: auto;
     margin: 0 auto 15px auto;   /* Centers the GIF and adds spacing above the photo */
    object-fit: contain;
