@@ -104,7 +104,16 @@ body {
    object-fit: contain;
 }
 
-.profile-picture { width: 100%; max-width: 350px; border-radius: 10px; box-shadow: var(--shadow-lg); border: 4px solid var(--secondary-color); }
+.profile-picture { 
+    width: 100%; 
+    max-width: 300px;        /* Slightly reduced so a circular avatar doesn't look gigantic */
+    aspect-ratio: 1 / 1;     /* Forces the image container into a perfect square */
+    object-fit: cover;       /* Zooms in to fill the shape without distorting your face */
+    object-position: center; /* Ensures the crop stays centered on you */
+    border-radius: 50%;      /* Changes the shape to a perfect circle (change to 10px if you prefer a square) */
+    box-shadow: var(--shadow-lg); 
+    border: 4px solid var(--secondary-color); 
+}
 
 .mechanism-graphic {
     width: 100%;
