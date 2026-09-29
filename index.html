@@ -22,17 +22,18 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- Video & Image Preloads -->
-    <link rel="preload" as="video" href="banner-antibodies.mp4" type="video/mp4">
-    <link rel="preload" as="image" href="Matz_headshot.jpg">
-    <link rel="preload" as="video" href="mechanism-graphic.mp4" type="video/mp4">
+    <!-- Preloads Updated for .webp and .jpg Image Assets -->
+    <link rel="preload" as="image" href="banner-antibodies.webp" type="image/webp">
+    <link rel="preload" as="image" href="logo.webp" type="image/webp">
+    <link rel="preload" as="image" href="Matz_headshot.jpg" type="image/jpeg">
+    <link rel="preload" as="image" href="mechanism-graphic.webp" type="image/webp">
 
-    <!-- Preconnect External Servers for Faster API/Badge Handshakes -->
+    <!-- Preconnect External Servers -->
     <link rel="preconnect" href="https://pub.orcid.org" crossorigin>
     <link rel="preconnect" href="https://integration-badge.dimensions.ai">
     <link rel="preconnect" href="https://d1bxh8uas1mnw7.cloudfront.net">
 
-    <!-- Schema.org Structured Data (JSON-LD) -->
+    <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -61,7 +62,6 @@
     
     <!-- Component & Utility Styles -->
     <style>
-        /* Accessibility Skip Link */
         .skip-link {
             position: absolute;
             top: -50px;
@@ -78,7 +78,6 @@
             top: 0;
         }
 
-        /* Publication Metrics Badges Alignment */
         .metrics-badge-container {
             display: flex;
             gap: 15px;
@@ -127,12 +126,14 @@
             <div class="container">
                 <div class="about-content">
                     <div class="profile-picture-container">
-                        <video src="logo.mp4" autoplay loop muted playsinline class="site-logo-gif" aria-label="Site Logo"></video>
-                        <picture>
-                            <source srcset="Matz_headshot.webp" type="image/webp">
-                            <img src="Matz_headshot.jpg" alt="Profile picture of Hanover Matz, PhD" class="profile-picture" fetchpriority="high">
-                        </picture>
-                        <video src="mechanism-graphic.mp4" autoplay loop muted playsinline class="mechanism-graphic" aria-label="Diagram showing B cell germinal center mechanism"></video>
+                        <!-- Logo Animated WebP -->
+                        <img src="logo.webp" alt="Site Logo" class="site-logo-gif">
+                        
+                        <!-- Headshot strictly set to .jpg -->
+                        <img src="Matz_headshot.jpg" alt="Profile picture of Hanover Matz, PhD" class="profile-picture" fetchpriority="high">
+
+                        <!-- Mechanism Graphic Animated WebP -->
+                        <img src="mechanism-graphic.webp" alt="Diagram showing B cell germinal center mechanism" class="mechanism-graphic">
                     </div>
                     <div class="about-text slide-in-right">
                         <h2>Evolutionary Immunology</h2>
@@ -163,7 +164,7 @@
                     
                     <!-- Highlight Card 1 -->
                     <article class="highlight-card">
-                        <video src="plasma cell.mp4" autoplay loop muted playsinline class="highlight-gif" aria-label="Microscopic view of plasma cell"></video>
+                        <img src="plasma-cell.webp" alt="Microscopic view of plasma cell" class="highlight-gif">
                         <div class="highlight-card-text-wrapper">
                             <h3>Mechanisms of B cell biology</h3>
                             <p>B cells produce antibodies that defend the host from infectious pathogens. Through the germinal center response, B cells are able to undergo mutation, selection, and affinity maturation to improve their antibodies. By studying how this process functions, we can improve the design of monoclonal antibody therapeutics and vaccines to stimulate immunity.</p>
@@ -184,7 +185,7 @@
 
                     <!-- Highlight Card 2 -->
                     <article class="highlight-card">
-                        <video src="nurse shark.mp4" autoplay loop muted playsinline class="highlight-gif" aria-label="Nurse shark swimming"></video>
+                        <img src="nurse-shark.webp" alt="Nurse shark swimming" class="highlight-gif">
                         <div class="highlight-card-text-wrapper">
                             <h3>Evolution of B cell selection</h3>
                             <p>Many vertebrate models can be studied to understand the evolution of the immune system. Sharks are the oldest living organisms with an immune system like humans: B cells, T cells, and immunoglobulins. My research has demonstrated that the fundamental principles of human germinal centers are present in the B cell selection sites of sharks, suggesting these are important conserved mechanisms throughout evolution.</p>
@@ -205,7 +206,7 @@
 
                     <!-- Highlight Card 3 -->
                     <article class="highlight-card">
-                        <video src="virus and vaccine.mp4" autoplay loop muted playsinline class="highlight-gif" aria-label="Illustration of virus particles and vaccine"></video>
+                        <img src="virus-and-vaccine.webp" alt="Illustration of virus particles and vaccine" class="highlight-gif">
                         <div class="highlight-card-text-wrapper">
                             <h3>Vaccine design and combating disease</h3>
                             <p>What we learn from human, mouse, and comparative immunology studies informs how we can modulate vaccines to better induce protective and durable immunity. Many pathogens are difficult to control because they constantly change and evolve in response to immune pressure. As we improve vaccine design, we can find new methods of combating infectious diseases.</p>
@@ -289,7 +290,7 @@
         <p>© 2026 Hanover Matz, PhD. All rights reserved.</p>
     </footer>
 
-    <!-- Safe ORCID Fetch + DOM Construction + Badge Rendering Script -->
+    <!-- Safe ORCID Fetch Script -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const orcidId = "0000-0002-0669-1696"; 
@@ -337,7 +338,6 @@
                     publications.push({ title, year, journal, doiUrl, rawDoi });
                 });
 
-                // Sort Chronologically
                 publications.sort((a, b) => {
                     if (a.year === "n.d.") return 1;
                     if (b.year === "n.d.") return -1;
@@ -346,7 +346,6 @@
 
                 listUl.innerHTML = "";
 
-                // Build DOM Elements Safely (XSS Prevention)
                 publications.forEach(pub => {
                     const li = document.createElement("li");
                     li.style.marginBottom = "30px";
@@ -418,12 +417,10 @@
                 loadingDiv.style.display = "none";
                 listUl.style.display = "block";
 
-                // Trigger Dimensions Badges
                 if (window.__dimensions_embed) {
                     window.__dimensions_embed.addBadges();
                 }
 
-                // Trigger Altmetric Badges
                 if (typeof _altmetric_embed_init === 'function') {
                     _altmetric_embed_init();
                 } else if (window.altmetric_embed_init) {
@@ -437,17 +434,17 @@
         });
     </script>
 
-    <!-- Scroll Animation Observer -->
+    <!-- Scroll Animation Observer Script -->
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
+                    entry.target.classList.add('fade-in-up', 'visible', 'active');
                 }
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.highlight-card, .media-item').forEach(el => observer.observe(el));
+        document.querySelectorAll('.highlight-card, .media-item, .about-content, .about-text, .profile-picture-container, .fade-in, .fade-in-delay').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
