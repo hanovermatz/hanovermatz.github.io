@@ -22,7 +22,7 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- Video Preloads -->
+    <!-- Video & Image Preloads -->
     <link rel="preload" as="video" href="banner-antibodies.mp4" type="video/mp4">
     <link rel="preload" as="image" href="Matz_headshot.jpg">
     <link rel="preload" as="video" href="mechanism-graphic.mp4" type="video/mp4">
@@ -128,7 +128,10 @@
                 <div class="about-content">
                     <div class="profile-picture-container">
                         <video src="logo.mp4" autoplay loop muted playsinline class="site-logo-gif" aria-label="Site Logo"></video>
-                        <img src="Matz_headshot.jpg" alt="Profile picture of Hanover Matz, PhD" class="profile-picture" fetchpriority="high">
+                        <picture>
+                            <source srcset="Matz_headshot.webp" type="image/webp">
+                            <img src="Matz_headshot.jpg" alt="Profile picture of Hanover Matz, PhD" class="profile-picture" fetchpriority="high">
+                        </picture>
                         <video src="mechanism-graphic.mp4" autoplay loop muted playsinline class="mechanism-graphic" aria-label="Diagram showing B cell germinal center mechanism"></video>
                     </div>
                     <div class="about-text slide-in-right">
