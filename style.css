@@ -279,8 +279,8 @@ iframe:focus-visible {
 .highlight-gif {
     display: block;
     width: 100%;
-    max-width: 450px;
-    height: 250px; /* Explicit height prevents Safari frame freeze */
+    max-width: 550px;
+    height: 310px; /* Explicit height prevents Safari frame freeze */
     object-fit: cover;
     border-radius: 12px;
     box-shadow: var(--shadow-lg);
@@ -288,6 +288,10 @@ iframe:focus-visible {
     border: 4px solid var(--secondary-color);
 }
 
+/* Ensure picture container maintains its full allocated width */
+.highlight-card picture {
+    flex-shrink: 0;
+}
 .highlight-card-text-wrapper {
     flex: 1;
     min-width: 0;
