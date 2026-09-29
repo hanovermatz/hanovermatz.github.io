@@ -73,16 +73,25 @@ iframe:focus-visible {
 /* ============================================
    3. Scroll-Animation Engine
    ============================================ */
-.highlight-card, .media-item {
+.highlight-card, 
+.media-item, 
+.about-content, 
+.profile-picture-container,
+.slide-in-right,
+.fade-in,
+.fade-in-delay {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     will-change: opacity, transform;
 }
 
-.fade-in-up {
+/* Trigger states toggled by IntersectionObserver JS */
+.fade-in-up,
+.visible,
+.active {
     opacity: 1 !important;
-    transform: translateY(0) !important;
+    transform: translateY(0) translateX(0) !important;
 }
 
 /* ============================================
@@ -174,7 +183,7 @@ iframe:focus-visible {
 }
 
 /* ============================================
-   5. About Section + Graphic
+   5. About Section + Graphics
    ============================================ */
 .about { 
     background-color: #f9f9f9; 
@@ -202,6 +211,7 @@ iframe:focus-visible {
 }
 
 .profile-picture { 
+    display: block;
     width: 100%; 
     max-width: 300px; 
     aspect-ratio: 1 / 1; 
@@ -210,15 +220,19 @@ iframe:focus-visible {
     border-radius: 50%; 
     box-shadow: var(--shadow-lg); 
     border: 4px solid var(--secondary-color); 
+    margin: 0 auto;
 }
 
 .mechanism-graphic {
+    display: block;
     width: 100%;
     max-width: 350px;
-    margin-top: 25px;
+    height: auto;
+    margin: 25px auto 0 auto;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border: 4px solid var(--secondary-color);
+    object-fit: contain;
 }
 
 .about-text { 
@@ -259,15 +273,23 @@ iframe:focus-visible {
     gap: 50px; 
 }
 
+/* Updated for <img> Animated WebP Compatibility */
 .highlight-gif {
-    flex: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    flex: 1 1 300px;
     max-width: 500px;
     aspect-ratio: 16 / 9;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 12px;
     box-shadow: var(--shadow-lg);
     background-color: #f8f9fa;
     border: 4px solid var(--secondary-color);
+}
+
+.highlight-card-text-wrapper {
+    flex: 1.2;
 }
 
 .highlight-card:nth-child(even) { 
@@ -481,7 +503,8 @@ iframe:focus-visible {
    9. Media Queries & Responsive Design
    ============================================ */
 @media (max-width: 768px) {
-    .about-content, .highlight-card { 
+    .about-content, 
+    .highlight-card { 
         flex-direction: column !important; 
         text-align: center; 
     }
@@ -490,7 +513,9 @@ iframe:focus-visible {
         text-align: center;
     }
 
-    .profile-picture, .mechanism-graphic, .highlight-gif {
+    .profile-picture, 
+    .mechanism-graphic, 
+    .highlight-gif {
         width: 100% !important;
         max-width: 400px !important;
         height: auto !important;
