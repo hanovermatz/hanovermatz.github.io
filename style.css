@@ -80,7 +80,7 @@ iframe:focus-visible {
 .slide-in-right,
 .fade-in,
 .fade-in-delay {
-    opacity: 1;
+    opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     will-change: opacity, transform;
@@ -273,13 +273,13 @@ iframe:focus-visible {
     gap: 50px; 
 }
 
-/* Updated for <img> Animated WebP Compatibility */
+/* FIXED: Flex sizing & WebP compatibility */
 .highlight-gif {
     display: block;
+    flex: 0 0 320px;
     width: 100%;
+    max-width: 450px;
     height: auto;
-    flex: 1 1 300px;
-    max-width: 500px;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: 12px;
@@ -289,7 +289,8 @@ iframe:focus-visible {
 }
 
 .highlight-card-text-wrapper {
-    flex: 1.2;
+    flex: 1;
+    min-width: 0;
 }
 
 .highlight-card:nth-child(even) { 
@@ -544,7 +545,7 @@ iframe:focus-visible {
     
     .metrics-badge-container a {
         margin-left: 0 !important; 
-        width: 100%;               
+        width: 100%;                
         margin-top: 5px;
     }
 }
