@@ -80,7 +80,7 @@ iframe:focus-visible {
 .slide-in-right,
 .fade-in,
 .fade-in-delay {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     will-change: opacity, transform;
