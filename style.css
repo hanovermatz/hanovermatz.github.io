@@ -266,21 +266,21 @@ iframe:focus-visible {
     gap: 70px; 
 }
 
+/* 1. Prevent GPU compositor freezing on parent highlight cards */
 .highlight-card { 
     display: flex; 
     flex-direction: row; 
     align-items: center; 
     gap: 50px; 
+    /* Removed will-change to allow continuous WebP frame invalidation */
 }
 
-/* FIXED: Flex sizing & WebP compatibility */
+/* 2. Fix Safari object-fit height lock for animated WebP */
 .highlight-gif {
     display: block;
-    flex: 0 0 320px;
     width: 100%;
     max-width: 450px;
-    height: auto;
-    aspect-ratio: 16 / 9;
+    height: 250px; /* Explicit height prevents Safari frame freeze */
     object-fit: cover;
     border-radius: 12px;
     box-shadow: var(--shadow-lg);
