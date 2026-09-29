@@ -1,55 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="google-site-verification" content="U6N4xh0tvPuwgPdSClvyCWJQ_lFzc8KOzucRw0VmypY" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evolutionary Immunology</title>
+    <meta name="google-site-verification" content="U6N4xh0tvPuwgPdSClvyCWJQ_lFzc8KOzucRw0VmypY" />
+    <meta name="theme-color" content="#1a365d">
+    
+    <!-- SEO Meta Tags -->
+    <title>Hanover Matz, PhD | Evolutionary Immunology</title>
+    <meta name="description" content="Academic portfolio of Hanover Matz, PhD — Investigating adaptive immunity, B cell germinal center responses, shark comparative immunology, and vaccine design.">
+    
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Hanover Matz, PhD | Evolutionary Immunology">
+    <meta property="og:description" content="Advancing our knowledge of the human immune system and B cell evolution.">
+    <meta property="og:image" content="Matz_headshot.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
     <link rel="stylesheet" href="style.css">
 
-    <!-- New Image Preload Link -->
+    <!-- Image Preloads -->
     <link rel="preload" as="image" href="banner-antibodies.webp">
     <link rel="preload" as="image" href="Matz_headshot.jpg">
     <link rel="preload" as="image" href="mechanism-graphic.webp">
 
-    <!-- 1. Dimensions Circle Badge API -->
+    <!-- Preconnect External Servers for Faster API/Badge Handshakes -->
+    <link rel="preconnect" href="https://pub.orcid.org" crossorigin>
+    <link rel="preconnect" href="https://integration-badge.dimensions.ai">
+    <link rel="preconnect" href="https://d1bxh8uas1mnw7.cloudfront.net">
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Hanover Matz",
+      "honorificSuffix": "PhD",
+      "jobTitle": "Immunologist & Researcher",
+      "knowsAbout": [
+        "Evolutionary Immunology",
+        "B Cell Biology",
+        "Germinal Center Mechanisms",
+        "Comparative Immunology",
+        "Vaccine Design"
+      ],
+      "sameAs": [
+        "https://orcid.org/0000-0002-0669-1696",
+        "https://x.com/@HanoverM",
+        "https://www.linkedin.com/in/hanover-matz-a021b0281"
+      ]
+    }
+    </script>
+
+    <!-- External Metrics APIs -->
     <script async src="https://integration-badge.dimensions.ai/static/ai/badge.js"></script>
-    
-    <!-- 2. Altmetric Donut Badge API -->
     <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
     
-    <!-- Inline Custom Styles for Circle Badges Alignment -->
+    <!-- Component & Utility Styles -->
     <style>
+        /* Accessibility Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -50px;
+            left: 0;
+            background: #1a365d;
+            color: #ffffff;
+            padding: 8px 16px;
+            z-index: 1000;
+            text-decoration: none;
+            font-weight: bold;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Publication Metrics Badges Alignment */
         .metrics-badge-container {
             display: flex;
             gap: 15px;
             align-items: center;
             margin-top: 12px;
         }
-        /* Ensures the widgets fit comfortably on the screen */
-        .metrics-badge-container div, .metrics-badge-container span {
+        .metrics-badge-container div, 
+        .metrics-badge-container span {
             vertical-align: middle;
         }
     </style>
 </head>
 <body>
 
+    <!-- Accessibility Skip Link -->
+    <a href="#about" class="skip-link">Skip to main content</a>
+
     <!-- Banner Section -->
-    <section class="banner">
+    <header class="banner">
         <div class="banner-content">
             <h1 class="fade-in">Hanover Matz, PhD</h1>
             <p class="fade-in-delay">Advancing our knowledge of the human immune system</p>
             
-            <!-- Subtle Scroll Prompt -->
             <div class="scroll-prompt">
                 <span>Scroll to explore</span>
                 <div class="arrow"></div>
             </div>
         </div>
-    </section>
+    </header>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main Navigation">
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#research">Research</a></li>
@@ -59,173 +120,173 @@
         </ul>
     </nav>
 
-    <!-- About/Profile Section -->
-    <section id="about" class="section about">
-        <div class="container">
-            <div class="about-content">
-                <div class="profile-picture-container">
-                    <img src="logo.webp" alt="Site Logo" class="site-logo-gif">
-                    <img src="Matz_headshot.jpg" alt="Profile Picture" class="profile-picture" fetchpriority="high">
-                    <img src="mechanism-graphic.webp" alt="B cell germinal center mechanism" class="mechanism-graphic" fetchpriority="high">
-                </div>
-                <div class="about-text slide-in-right">
-                    <h2>Evolutionary Immunology</h2>
-                    <p>
-                        I am an immunologist studying the fundamental principles of adaptive immunity. My work synthesizes molecular biology, immunology, and comparative evolutionary approaches to better understand the human immune system.
-                    </p>
-                    <p>
-                        The adaptive immune system is the product of millions of years of evolution in jawed vertebrates. Through the coordination of B cells, T cells, and antigen-presenting cells, the adaptive immune system generates antigen-specific responses and durable immunological memory. However, many mechanisms of the human immune system are still not fully understood, including the germinal center response which produces protective antibodies and the effector cells of humoral immunological memory. Investigating the dynamics of the immune system in different vertebrate species informs the fundamental principles governing immune protection. These principles can then be optimized in the context of vaccine design, cancer, and autoimmunity to treat human diseases.
-                    </p>
-                    <div class="research-interests">
-                        <h3>Research Interests</h3>
-                        <ul>
-                            <li>B cells and antibodies</li>
-                            <li>Evolution of adaptive immunity</li>
-                            <li>Improving vaccine design</li>
-                        </ul>
+    <!-- Main Content Area -->
+    <main>
+        <!-- About/Profile Section -->
+        <section id="about" class="section about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="profile-picture-container">
+                        <img src="logo.webp" alt="Site Logo" class="site-logo-gif">
+                        <img src="Matz_headshot.jpg" alt="Profile picture of Hanover Matz, PhD" class="profile-picture" fetchpriority="high">
+                        <img src="mechanism-graphic.webp" alt="Diagram showing B cell germinal center mechanism" class="mechanism-graphic" fetchpriority="high">
+                    </div>
+                    <div class="about-text slide-in-right">
+                        <h2>Evolutionary Immunology</h2>
+                        <p>
+                            I am an immunologist studying the fundamental principles of adaptive immunity. My work synthesizes molecular biology, immunology, and comparative evolutionary approaches to better understand the human immune system.
+                        </p>
+                        <p>
+                            The adaptive immune system is the product of millions of years of evolution in jawed vertebrates. Through the coordination of B cells, T cells, and antigen-presenting cells, the adaptive immune system generates antigen-specific responses and durable immunological memory. However, many mechanisms of the human immune system are still not fully understood, including the germinal center response which produces protective antibodies and the effector cells of humoral immunological memory. Investigating the dynamics of the immune system in different vertebrate species informs the fundamental principles governing immune protection. These principles can then be optimized in the context of vaccine design, cancer, and autoimmunity to treat human diseases.
+                        </p>
+                        <div class="research-interests">
+                            <h3>Research Interests</h3>
+                            <ul>
+                                <li>B cells and antibodies</li>
+                                <li>Evolution of adaptive immunity</li>
+                                <li>Improving vaccine design</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Research Highlights Section -->
-    <section id="research" class="section research-highlights">
-        <div class="container">
-            <h2>Research Highlights</h2>
-            <div class="highlights-grid">
+        </section>
+        
+        <!-- Research Highlights Section -->
+        <section id="research" class="section research-highlights">
+            <div class="container">
+                <h2>Research Highlights</h2>
+                <div class="highlights-grid">
+                    
+                    <!-- Highlight Card 1 -->
+                    <article class="highlight-card">
+                        <img src="plasma cell.webp" alt="Microscopic view of plasma cell" class="highlight-gif" loading="lazy">
+                        <div class="highlight-card-text-wrapper">
+                            <h3>Mechanisms of B cell biology</h3>
+                            <p>B cells produce antibodies that defend the host from infectious pathogens. Through the germinal center response, B cells are able to undergo mutation, selection, and affinity maturation to improve their antibodies. By studying how this process functions, we can improve the design of monoclonal antibody therapeutics and vaccines to stimulate immunity.</p>
+                            
+                            <div class="paper-preview-card">
+                                <span class="preview-tag">Associated Paper</span>
+                                <h4 class="preview-title">mRNA-based influenza vaccine expands the B cell response breadth in humans</h4>
+                                <p class="preview-citation">Matz H. et al. <em>Nature Immunology</em> (2026)</p>
+                                
+                                <div class="metrics-badge-container">
+                                    <span class="__dimensions_badge_embed__" data-doi="10.1038/s41590-026-02569-5" data-style="small_circle"></span>
+                                    <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1038/s41590-026-02569-5"></div>
+                                    <a href="https://doi.org/10.1038/s41590-026-02569-5" target="_blank" rel="noopener noreferrer" class="preview-link" style="margin-left: auto; margin-top: 0;">View Publication ↗</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Highlight Card 2 -->
+                    <article class="highlight-card">
+                        <img src="nurse shark.webp" alt="Nurse shark swimming" class="highlight-gif" loading="lazy">
+                        <div class="highlight-card-text-wrapper">
+                            <h3>Evolution of B cell selection</h3>
+                            <p>Many vertebrate models can be studied to understand the evolution of the immune system. Sharks are the oldest living organisms with an immune system like humans: B cells, T cells, and immunoglobulins. My research has demonstrated that the fundamental principles of human germinal centers are present in the B cell selection sites of sharks, suggesting these are important conserved mechanisms throughout evolution.</p>
+                            
+                            <div class="paper-preview-card">
+                                <span class="preview-tag">Associated Paper</span>
+                                <h4 class="preview-title">Organized B cell sites in cartilaginous fishes reveal the evolutionary foundation of germinal centers</h4>
+                                <p class="preview-citation">Matz H. et al. <em>Cell Reports</em> (2023)</p>
+                                
+                                <div class="metrics-badge-container">
+                                    <span class="__dimensions_badge_embed__" data-doi="10.1016/j.celrep.2023.112664" data-style="small_circle"></span>
+                                    <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1016/j.celrep.2023.112664"></div>
+                                    <a href="https://doi.org/10.1016/j.celrep.2023.112664" target="_blank" rel="noopener noreferrer" class="preview-link" style="margin-left: auto; margin-top: 0;">View Publication ↗</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Highlight Card 3 -->
+                    <article class="highlight-card">
+                        <img src="virus and vaccine.webp" alt="Illustration of virus particles and vaccine" class="highlight-gif" loading="lazy">
+                        <div class="highlight-card-text-wrapper">
+                            <h3>Vaccine design and combating disease</h3>
+                            <p>What we learn from human, mouse, and comparative immunology studies informs how we can modulate vaccines to better induce protective and durable immunity. Many pathogens are difficult to control because they constantly change and evolve in response to immune pressure. As we improve vaccine design, we can find new methods of combating infectious diseases.</p>
+                            
+                            <div class="paper-preview-card">
+                                <span class="preview-tag">Associated Paper</span>
+                                <h4 class="preview-title">Vaccination against influenza viruses annually: Renewing or narrowing the protective shield?</h4>
+                                <p class="preview-citation">Matz H. and Ellebedy A. <em>Journal of Experimental Medicine</em> (2025)</p>
+                                
+                                <div class="metrics-badge-container">
+                                    <span class="__dimensions_badge_embed__" data-doi="10.1084/jem.20241283" data-style="small_circle"></span>
+                                    <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1084/jem.20241283"></div>
+                                    <a href="https://doi.org/10.1084/jem.20241283" target="_blank" rel="noopener noreferrer" class="preview-link" style="margin-left: auto; margin-top: 0;">View Publication ↗</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="section publications">
+            <div class="container">
+                <h2>Publications</h2>
+                <p style="margin-bottom: 2rem; color: #666;">
+                    Automated feed pulled live from my 
+                    <a href="https://orcid.org/0000-0002-0669-1696" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color);">ORCID Profile</a>.
+                </p>
                 
-                <!-- Highlight Card 1 -->
-                <div class="highlight-card">
-                    <img src="plasma cell.webp" alt="Research Highlight 1" class="highlight-gif" loading="lazy">
-                    <div class="highlight-card-text-wrapper">
-                        <h3>Mechanisms of B cell biology</h3>
-                        <p>B cells produce antibodies that defend the host from infectious pathogens. Through the germinal center response, B cells are able to undergo mutation, selection, and affinity maturation to improve their antibodies. By studying how this process functions, we can improve the design of monoclonal antibody therapeutics and vaccines to stimulate immunity.</p>
-                        
-                        <div class="paper-preview-card">
-                            <span class="preview-tag">Associated Paper</span>
-                            <h4 class="preview-title">mRNA-based influenza vaccine expands the B cell response breadth in humans</h4>
-                            <p class="preview-citation">Matz H. et al. <em>Nature Immunology</em> (2026)</p>
-                            
-                            <!-- Circular Dual Badges for Highlight 1 -->
-                            <div class="metrics-badge-container">
-                                <span class="__dimensions_badge_embed__" data-doi="10.1038/s41590-026-02569-5" data-style="small_circle"></span>
-                                <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1038/s41590-026-02569-5"></div>
-                                <a href="https://doi.org/10.1038/s41590-026-02569-5" target="_blank" class="preview-link" style="margin-left: auto; margin-top: 0;">View Publication ↗</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Highlight Card 2 -->
-                <div class="highlight-card">
-                    <img src="nurse shark.webp" alt="Research Highlight 2" class="highlight-gif" loading="lazy">
-                    <div class="highlight-card-text-wrapper">
-                        <h3>Evolution of B cell selection</h3>
-                        <p>Many vertebrate models can be studied to understand the evolution of the immune system. Sharks are the oldest living organisms with an immune system like humans: B cells, T cells, and immunoglobulins. My research has demonstrated that the fundamental principles of human germinal centers are present in the B cell selection sites of sharks, suggesting these are important conserved mechanisms throughout evolution.</p>
-                        
-                        <div class="paper-preview-card">
-                            <span class="preview-tag">Associated Paper</span>
-                            <h4 class="preview-title">Organized B cell sites in cartilaginous fishes reveal the evolutionary foundation of germinal centers</h4>
-                            <p class="preview-citation">Matz H. et al. <em>Cell Reports</em> (2023)</p>
-                            
-                            <!-- Circular Dual Badges for Highlight 2 -->
-                            <div class="metrics-badge-container">
-                                <span class="__dimensions_badge_embed__" data-doi="10.1016/j.celrep.2023.112664" data-style="small_circle"></span>
-                                <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1016/j.celrep.2023.112664"></div>
-                                <a href="https://doi.org/10.1016/j.celrep.2023.112664" target="_blank" class="preview-link" style="margin-left: auto; margin-top: 0;">View Publication ↗</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Highlight Card 3 -->
-                <div class="highlight-card">
-                    <img src="virus and vaccine.webp" alt="Research Highlight 3" class="highlight-gif" loading="lazy">
-                    <div class="highlight-card-text-wrapper">
-                        <h3>Vaccine design and combating disease</h3>
-                        <p>What we learn from human, mouse, and comparative immunology studies informs how we can modulate vaccines to better induce protective and durable immunity. Many pathogens are difficult to control because they constantly change and evolve in response to immune pressure. As we improve vaccine design, we can find new methods of combating infectious diseases.</p>
-                        
-                        <div class="paper-preview-card">
-                            <span class="preview-tag">Associated Paper</span>
-                            <h4 class="preview-title">Vaccination against influenza viruses annually: Renewing or narrowing the protective shield?</h4>
-                            <p class="preview-citation">Matz H. and Ellebedy A. <em>Journal of Experimental Medicine</em> (2025)</p>
-                            
-                            <!-- Circular Dual Badges for Highlight 3 -->
-                            <div class="metrics-badge-container">
-                                <span class="__dimensions_badge_embed__" data-doi="10.1084/jem.20241283" data-style="small_circle"></span>
-                                <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1084/jem.20241283"></div>
-                                <a href="https://doi.org/10.1084/jem.20241283" target="_blank" class="preview-link" style="margin-left: auto; margin-top: 0;">View Publication ↗</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <div id="publications-loading" class="loading-status">Loading publications from ORCID...</div>
+                <ul id="publications-list" class="publications-list" style="display: none; list-style: none; padding: 0;">
+                    <!-- Filled Dynamically -->
+                </ul>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Publications Section -->
-    <section id="publications" class="section publications">
-        <div class="container">
-            <h2>Publications</h2>
-            <p style="margin-bottom: 2rem; color: #666;">
-                Automated feed pulled live from my 
-                <a href="https://orcid.org/0000-0002-0669-1696" target="_blank" style="color: var(--primary-color);">ORCID Profile</a>.
-            </p>
-            
-            <div id="publications-loading" class="loading-status">Loading publications from ORCID...</div>
-            <ul id="publications-list" class="publications-list" style="display: none; list-style: none; padding: 0;">
-                <!-- Filled Dynamically -->
-            </ul>
-        </div>
-    </section>
-
-    <!-- Media Section -->
-    <section id="media" class="section media">
-        <div class="container">
-            <h2>Media & Outreach</h2>
-            <div class="media-grid">
-                <div class="media-item">
-                    <h3>Podcast Interview</h3>
-                    <p class="podcast-subtitle">The Immunology Podcast • June 2022</p>
-                    <div class="podcast-embed">
-                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2Z0nb76KEN9F9ABTcBTzme?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <!-- Media Section -->
+        <section id="media" class="section media">
+            <div class="container">
+                <h2>Media & Outreach</h2>
+                <div class="media-grid">
+                    <div class="media-item">
+                        <h3>Podcast Interview</h3>
+                        <p class="podcast-subtitle">The Immunology Podcast • June 2022</p>
+                        <div class="podcast-embed">
+                            <iframe title="The Immunology Podcast Episode 30 featuring Dr. Hanover Matz" style="border-radius:12px" src="https://open.spotify.com/embed/episode/2Z0nb76KEN9F9ABTcBTzme?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        </div>
+                        <a href="https://www.immunologypodcast.com/ep-30-comparative-immunology-and-sharks-featuring-dr-hanover-matz" class="link-button-large" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 10px;">View Episode Notes</a>
                     </div>
-                    <a href="https://www.immunologypodcast.com/ep-30-comparative-immunology-and-sharks-featuring-dr-hanover-matz" class="link-button-large" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 10px;">View Episode Notes</a>
-                </div>
-                
-                <div class="media-item">
-                    <h3>News Feature</h3>
-                    <p class="podcast-subtitle">First Alert 4 • June 2026</p>
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/9g6w2P0A8d8" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    
+                    <div class="media-item">
+                        <h3>News Feature</h3>
+                        <p class="podcast-subtitle">First Alert 4 • June 2026</p>
+                        <div class="video-embed">
+                            <iframe title="WashU Medicine Study First Alert 4 News Feature" src="https://www.youtube.com/embed/9g6w2P0A8d8" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <a href="https://www.firstalert4.com/2026/06/16/washu-medicine-study-finds-new-mrna-flu-vaccine-could-reduce-hospitalizations-deaths/" class="link-button-large" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 15px;">Read Full Article</a>
                     </div>
-                    <a href="https://www.firstalert4.com/2026/06/16/washu-medicine-study-finds-new-mrna-flu-vaccine-could-reduce-hospitalizations-deaths/" class="link-button-large" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 15px;">Read Full Article</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2>Get in Touch</h2>
-            <p>Interested in collaborating or learning more about my research? Feel free to reach out!</p>
-            <div class="contact-links">
-                <a href="mailto:matz@wustl.edu" class="link-button-large">Email Me</a>
-                <a href="https://www.linkedin.com/in/hanover-matz-a021b0281" class="link-button-large" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://x.com/@HanoverM" class="link-button-large" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+        <!-- Contact Section -->
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <p>Interested in collaborating or learning more about my research? Feel free to reach out!</p>
+                <div class="contact-links">
+                    <a href="mailto:matz@wustl.edu" class="link-button-large">Email Me</a>
+                    <a href="https://www.linkedin.com/in/hanover-matz-a021b0281" class="link-button-large" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://x.com/@HanoverM" class="link-button-large" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <p>© 2026 Hanover Matz, PhD. All rights reserved.</p>
     </footer>
 
-    <!-- Master ORCID Fetch + Sorting + Multi-Badge Rendering Engine -->
+    <!-- Safe ORCID Fetch + DOM Construction + Badge Rendering Script -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const orcidId = "0000-0002-0669-1696"; 
@@ -282,57 +343,98 @@
 
                 listUl.innerHTML = "";
 
+                // Build DOM Elements Safely (XSS Prevention)
                 publications.forEach(pub => {
                     const li = document.createElement("li");
                     li.style.marginBottom = "30px";
                     li.style.lineHeight = "1.6";
-                    
-                    let innerHTML = `<strong>${pub.title}</strong> (${pub.year})`;
+
+                    const titleEl = document.createElement("strong");
+                    titleEl.textContent = pub.title;
+
+                    const dateSpan = document.createElement("span");
+                    dateSpan.textContent = ` (${pub.year})`;
+
+                    li.appendChild(titleEl);
+                    li.appendChild(dateSpan);
+
                     if (pub.journal) {
-                        innerHTML += `<br><em style="color: var(--text-light);">${pub.journal}</em>`;
+                        const journalEl = document.createElement("div");
+                        journalEl.style.color = "var(--text-light, #555)";
+                        journalEl.style.fontStyle = "italic";
+                        journalEl.textContent = pub.journal;
+                        li.appendChild(journalEl);
                     }
-                    
-                    // Generate side-by-side circular layouts if DOI matches
+
                     if (pub.rawDoi) {
-                        innerHTML += `<div class="metrics-badge-container">`;
-                        // Dimensions Circle Configuration
-                        innerHTML += `<span class="__dimensions_badge_embed__" data-doi="${pub.rawDoi}" data-style="small_circle"></span>`;
-                        // Altmetric Donut Configuration
-                        innerHTML += `<div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="${pub.rawDoi}"></div>`;
-                        
-                        innerHTML += `<a href="${pub.doiUrl}" target="_blank" style="color: var(--secondary-color); font-size: 0.92rem; text-decoration: none; margin-left: auto;">View Publication ↗</a>`;
-                        innerHTML += `</div>`;
+                        const metricsDiv = document.createElement("div");
+                        metricsDiv.className = "metrics-badge-container";
+
+                        const dimSpan = document.createElement("span");
+                        dimSpan.className = "__dimensions_badge_embed__";
+                        dimSpan.setAttribute("data-doi", pub.rawDoi);
+                        dimSpan.setAttribute("data-style", "small_circle");
+
+                        const altDiv = document.createElement("div");
+                        altDiv.className = "altmetric-embed";
+                        altDiv.setAttribute("data-badge-type", "donut");
+                        altDiv.setAttribute("data-badge-popover", "right");
+                        altDiv.setAttribute("data-doi", pub.rawDoi);
+
+                        const linkA = document.createElement("a");
+                        linkA.href = pub.doiUrl;
+                        linkA.target = "_blank";
+                        linkA.rel = "noopener noreferrer";
+                        linkA.style.color = "var(--secondary-color, #0066cc)";
+                        linkA.style.fontSize = "0.92rem";
+                        linkA.style.textDecoration = "none";
+                        linkA.style.marginLeft = "auto";
+                        linkA.textContent = "View Publication ↗";
+
+                        metricsDiv.appendChild(dimSpan);
+                        metricsDiv.appendChild(altDiv);
+                        metricsDiv.appendChild(linkA);
+                        li.appendChild(metricsDiv);
                     } else if (pub.doiUrl) {
-                        innerHTML += `<br><a href="${pub.doiUrl}" target="_blank" style="color: var(--secondary-color); font-size: 0.92rem; text-decoration: none;">View Publication ↗</a>`;
+                        const linkDiv = document.createElement("div");
+                        const linkA = document.createElement("a");
+                        linkA.href = pub.doiUrl;
+                        linkA.target = "_blank";
+                        linkA.rel = "noopener noreferrer";
+                        linkA.style.color = "var(--secondary-color, #0066cc)";
+                        linkA.style.fontSize = "0.92rem";
+                        linkA.style.textDecoration = "none";
+                        linkA.textContent = "View Publication ↗";
+                        linkDiv.appendChild(linkA);
+                        li.appendChild(linkDiv);
                     }
-                    
-                    li.innerHTML = innerHTML;
+
                     listUl.appendChild(li);
                 });
 
                 loadingDiv.style.display = "none";
                 listUl.style.display = "block";
 
-               // New robust triggering block:
-if (window.__dimensions_embed) {
-    window.__dimensions_embed.addBadges();
-}
+                // Trigger Dimensions Badges
+                if (window.__dimensions_embed) {
+                    window.__dimensions_embed.addBadges();
+                }
 
-// Force Altmetric to hard-scan the newly created DOM nodes
-if (typeof _altmetric_embed_init === 'function') {
-    _altmetric_embed_init();
-} else if (window.altmetric_embed_init) {
-    window.altmetric_embed_init();
-}
+                // Trigger Altmetric Badges
+                if (typeof _altmetric_embed_init === 'function') {
+                    _altmetric_embed_init();
+                } else if (window.altmetric_embed_init) {
+                    window.altmetric_embed_init();
+                }
             })
             .catch(error => {
                 console.error("ORCID Fetch Error:", error);
-                loadingDiv.innerHTML = `Unable to pull live feed. View my work directly on <a href="https://orcid.org/${orcidId}" target="_blank">ORCID</a>.`;
+                loadingDiv.innerHTML = `Unable to pull live feed. View my work directly on <a href="https://orcid.org/${orcidId}" target="_blank" rel="noopener noreferrer">ORCID</a>.`;
             });
         });
     </script>
 
-    <!-- Intersection Animation Observer -->
+    <!-- Scroll Animation Observer -->
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
