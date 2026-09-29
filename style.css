@@ -13,9 +13,15 @@
     --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
 
-html { scroll-behavior: smooth; }
+html { 
+    scroll-behavior: smooth; 
+}
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -28,15 +34,50 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.container { max-width: 950px; margin: 0 auto; padding: 0 25px; }
+.container { 
+    max-width: 950px; 
+    margin: 0 auto; 
+    padding: 0 25px; 
+}
 
 /* ============================================
-   2. Scroll-Animation Engine
+   2. Accessibility & Focus States
+   ============================================ */
+.skip-link {
+    position: absolute;
+    top: -60px;
+    left: 10px;
+    background: var(--primary-color);
+    color: #ffffff !important;
+    padding: 10px 18px;
+    z-index: 1000;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 6px 6px;
+    transition: top 0.25s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Focus Ring for Keyboard Navigation */
+a:focus-visible, 
+button:focus-visible, 
+iframe:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* ============================================
+   3. Scroll-Animation Engine
    ============================================ */
 .highlight-card, .media-item {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
 }
 
 .fade-in-up {
@@ -45,8 +86,21 @@ body {
 }
 
 /* ============================================
-   3. Sections & Layout
+   4. Sections & Layout
    ============================================ */
+.banner {
+    position: relative;
+    background-image: linear-gradient(to bottom, rgba(20, 30, 48, 0.35) 0%, rgba(15, 23, 42, 0.70) 60%, rgba(15, 23, 42, 0.85) 100%), url('banner-antibodies.webp');
+    min-height: 65vh; 
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+}
+
 .banner-content h1 {
     font-size: clamp(3rem, 8vw, 6rem);
     margin-top: 0;
@@ -64,53 +118,96 @@ body {
     opacity: 0.95;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
-.banner {
-    position: relative;
-    background-image: linear-gradient(to bottom, rgba(20, 30, 48, 0.35) 0%, rgba(15, 23, 42, 0.70) 60%, rgba(15, 23, 42, 0.85) 100%), url('banner-antibodies.webp');
-    min-height: 65vh; 
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #ffffff;
+
+.navbar { 
+    background-color: var(--primary-color); 
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+    box-shadow: var(--shadow); 
 }
 
-.navbar { background-color: var(--primary-color); position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow); }
-.navbar ul { list-style: none; display: flex; justify-content: center; max-width: 1200px; margin: 0 auto; }
-.navbar a { display: block; color: white; text-decoration: none; padding: 18px 24px; font-weight: 600; transition: background-color 0.2s; }
-.navbar a:hover { background-color: var(--secondary-color); }
+.navbar ul { 
+    list-style: none; 
+    display: flex; 
+    justify-content: center; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
 
-.section { padding: clamp(50px, 8vw, 90px) 20px; }
-.section h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); text-align: center; margin-bottom: 50px; color: var(--primary-color); position: relative; padding-bottom: 20px; }
-.section h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 4px; background: linear-gradient(90deg, var(--secondary-color), var(--accent-color)); border-radius: 2px; }
+.navbar a { 
+    display: block; 
+    color: white; 
+    text-decoration: none; 
+    padding: 18px 24px; 
+    font-weight: 600; 
+    transition: background-color 0.2s; 
+}
+
+.navbar a:hover { 
+    background-color: var(--secondary-color); 
+}
+
+.section { 
+    padding: clamp(50px, 8vw, 90px) 20px; 
+}
+
+.section h2 { 
+    font-size: clamp(1.8rem, 4vw, 2.5rem); 
+    text-align: center; 
+    margin-bottom: 50px; 
+    color: var(--primary-color); 
+    position: relative; 
+    padding-bottom: 20px; 
+}
+
+.section h2::after { 
+    content: ''; 
+    position: absolute; 
+    bottom: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 100px; 
+    height: 4px; 
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color)); 
+    border-radius: 2px; 
+}
 
 /* ============================================
-   4. About Section + Graphic
+   5. About Section + Graphic
    ============================================ */
-.about { background-color: #f9f9f9; }
-.about-content { display: flex; gap: 50px; align-items: center; }
+.about { 
+    background-color: #f9f9f9; 
+}
 
-.profile-picture-container { flex: 1; min-width: 250px; text-align: center; }
+.about-content { 
+    display: flex; 
+    gap: 50px; 
+    align-items: center; 
+}
 
-/* GIF Logo placement and scaling */
+.profile-picture-container { 
+    flex: 1; 
+    min-width: 250px; 
+    text-align: center; 
+}
+
 .site-logo-gif {
     display: block;
     width: 100%;
-    max-width: 350px;         /* Adjust this value to resize your GIF */
+    max-width: 350px;
     height: auto;
-    margin: 0 auto 15px auto;   /* Centers the GIF and adds spacing above the photo */
-   object-fit: contain;
+    margin: 0 auto 15px auto;
+    object-fit: contain;
 }
 
 .profile-picture { 
     width: 100%; 
-    max-width: 300px;        /* Slightly reduced so a circular avatar doesn't look gigantic */
-    aspect-ratio: 1 / 1;     /* Forces the image container into a perfect square */
-    object-fit: cover;       /* Zooms in to fill the shape without distorting your face */
-    object-position: center; /* Ensures the crop stays centered on you */
-    border-radius: 50%;      /* Changes the shape to a perfect circle (change to 10px if you prefer a square) */
+    max-width: 300px; 
+    aspect-ratio: 1 / 1; 
+    object-fit: cover; 
+    object-position: center; 
+    border-radius: 50%; 
     box-shadow: var(--shadow-lg); 
     border: 4px solid var(--secondary-color); 
 }
@@ -124,10 +221,21 @@ body {
     border: 4px solid var(--secondary-color);
 }
 
-.about-text { flex: 1.5; }
-.about-text h2 { text-align: left; }
-.about-text h2::after { display: none; }
-.about-text p { margin-bottom: 1.5rem; }
+.about-text { 
+    flex: 1.5; 
+}
+
+.about-text h2 { 
+    text-align: left; 
+}
+
+.about-text h2::after { 
+    display: none; 
+}
+
+.about-text p { 
+    margin-bottom: 1.5rem; 
+}
 
 .research-interests {
     margin-top: 2rem;
@@ -136,10 +244,21 @@ body {
 }
 
 /* ============================================
-   5. Research & Media
+   6. Research & Media
    ============================================ */
-.highlights-grid { display: flex; flex-direction: column; gap: 70px; }
-.highlight-card { display: flex; flex-direction: row; align-items: center; gap: 50px; }
+.highlights-grid { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 70px; 
+}
+
+.highlight-card { 
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    gap: 50px; 
+}
+
 .highlight-gif {
     flex: 1;
     max-width: 500px;
@@ -150,22 +269,44 @@ body {
     background-color: #f8f9fa;
     border: 4px solid var(--secondary-color);
 }
-.highlight-card:nth-child(even) { flex-direction: row-reverse; }
 
-.media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
-.media-item { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 35px; border-radius: 10px; }
+.highlight-card:nth-child(even) { 
+    flex-direction: row-reverse; 
+}
 
-.video-container {
+.media-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 40px; 
+}
+
+.media-item { 
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+    padding: 35px; 
+    border-radius: 10px; 
+}
+
+.podcast-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 12px;
+}
+
+/* Responsive Video & Embed Container */
+.video-container,
+.video-embed {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
     height: 0;
     overflow: hidden;
     border-radius: 12px;
     border: 4px solid var(--secondary-color);
+    background: #000;
 }
 
-.video-container iframe {
+.video-container iframe,
+.video-embed iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -175,7 +316,7 @@ body {
 }
 
 /* ============================================
-   6. Publications Section & Integration Elements
+   7. Publications Section & Badges Integration
    ============================================ */
 .publications-list {
     max-width: 900px;
@@ -199,9 +340,10 @@ body {
 
 .paper-preview-card {
     margin-top: 15px;
-    padding: 15px;
+    padding: 18px;
     background: #f8f9fa;
     border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
 }
 
 .preview-tag {
@@ -213,11 +355,25 @@ body {
     margin-bottom: 5px;
 }
 
+.preview-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 4px 0 6px 0;
+    color: var(--primary-color);
+    line-height: 1.4;
+}
+
+.preview-citation {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
 .preview-link {
-    display: inline-flex;    /* Changed from inline-block to align content together */
-    align-items: center;     /* Centers the text and arrow vertically */
-    white-space: nowrap;     /* Prevents the arrow from snapping onto a new line */
-    gap: 6px;                /* Creates a perfect, controlled space before the arrow */
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 6px;
     margin-top: 10px;
     padding: 10px 20px;
     border: 2px solid var(--primary-color);
@@ -234,15 +390,40 @@ body {
     color: white !important;
 }
 
-.__dimensions_badge_embed__ {
+.metrics-badge-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.__dimensions_badge_embed__,
+.altmetric-embed {
     display: inline-block;
-    margin-right: 15px;
     vertical-align: middle;
 }
 
 /* ============================================
-   7. Contact & Buttons
+   8. Contact, Footer & Buttons
    ============================================ */
+#contact {
+    text-align: center;
+}
+
+#contact p {
+    margin-bottom: 25px;
+    max-width: 600px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
 .link-button-large {
     background: transparent;
     border: 2px solid var(--primary-color) !important;
@@ -260,18 +441,7 @@ body {
     color: #ffffff !important;
 }
 
-#contact {
-    text-align: center;
-}
-
-#contact p {
-    margin-bottom: 20px;
-    max-width: 600px; 
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Subtle Elements */
+/* Subtle Scroll Prompt */
 .scroll-prompt {
     position: absolute;
     bottom: 30px;
@@ -299,8 +469,16 @@ body {
     60% { transform: translateY(-5px) rotate(45deg); }
 }
 
+.footer {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 0.95rem;
+}
+
 /* ============================================
-   8. Media Queries & Responsive Design
+   9. Media Queries & Responsive Design
    ============================================ */
 @media (max-width: 768px) {
     .about-content, .highlight-card { 
@@ -323,10 +501,11 @@ body {
         grid-template-columns: 1fr !important; 
     }
 
-    .section { padding: 50px 20px !important; }
+    .section { 
+        padding: 50px 20px !important; 
+    }
     
     .contact-links {
-        display: flex;
         flex-direction: column;
         gap: 15px;
     }
@@ -342,5 +521,38 @@ body {
         margin-left: 0 !important; 
         width: 100%;               
         margin-top: 5px;
+    }
+}
+
+/* ============================================
+   10. Print Optimization (PDF Export)
+   ============================================ */
+@media print {
+    .banner, 
+    .navbar, 
+    .scroll-prompt, 
+    .video-container, 
+    .video-embed, 
+    .podcast-embed, 
+    .metrics-badge-container,
+    .skip-link {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff;
+        color: #000000;
+        font-size: 11pt;
+    }
+
+    .section {
+        padding: 15px 0 !important;
+        page-break-inside: avoid;
+    }
+
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.85em;
+        color: #444;
     }
 }
