@@ -272,20 +272,25 @@ iframe:focus-visible {
     flex-direction: row; 
     align-items: center; 
     gap: 50px; 
-    /* Removed will-change to allow continuous WebP frame invalidation */
 }
 
-/* 2. Fix Safari object-fit height lock for animated WebP */
+
 .highlight-gif {
     display: block;
     width: 100%;
     max-width: 550px;
-    height: 310px; /* Explicit height prevents Safari frame freeze */
+    height: auto;
     object-fit: cover;
     border-radius: 12px;
     box-shadow: var(--shadow-lg);
     background-color: #f8f9fa;
     border: 4px solid var(--secondary-color);
+
+   /* Performance optimizations */
+    contain: layout style paint;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: opacity;
 }
 
 /* Ensure picture container maintains its full allocated width */
