@@ -73,12 +73,13 @@ function setupResearchScrollSnap() {
         dot.setAttribute('aria-label', `Navigate to: ${title}`);
         dot.setAttribute('data-title', title);
 
-        dot.addEventListener('click', () => {
-            card.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-            });
-        });
+        // 1. Update dot click target alignment
+dot.addEventListener('click', () => {
+    card.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start' // Aligns top of card with scroll-margin-top offset
+    });
+});
 
         dotsNav.appendChild(dot);
         dots.push(dot);
@@ -88,8 +89,8 @@ function setupResearchScrollSnap() {
 
     // Observer: Active Card Tracker
     const cardObserverOptions = {
-        threshold: 0.6 // Card must be 60% in view to register as active
-    };
+    threshold: 0.3 // Card only needs to be 30% in view to highlight dot
+};
 
     const cardObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
