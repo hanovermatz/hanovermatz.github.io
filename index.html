@@ -20,6 +20,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 
     <!-- Preloads Updated for .webp and .jpg Image Assets -->
@@ -62,21 +67,6 @@
     <!-- External Metrics APIs -->
     <script async src="https://integration-badge.dimensions.ai/static/ai/badge.js"></script>
     <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
-
-    <!-- Inline spacing tweaks for Research Highlight Cards -->
-    <style>
-        .highlights-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 3.5rem; /* Increased vertical space between research cards */
-        }
-        .highlight-card {
-            margin-bottom: 1.5rem;
-        }
-        .highlight-card:last-child {
-            margin-bottom: 0;
-        }
-    </style>
 </head>
 <body>
 
@@ -126,10 +116,10 @@
                     <div class="about-text slide-in-right">
                         <h2>Evolutionary Immunology</h2>
                         <p>
-                            I am an immunologist studying the fundamental principles of adaptive immunity. My work synthesizes molecular biology, immunology, and comparative evolutionary approaches to better understand the human immune system.
+                            I am an immunologist studying the fundamental principles of adaptive immunity. My work synthesizes molecular biology, immunology, and comparative evolutionary approaches to understand how immune responses are generated, selected, and refined over time.
                         </p>
                         <p>
-                            The adaptive immune system is the product of millions of years of evolution in jawed vertebrates. Through the coordination of B cells, T cells, and antigen-presenting cells, the adaptive immune system generates antigen-specific responses and durable immunological memory. However, many mechanisms of the human immune system are still not fully understood, including the germinal center response which produces protective antibodies and the effector cells of humoral immunological memory. Investigating the dynamics of the immune system in different vertebrate species informs the fundamental principles governing immune protection. These principles can then be optimized in the context of vaccine design, cancer, and autoimmunity to treat human diseases.
+                            The adaptive immune system is the product of millions of years of evolution in jawed vertebrates. Through the coordination of B cells, T cells, and antigen-presenting cells, it creates highly specific, durable protection against infection.
                         </p>
                         <div class="research-interests">
                             <h3>Research Interests</h3>
@@ -145,113 +135,113 @@
         </section>
         
         <!-- Research Highlights Section -->
-<section id="research" class="section research-highlights">
-    <div class="container">
-        <h2>Research Highlights</h2>
-        <div class="highlights-grid">
-            
-            <!-- Highlight Card 1 -->
-            <article class="highlight-card visible active fade-in-up">
-                <div class="highlight-body">
-                    <div class="highlight-media">
-                        <img 
-                            src="plasma-cell.webp" 
-                            alt="Microscopic view of plasma cell" 
-                            class="highlight-gif" 
-                            loading="eager" 
-                            width="500" 
-                            height="282"
-                            decoding="async"
-                        >
-                    </div>
-                    <div class="highlight-text">
-                        <h3>Mechanisms of B cell biology</h3>
-                        <p>B cells produce antibodies that defend the host from infectious pathogens. Through the germinal center response, B cells are able to undergo mutation, selection, and affinity maturation to improve their antibodies. By studying how this process functions, we can improve the design of monoclonal antibody therapeutics and vaccines to stimulate immunity.</p>
-                    </div>
-                </div>
-
-                <div class="paper-preview-card">
-                    <span class="preview-tag">Associated Paper</span>
-                    <h4 class="preview-title">mRNA-based influenza vaccine expands the B cell response breadth in humans</h4>
-                    <p class="preview-citation">Matz H. et al. <em>Nature Immunology</em> (2026)</p>
+        <section id="research" class="section research-highlights">
+            <div class="container">
+                <h2>Research Highlights</h2>
+                <div class="highlights-grid">
                     
-                    <div class="metrics-badge-container">
-                        <span class="__dimensions_badge_embed__" data-doi="10.1038/s41590-026-02569-5" data-style="small_circle"></span>
-                        <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1038/s41590-026-02569-5"></div>
-                        <a href="https://doi.org/10.1038/s41590-026-02569-5" target="_blank" rel="noopener noreferrer" class="preview-link">View Publication ↗</a>
-                    </div>
-                </div>
-            </article>
+                    <!-- Highlight Card 1 -->
+                    <article class="highlight-card visible active fade-in-up">
+                        <div class="highlight-body">
+                            <div class="highlight-media">
+                                <img 
+                                    src="plasma-cell.webp" 
+                                    alt="Microscopic view of plasma cell" 
+                                    class="highlight-gif" 
+                                    loading="eager" 
+                                    width="500" 
+                                    height="282"
+                                    decoding="async"
+                                >
+                            </div>
+                            <div class="highlight-text">
+                                <h3>Mechanisms of B cell biology</h3>
+                                <p>B cells produce antibodies that defend the host from infectious pathogens. Through the germinal center response, B cells are able to undergo mutation, selection, and affinity maturation, enabling the immune system to generate highly specific and protective responses.</p>
+                            </div>
+                        </div>
 
-            <!-- Highlight Card 2 -->
-            <article class="highlight-card visible active fade-in-up">
-                <div class="highlight-body">
-                    <div class="highlight-media">
-                        <img 
-                            src="nurse-shark.webp" 
-                            alt="Nurse shark swimming" 
-                            class="highlight-gif" 
-                            loading="lazy" 
-                            width="500" 
-                            height="282"
-                            decoding="async"
-                        >
-                    </div>
-                    <div class="highlight-text">
-                        <h3>Evolution of B cell selection</h3>
-                        <p>Many vertebrate models can be studied to understand the evolution of the immune system. Sharks are the oldest living organisms with an immune system like humans: B cells, T cells, and immunoglobulins. My research has demonstrated that the fundamental principles of human germinal centers are present in the B cell selection sites of sharks, suggesting these are important conserved mechanisms throughout evolution.</p>
-                    </div>
-                </div>
+                        <div class="paper-preview-card">
+                            <span class="preview-tag">Associated Paper</span>
+                            <h4 class="preview-title">mRNA-based influenza vaccine expands the B cell response breadth in humans</h4>
+                            <p class="preview-citation">Matz H. et al. <em>Nature Immunology</em> (2026)</p>
+                            
+                            <div class="metrics-badge-container">
+                                <span class="__dimensions_badge_embed__" data-doi="10.1038/s41590-026-02569-5" data-style="small_circle"></span>
+                                <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1038/s41590-026-02569-5"></div>
+                                <a href="https://doi.org/10.1038/s41590-026-02569-5" target="_blank" rel="noopener noreferrer" class="preview-link">View Publication ↗</a>
+                            </div>
+                        </div>
+                    </article>
 
-                <div class="paper-preview-card">
-                    <span class="preview-tag">Associated Paper</span>
-                    <h4 class="preview-title">Organized B cell sites in cartilaginous fishes reveal the evolutionary foundation of germinal centers</h4>
-                    <p class="preview-citation">Matz H. et al. <em>Cell Reports</em> (2023)</p>
-                    
-                    <div class="metrics-badge-container">
-                        <span class="__dimensions_badge_embed__" data-doi="10.1016/j.celrep.2023.112664" data-style="small_circle"></span>
-                        <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1016/j.celrep.2023.112664"></div>
-                        <a href="https://doi.org/10.1016/j.celrep.2023.112664" target="_blank" rel="noopener noreferrer" class="preview-link">View Publication ↗</a>
-                    </div>
-                </div>
-            </article>
+                    <!-- Highlight Card 2 -->
+                    <article class="highlight-card visible active fade-in-up">
+                        <div class="highlight-body">
+                            <div class="highlight-media">
+                                <img 
+                                    src="nurse-shark.webp" 
+                                    alt="Nurse shark swimming" 
+                                    class="highlight-gif" 
+                                    loading="lazy" 
+                                    width="500" 
+                                    height="282"
+                                    decoding="async"
+                                >
+                            </div>
+                            <div class="highlight-text">
+                                <h3>Evolution of B cell selection</h3>
+                                <p>Many vertebrate models can be studied to understand the evolution of the immune system. Sharks are the oldest living organisms with an immune system like humans: B cells, T cells, and specialized immune tissues that provide a window into the origins of adaptive immunity.</p>
+                            </div>
+                        </div>
 
-            <!-- Highlight Card 3 -->
-            <article class="highlight-card visible active fade-in-up">
-                <div class="highlight-body">
-                    <div class="highlight-media">
-                        <img 
-                            src="virus-and-vaccine.webp" 
-                            alt="Illustration of virus particles and vaccine" 
-                            class="highlight-gif" 
-                            loading="lazy" 
-                            width="500" 
-                            height="282"
-                            decoding="async"
-                        >
-                    </div>
-                    <div class="highlight-text">
-                        <h3>Vaccine design and combating disease</h3>
-                        <p>What we learn from human, mouse, and comparative immunology studies informs how we can modulate vaccines to better induce protective and durable immunity. Many pathogens are difficult to control because they constantly change and evolve in response to immune pressure. As we improve vaccine design, we can find new methods of combating infectious diseases.</p>
-                    </div>
-                </div>
+                        <div class="paper-preview-card">
+                            <span class="preview-tag">Associated Paper</span>
+                            <h4 class="preview-title">Organized B cell sites in cartilaginous fishes reveal the evolutionary foundation of germinal centers</h4>
+                            <p class="preview-citation">Matz H. et al. <em>Cell Reports</em> (2023)</p>
+                            
+                            <div class="metrics-badge-container">
+                                <span class="__dimensions_badge_embed__" data-doi="10.1016/j.celrep.2023.112664" data-style="small_circle"></span>
+                                <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1016/j.celrep.2023.112664"></div>
+                                <a href="https://doi.org/10.1016/j.celrep.2023.112664" target="_blank" rel="noopener noreferrer" class="preview-link">View Publication ↗</a>
+                            </div>
+                        </div>
+                    </article>
 
-                <div class="paper-preview-card">
-                    <span class="preview-tag">Associated Paper</span>
-                    <h4 class="preview-title">Vaccination against influenza viruses annually: Renewing or narrowing the protective shield?</h4>
-                    <p class="preview-citation">Matz H. and Ellebedy A. <em>Journal of Experimental Medicine</em> (2025)</p>
-                    
-                    <div class="metrics-badge-container">
-                        <span class="__dimensions_badge_embed__" data-doi="10.1084/jem.20241283" data-style="small_circle"></span>
-                        <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1084/jem.20241283"></div>
-                        <a href="https://doi.org/10.1084/jem.20241283" target="_blank" rel="noopener noreferrer" class="preview-link">View Publication ↗</a>
-                    </div>
-                </div>
-            </article>
+                    <!-- Highlight Card 3 -->
+                    <article class="highlight-card visible active fade-in-up">
+                        <div class="highlight-body">
+                            <div class="highlight-media">
+                                <img 
+                                    src="virus-and-vaccine.webp" 
+                                    alt="Illustration of virus particles and vaccine" 
+                                    class="highlight-gif" 
+                                    loading="lazy" 
+                                    width="500" 
+                                    height="282"
+                                    decoding="async"
+                                >
+                            </div>
+                            <div class="highlight-text">
+                                <h3>Vaccine design and combating disease</h3>
+                                <p>What we learn from human, mouse, and comparative immunology studies informs how we can modulate vaccines to better induce protective and durable immunity. Many pathogens are difficult targets, and understanding how immune selection shapes response quality is essential to improving prevention.</p>
+                            </div>
+                        </div>
 
-        </div>
-    </div>
-</section>
+                        <div class="paper-preview-card">
+                            <span class="preview-tag">Associated Paper</span>
+                            <h4 class="preview-title">Vaccination against influenza viruses annually: Renewing or narrowing the protective shield?</h4>
+                            <p class="preview-citation">Matz H. and Ellebedy A. <em>Journal of Experimental Medicine</em> (2025)</p>
+                            
+                            <div class="metrics-badge-container">
+                                <span class="__dimensions_badge_embed__" data-doi="10.1084/jem.20241283" data-style="small_circle"></span>
+                                <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1084/jem.20241283"></div>
+                                <a href="https://doi.org/10.1084/jem.20241283" target="_blank" rel="noopener noreferrer" class="preview-link">View Publication ↗</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
 
         <!-- Publications Section -->
         <section id="publications" class="section publications">
@@ -274,8 +264,6 @@
             <div class="container">
                 <h2>Media & Outreach</h2>
                 <div class="media-grid">
-                    
-                    <!-- Media Card 1: Podcast -->
                     <article class="media-item">
                         <header class="media-header">
                             <div class="media-title-group">
@@ -285,15 +273,14 @@
                         </header>
                         <div class="media-body">
                             <div class="podcast-embed">
-                                <iframe title="The Immunology Podcast Episode 30 featuring Dr. Hanover Matz" src="https://open.spotify.com/embed/episode/2Z0nb76KEN9F9ABTcBTzme?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe title="The Immunology Podcast Episode 30 featuring Dr. Hanover Matz" src="https://open.spotify.com/embed/episode/2Z0nb76KEN9F9ABTcBTzme?utm_source=generator" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>
                             </div>
                         </div>
                         <footer class="media-footer">
-                            <a href="https://www.immunologypodcast.com/ep-30-comparative-immunology-and-sharks-featuring-dr-hanover-matz" class="link-button-large" target="_blank" rel="noopener noreferrer">View Episode Notes</a>
+                            <a href="https://www.immunologypodcast.com/ep-30-comparative-immunology-and-sharks-featuring-dr-hanover-matz" class="link-button-large" target="_blank" rel="noopener noreferrer">Listen Now</a>
                         </footer>
                     </article>
                     
-                    <!-- Media Card 2: News Feature -->
                     <article class="media-item">
                         <header class="media-header">
                             <div class="media-title-group">
@@ -307,10 +294,9 @@
                             </div>
                         </div>
                         <footer class="media-footer">
-                            <a href="https://www.firstalert4.com/2026/06/16/washu-medicine-study-finds-new-mrna-flu-vaccine-could-reduce-hospitalizations-deaths/" class="link-button-large" target="_blank" rel="noopener noreferrer">Read Full Article</a>
+                            <a href="https://www.firstalert4.com/2026/06/16/washu-medicine-study-finds-new-mrna-flu-vaccine-could-reduce-hospitalizations-deaths/" class="link-button-large" target="_blank" rel="noopener noreferrer">Read Feature</a>
                         </footer>
                     </article>
-
                 </div>
             </div>
         </section>
