@@ -29,7 +29,7 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 1.0625rem;
     line-height: 1.7;
     color: var(--text-color);
@@ -54,14 +54,11 @@ a {
     padding: 0 40px;
 }
 
-/* ============================================
-   2. Typography & General UI
-   ============================================ */
-
 h1, h2, h3, h4, h5, h6 {
     color: var(--primary-color);
-    line-height: 1.2;
+    line-height: 1.15;
     letter-spacing: -0.04em;
+    font-family: "Merriweather", Georgia, serif;
 }
 
 p {
@@ -69,7 +66,7 @@ p {
 }
 
 /* ============================================
-   3. Accessibility & Focus States
+   2. Accessibility & Focus States
    ============================================ */
 .skip-link {
     position: absolute;
@@ -89,18 +86,18 @@ p {
     top: 0;
 }
 
- a:focus-visible,
- button:focus-visible,
- iframe:focus-visible,
- input:focus-visible,
- textarea:focus-visible {
+a:focus-visible,
+button:focus-visible,
+iframe:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
     outline: 3px solid var(--secondary-color);
     outline-offset: 4px;
     border-radius: 4px;
 }
 
 /* ============================================
-   4. Scroll-Animation Engine
+   3. Scroll-Animation Engine
    ============================================ */
 .highlight-card,
 .media-item,
@@ -123,7 +120,7 @@ p {
 }
 
 /* ============================================
-   5. Banner & Navigation
+   4. Banner & Navigation
    ============================================ */
 .banner {
     position: relative;
@@ -215,10 +212,20 @@ p {
 }
 
 /* ============================================
-   6. Sections & Layout
+   5. Sections & Layout
    ============================================ */
 .section {
     padding: clamp(60px, 9vw, 110px) 20px;
+}
+
+.section-kicker {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.75rem;
+    font-weight: 700;
 }
 
 .section h2 {
@@ -243,7 +250,7 @@ p {
 }
 
 /* ============================================
-   7. About & Profile
+   6. About & Profile
    ============================================ */
 .about {
     background: linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
@@ -312,6 +319,39 @@ p {
     font-size: 1.04rem;
 }
 
+.about-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.6rem;
+}
+
+.metric-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 1rem 0.9rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.metric-label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    font-weight: 700;
+}
+
+.metric-card strong {
+    display: block;
+    color: var(--primary-color);
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
 .research-interests {
     margin-top: 2rem;
     padding-top: 1.5rem;
@@ -346,7 +386,7 @@ p {
 }
 
 /* ============================================
-   8. Research Highlights
+   7. Research Highlights
    ============================================ */
 .highlights-grid {
     display: flex;
@@ -427,16 +467,6 @@ p {
     box-shadow: 0 12px 25px rgba(15, 23, 42, 0.10);
 }
 
-.highlight-card picture,
-.highlight-card .highlight-media {
-    flex-shrink: 0;
-}
-
-.highlight-card-text-wrapper {
-    flex: 1;
-    min-width: 0;
-}
-
 .paper-preview-card {
     margin-top: 1.2rem;
     padding: 1.1rem 1.2rem 1rem;
@@ -509,7 +539,7 @@ p {
 }
 
 /* ============================================
-   9. Media & Outreach
+   8. Media & Outreach
    ============================================ */
 .media-grid {
     display: grid;
@@ -575,7 +605,7 @@ p {
 }
 
 /* ============================================
-   10. Publications
+   9. Publications
    ============================================ */
 .publications-list {
     max-width: 900px;
@@ -605,7 +635,7 @@ p {
 }
 
 /* ============================================
-   11. Contact & Footer
+   10. Contact & Footer
    ============================================ */
 #contact {
     text-align: center;
@@ -643,7 +673,6 @@ p {
     opacity: 0.98;
 }
 
-/* Subtle Scroll Prompt */
 .scroll-prompt {
     position: absolute;
     bottom: 26px;
@@ -681,7 +710,7 @@ p {
 }
 
 /* ============================================
-   12. Media Queries & Responsive Design
+   11. Media Queries & Responsive Design
    ============================================ */
 @media (max-width: 900px) {
     .about-content,
@@ -705,6 +734,10 @@ p {
         max-width: 420px !important;
         height: auto !important;
         margin: 0 auto 16px auto;
+    }
+
+    .about-metrics {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -762,7 +795,7 @@ p {
 }
 
 /* ============================================
-   13. Print Optimization (PDF Export)
+   12. Print Optimization (PDF Export)
    ============================================ */
 @media print {
     .banner,
