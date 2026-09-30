@@ -277,7 +277,7 @@ iframe:focus-visible {
 .highlight-gif {
     display: block;
     width: 100%;
-    max-width: 550px;
+    max-width: 500px;
     height: auto;
     aspect-ratio: 550 / 310;
     object-fit: cover;
