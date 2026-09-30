@@ -21,7 +21,6 @@
 
 html { 
     scroll-behavior: smooth; 
-    scroll-snap-type: y mandatory; /* Enable vertical viewport snapping */
 }
 
 body {
@@ -267,22 +266,19 @@ iframe:focus-visible {
     gap: 0; /* Clear explicit gaps; snap alignment controls card framing */
 }
 
-/* Highlight Card framed to full viewport height */
+/* Highlight Card Layout */
 .highlight-card { 
     display: flex; 
     flex-direction: column; 
-    justify-content: center; /* Center content vertically inside viewport */
     gap: 25px; 
     background: #ffffff;
     border-radius: 12px;
-    min-height: calc(100dvh - 70px); /* Height minus navbar height */
-    padding: 20px 0;
-    box-sizing: border-box;
+    margin-bottom: 80px; /* Space between cards */
+    scroll-margin-top: 100px; /* Offset so navbar doesn't cover top of card on dot click */
+}
 
-    /* Scroll Snap Framing Rules */
-    scroll-snap-align: center;
-    scroll-snap-stop: always; /* Prevents accidental multi-card scrolling */
-    scroll-margin-top: 70px;  /* Navbar clearance */
+.highlight-card:last-child {
+    margin-bottom: 0;
 }
 
 /* Upper Body: Side-by-Side Image and Summary Text */
