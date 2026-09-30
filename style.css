@@ -280,6 +280,7 @@ iframe:focus-visible {
     width: 100%;
     max-width: 550px;
     height: auto;
+    aspect-ratio: 550 / 310;      /* ADD: Prevents layout shift */
     object-fit: cover;
     border-radius: 12px;
     box-shadow: var(--shadow-lg);
@@ -288,6 +289,7 @@ iframe:focus-visible {
 
    /* Performance optimizations */
     contain: layout style paint;
+    content-visibility: auto;      /* ADD: Defers rendering of off-screen images */
     backface-visibility: hidden;
     transform: translateZ(0);
     will-change: opacity;
