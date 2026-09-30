@@ -258,12 +258,12 @@ iframe:focus-visible {
 }
 
 /* ============================================
-   6. Research & Media (ALIGNED & UPDATED)
+   6. Research & Media (SPACING UPDATED)
    ============================================ */
 .highlights-grid { 
     display: flex; 
     flex-direction: column; 
-    gap: 60px; 
+    gap: 80px; /* Increased vertical gap between individual research cards */
 }
 
 /* Parent Highlight Card Stack */
@@ -273,6 +273,11 @@ iframe:focus-visible {
     gap: 25px; 
     background: #ffffff;
     border-radius: 12px;
+    margin-bottom: 2rem; /* Additional fallback spacing */
+}
+
+.highlight-card:last-child {
+    margin-bottom: 0;
 }
 
 /* Upper Body: Side-by-Side Image and Summary Text */
