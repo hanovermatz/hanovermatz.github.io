@@ -21,6 +21,7 @@
 
 html { 
     scroll-behavior: smooth; 
+    scroll-snap-type: y mandatory; /* Enable vertical viewport snapping */
 }
 
 body {
@@ -258,26 +259,30 @@ iframe:focus-visible {
 }
 
 /* ============================================
-   6. Research & Media (SPACING UPDATED)
+   6. Research & Viewport Scroll Snap Cards
    ============================================ */
 .highlights-grid { 
     display: flex; 
     flex-direction: column; 
-    gap: 80px; /* Increased vertical gap between individual research cards */
+    gap: 0; /* Clear explicit gaps; snap alignment controls card framing */
 }
 
-/* Parent Highlight Card Stack */
+/* Highlight Card framed to full viewport height */
 .highlight-card { 
     display: flex; 
     flex-direction: column; 
+    justify-content: center; /* Center content vertically inside viewport */
     gap: 25px; 
     background: #ffffff;
     border-radius: 12px;
-    margin-bottom: 2rem; /* Additional fallback spacing */
-}
+    min-height: calc(100dvh - 70px); /* Height minus navbar height */
+    padding: 20px 0;
+    box-sizing: border-box;
 
-.highlight-card:last-child {
-    margin-bottom: 0;
+    /* Scroll Snap Framing Rules */
+    scroll-snap-align: center;
+    scroll-snap-stop: always; /* Prevents accidental multi-card scrolling */
+    scroll-margin-top: 70px;  /* Navbar clearance */
 }
 
 /* Upper Body: Side-by-Side Image and Summary Text */
@@ -344,6 +349,93 @@ iframe:focus-visible {
 /* Alternating Layout for Even Highlight Cards */
 .highlight-card:nth-child(even) .highlight-body { 
     flex-direction: row-reverse; 
+}
+
+/* ============================================
+   6b. Floating Scroll-Dot Indicator & Counter
+   ============================================ */
+.card-dots-nav {
+    position: fixed;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    z-index: 90;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 14px 10px;
+    border-radius: 30px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Active state toggled when research section is in viewport */
+.card-dots-nav.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.slide-counter {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 2px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.5px;
+}
+
+.dot-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--secondary-color);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding: 0;
+}
+
+.dot-btn:hover {
+    transform: scale(1.3);
+    background: rgba(52, 152, 219, 0.3);
+}
+
+.dot-btn.active {
+    background: var(--secondary-color);
+    transform: scale(1.35);
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
+
+/* Hover Tooltip showing Card Title */
+.dot-btn::after {
+    content: attr(data-title);
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+    background: var(--primary-color);
+    color: #ffffff;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+}
+
+.dot-btn:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
 }
 
 /* --- Media Grid & Podcast Alignment --- */
@@ -606,6 +698,10 @@ iframe:focus-visible {
    9. Media Queries & Responsive Design
    ============================================ */
 @media (max-width: 768px) {
+    html {
+        scroll-snap-type: none; /* Disable scroll snapping on smaller devices */
+    }
+
     .about-content, 
     .highlight-body,
     .highlight-card:nth-child(even) .highlight-body { 
@@ -629,6 +725,16 @@ iframe:focus-visible {
 
     .highlight-media {
         max-width: 100% !important;
+    }
+
+    .highlight-card {
+        min-height: auto;
+        padding: 40px 0;
+        scroll-snap-align: none;
+    }
+
+    .card-dots-nav {
+        display: none !important; /* Hide floating dots on small mobile viewports */
     }
 
     .media-grid { 
@@ -670,7 +776,8 @@ iframe:focus-visible {
     .video-embed, 
     .podcast-embed, 
     .metrics-badge-container,
-    .skip-link {
+    .skip-link,
+    .card-dots-nav {
         display: none !important;
     }
 
