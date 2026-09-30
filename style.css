@@ -310,6 +310,10 @@ iframe:focus-visible {
     box-shadow: var(--shadow-lg);
     background-color: #f8f9fa;
     border: 4px solid var(--secondary-color);
+    
+    /* Forces high-quality interpolation & sharp contrast rendering */
+    image-rendering: high-quality;
+    image-rendering: -webkit-optimize-contrast;
 }
 
 .highlight-text,
