@@ -258,7 +258,7 @@ iframe:focus-visible {
 }
 
 /* ============================================
-   6. Research & Media
+   6. Research & Media (ALIGNED & UPDATED)
    ============================================ */
 .highlights-grid { 
     display: flex; 
@@ -266,7 +266,7 @@ iframe:focus-visible {
     gap: 70px; 
 }
 
-/* 1. Prevent GPU compositor freezing on parent highlight cards */
+/* Prevent GPU compositor freezing on parent highlight cards */
 .highlight-card { 
     display: flex; 
     flex-direction: row; 
@@ -274,31 +274,29 @@ iframe:focus-visible {
     gap: 50px; 
 }
 
-
 .highlight-gif {
     display: block;
     width: 100%;
     max-width: 550px;
     height: auto;
-    aspect-ratio: 550 / 310;      /* ADD: Prevents layout shift */
+    aspect-ratio: 550 / 310;
     object-fit: cover;
     border-radius: 12px;
     box-shadow: var(--shadow-lg);
     background-color: #f8f9fa;
     border: 4px solid var(--secondary-color);
 
-   /* Performance optimizations */
     contain: layout style paint;
-    content-visibility: auto;      /* ADD: Defers rendering of off-screen images */
+    content-visibility: auto;
     backface-visibility: hidden;
     transform: translateZ(0);
     will-change: opacity;
 }
 
-/* Ensure picture container maintains its full allocated width */
 .highlight-card picture {
     flex-shrink: 0;
 }
+
 .highlight-card-text-wrapper {
     flex: 1;
     min-width: 0;
@@ -308,27 +306,74 @@ iframe:focus-visible {
     flex-direction: row-reverse; 
 }
 
+/* --- Media Grid & Podcast Alignment Fixes --- */
 .media-grid { 
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
     gap: 40px; 
+    align-items: stretch; /* Forces equal height across cards */
 }
 
 .media-item { 
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
     padding: 35px; 
     border-radius: 10px; 
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Media/Podcast Header Layout */
+.media-header,
+.podcast-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+/* Standardized Circular Podcast/News Media Bubbles */
+.podcast-bubble,
+.media-bubble,
+.media-thumb {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 3px solid var(--secondary-color);
+    box-shadow: var(--shadow);
+}
+
+.media-title-group {
+    flex: 1;
+    min-width: 0;
 }
 
 .podcast-subtitle {
     font-size: 0.9rem;
     color: var(--text-light);
-    margin-bottom: 12px;
+    margin-bottom: 6px;
 }
 
-/* Responsive Video & Embed Container */
+/* Body Content Area - Takes remaining space to push footer down */
+.media-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.media-footer {
+    margin-top: auto; /* Aligns play/read links to the bottom */
+    padding-top: 10px;
+}
+
+/* Responsive Video, Audio & Embed Container */
 .video-container,
-.video-embed {
+.video-embed,
+.podcast-embed {
     position: relative;
     width: 100%;
     padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
@@ -337,10 +382,12 @@ iframe:focus-visible {
     border-radius: 12px;
     border: 4px solid var(--secondary-color);
     background: #000;
+    margin-top: auto; /* Push embedded players to bottom if used */
 }
 
 .video-container iframe,
-.video-embed iframe {
+.video-embed iframe,
+.podcast-embed iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -556,7 +603,7 @@ iframe:focus-visible {
     
     .metrics-badge-container a {
         margin-left: 0 !important; 
-        width: 100%;                
+        width: 100%; 
         margin-top: 5px;
     }
 }
