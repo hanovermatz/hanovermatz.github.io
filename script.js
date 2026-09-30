@@ -1,7 +1,6 @@
 // ============================================
-// Smooth Scroll Navigation
+// 1. Smooth Scroll Navigation
 // ============================================
-
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -19,75 +18,148 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ============================================
-// Intersection Observer for Animations
+// 2. Intersection Observer for Scroll Animations
 // ============================================
-
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+const animationObserverOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver(function(entries) {
+const animationObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('visible');
+            // Unobserve after animating once
+            observer.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, animationObserverOptions);
 
-// Observe elements with animation classes
-document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-    observer.observe(el);
+// Observe all animatable elements
+document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right, .highlight-card, .media-item, .about-content, .profile-picture-container').forEach(el => {
+    animationObserver.observe(el);
 });
 
 // ============================================
-// Active Navigation Link on Scroll
+// 3. Research Cards Scroll Snap Navigation & Dot Indicator
 // ============================================
+function setupResearchScrollSnap() {
+    const cards = document.querySelectorAll('.highlight-card');
+    const highlightsSection = document.querySelector('#highlights') || document.querySelector('.highlights-grid');
+    
+    if (!cards.length) return;
+
+    // Build Dot Navigation Container
+    const dotsNav = document.createElement('nav');
+    dotsNav.className = 'card-dots-nav';
+    dotsNav.setAttribute('aria-label', 'Research Highlights Navigation');
+    
+    // Build Active Slide Counter
+    const counter = document.createElement('div');
+    counter.className = 'slide-counter';
+    counter.textContent = `1 / ${cards.length}`;
+    dotsNav.appendChild(counter);
+
+    const dots = [];
+
+    // Create a Dot Button for each Card
+    cards.forEach((card, index) => {
+        const heading = card.querySelector('h3');
+        const title = heading ? heading.textContent.trim() : `Slide ${index + 1}`;
+
+        const dot = document.createElement('button');
+        dot.className = 'dot-btn';
+        if (index === 0) dot.classList.add('active');
+        dot.setAttribute('aria-label', `Navigate to: ${title}`);
+        dot.setAttribute('data-title', title);
+
+        dot.addEventListener('click', () => {
+            card.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        });
+
+        dotsNav.appendChild(dot);
+        dots.push(dot);
+    });
+
+    document.body.appendChild(dotsNav);
+
+    // Observer: Active Card Tracker
+    const cardObserverOptions = {
+        threshold: 0.6 // Card must be 60% in view to register as active
+    };
+
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const activeIndex = Array.from(cards).indexOf(entry.target);
+                
+                // Update active dot
+                dots.forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === activeIndex);
+                });
+
+                // Update counter text
+                counter.textContent = `${activeIndex + 1} / ${cards.length}`;
+            }
+        });
+    }, cardObserverOptions);
+
+    cards.forEach(card => cardObserver.observe(card));
+
+    // Observer: Show/Hide Dots Nav depending on Research Section visibility
+    if (highlightsSection) {
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    dotsNav.classList.add('visible');
+                } else {
+                    dotsNav.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.05 });
+
+        sectionObserver.observe(highlightsSection);
+    }
+}
+
+// Initialize Scroll Snap Dots Navigation
+setupResearchScrollSnap();
+
+// ============================================
+// 4. Active Navigation Link on Scroll
+// ============================================
+const sections = document.querySelectorAll('section, header');
+const navLinks = document.querySelectorAll('.navbar a');
 
 window.addEventListener('scroll', () => {
     let current = '';
-    
-    document.querySelectorAll('section').forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 200) {
+    const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.offsetHeight;
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
             current = section.getAttribute('id');
         }
     });
 
-    document.querySelectorAll('.navbar a').forEach(link => {
+    navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
+        if (current && link.getAttribute('href') === `#${current}`) {
             link.classList.add('active');
-            link.style.borderBottom = '3px solid var(--accent-color)';
-        } else {
-            link.style.borderBottom = 'none';
         }
     });
-});
+}, { passive: true });
 
 // ============================================
-// Add CSS for active navigation
+// 5. Scroll to Top Button
 // ============================================
-
-const style = document.createElement('style');
-style.textContent = `
-    .navbar a.active {
-        border-bottom: 3px solid var(--accent-color);
-    }
-`;
-document.head.appendChild(style);
-
-// ============================================
-// Scroll to Top Button (Optional Enhancement)
-// ============================================
-
 const scrollTopBtn = document.createElement('button');
 scrollTopBtn.innerHTML = '↑';
+scrollTopBtn.setAttribute('aria-label', 'Scroll to top of page');
 scrollTopBtn.style.cssText = `
     position: fixed;
     bottom: 30px;
@@ -100,21 +172,24 @@ scrollTopBtn.style.cssText = `
     height: 50px;
     font-size: 24px;
     cursor: pointer;
-    display: none;
+    opacity: 0;
+    pointer-events: none;
     z-index: 99;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 `;
 
 document.body.appendChild(scrollTopBtn);
 
 window.addEventListener('scroll', () => {
     if (window.pageYOffset > 300) {
-        scrollTopBtn.style.display = 'block';
+        scrollTopBtn.style.opacity = '1';
+        scrollTopBtn.style.pointerEvents = 'auto';
     } else {
-        scrollTopBtn.style.display = 'none';
+        scrollTopBtn.style.opacity = '0';
+        scrollTopBtn.style.pointerEvents = 'none';
     }
-});
+}, { passive: true });
 
 scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({
@@ -134,9 +209,8 @@ scrollTopBtn.addEventListener('mouseout', () => {
 });
 
 // ============================================
-// Page Load Animation
+// 6. Page Load Fade-in
 // ============================================
-
 window.addEventListener('load', () => {
     document.body.style.opacity = '1';
 });
