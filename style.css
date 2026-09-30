@@ -2,21 +2,21 @@
    1. Global Styles & Variables
    ============================================ */
 :root {
-    --primary-color: #2d1b1a;
-    --secondary-color: #7a3f2f;
-    --accent-color: #c65d3b;
-    --tertiary-color: #d4a574;
-    --success-color: #5a7c59;
-    --light-bg: #f5f1ed;
+    --primary-color: #1a2332;
+    --secondary-color: #3a5a7a;
+    --accent-color: #4a90c6;
+    --tertiary-color: #6ba3d4;
+    --success-color: #5a8a9e;
+    --light-bg: #f0f3f7;
     --panel-bg: #ffffff;
-    --text-color: #2d1b1a;
-    --text-light: #6b5b52;
-    --border-color: #e8dfd6;
-    --shadow: 0 2px 8px rgba(45, 27, 26, 0.12), 0 1px 3px rgba(45, 27, 26, 0.08);
-    --shadow-lg: 0 20px 45px rgba(45, 27, 26, 0.15), 0 10px 20px rgba(45, 27, 26, 0.1);
-    --radius-sm: 12px;
-    --radius-md: 16px;
-    --radius-lg: 22px;
+    --text-color: #1a2332;
+    --text-light: #5a6b7a;
+    --border-color: #d4dce6;
+    --shadow: 0 2px 8px rgba(26, 35, 50, 0.08), 0 1px 3px rgba(26, 35, 50, 0.04);
+    --shadow-lg: 0 20px 45px rgba(26, 35, 50, 0.1), 0 10px 20px rgba(26, 35, 50, 0.06);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
 }
 
 * {
@@ -34,7 +34,7 @@ body {
     font-size: 1.0625rem;
     line-height: 1.7;
     color: var(--text-color);
-    background: linear-gradient(180deg, #faf8f5 0%, #f5f1ed 100%);
+    background: linear-gradient(180deg, #f8f9fc 0%, #f0f3f7 100%);
     font-variant-numeric: tabular-nums;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -46,7 +46,7 @@ img {
 }
 
 a {
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }
 
 .container {
@@ -58,7 +58,7 @@ a {
 h1, h2, h3, h4, h5, h6 {
     color: var(--primary-color);
     line-height: 1.15;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
     font-family: "Merriweather", Georgia, serif;
     font-weight: 700;
 }
@@ -80,7 +80,7 @@ p {
     z-index: 1000;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 8px 8px;
     transition: top 0.25s ease;
 }
 
@@ -93,9 +93,9 @@ button:focus-visible,
 iframe:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-    outline: 3px solid var(--secondary-color);
-    outline-offset: 4px;
-    border-radius: 4px;
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+    border-radius: 2px;
 }
 
 /* ============================================
@@ -126,7 +126,7 @@ textarea:focus-visible {
    ============================================ */
 .banner {
     position: relative;
-    background-image: linear-gradient(135deg, rgba(45, 27, 26, 0.85) 0%, rgba(122, 63, 47, 0.88) 100%), url('banner-antibodies.webp');
+    background-image: linear-gradient(135deg, rgba(26, 35, 50, 0.92) 0%, rgba(58, 90, 122, 0.88) 100%), url('banner-antibodies.webp');
     min-height: 68vh;
     background-position: center;
     background-size: cover;
@@ -134,16 +134,15 @@ textarea:focus-visible {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #f5f1ed;
+    color: #f0f3f7;
     overflow: hidden;
-    border-bottom: 3px solid var(--accent-color);
 }
 
 .banner::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at top, rgba(212, 165, 116, 0.15), transparent 60%);
+    background: radial-gradient(circle at top, rgba(74, 144, 198, 0.12), transparent 60%);
     pointer-events: none;
 }
 
@@ -158,31 +157,31 @@ textarea:focus-visible {
     font-size: clamp(2.8rem, 7vw, 5.5rem);
     margin-top: 0;
     margin-bottom: 18px;
-    font-weight: 800;
-    letter-spacing: -0.06em;
-    color: #f5f1ed;
-    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    color: #f0f3f7;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
 }
 
 .banner-content p {
     font-size: clamp(1.25rem, 3vw, 2.25rem);
     margin: 0;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
-    opacity: 0.98;
-    color: rgba(245, 241, 237, 0.96);
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0.96;
+    color: rgba(240, 243, 247, 0.95);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
 }
 
 .navbar {
-    background: rgba(245, 241, 237, 0.94);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 6px rgba(45, 27, 26, 0.1);
-    border-bottom: 2px solid var(--accent-color);
+    box-shadow: 0 1px 3px rgba(26, 35, 50, 0.06);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .navbar ul {
@@ -199,20 +198,19 @@ textarea:focus-visible {
     display: block;
     color: var(--primary-color);
     text-decoration: none;
-    padding: 18px 26px;
-    font-weight: 700;
+    padding: 18px 24px;
+    font-weight: 600;
     font-size: 1.1rem;
-    letter-spacing: 0.02em;
-    transition: color 0.25s ease, border-bottom-color 0.25s ease, background-color 0.25s ease;
-    border-bottom: 3px solid transparent;
+    letter-spacing: 0.01em;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    border-bottom: 2px solid transparent;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
 }
 
 .navbar a:hover,
 .navbar a:focus-visible {
     color: var(--accent-color);
-    background: transparent;
     border-bottom-color: var(--accent-color);
 }
 
@@ -221,17 +219,6 @@ textarea:focus-visible {
    ============================================ */
 .section {
     padding: clamp(60px, 9vw, 110px) 20px;
-    position: relative;
-}
-
-.section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
 }
 
 .section-kicker {
@@ -240,7 +227,7 @@ textarea:focus-visible {
     color: var(--secondary-color);
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
 }
 
@@ -250,9 +237,9 @@ textarea:focus-visible {
     margin-bottom: 40px;
     color: var(--primary-color);
     position: relative;
-    padding-bottom: 16px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    padding-bottom: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 .section h2::after {
@@ -261,9 +248,9 @@ textarea:focus-visible {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 140px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), var(--tertiary-color));
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
     border-radius: 999px;
 }
 
@@ -271,7 +258,7 @@ textarea:focus-visible {
    6. About & Profile
    ============================================ */
 .about {
-    background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
 }
 
 .about-content {
@@ -292,7 +279,7 @@ textarea:focus-visible {
     height: auto;
     margin: 0 auto 16px auto;
     object-fit: contain;
-    filter: drop-shadow(0 8px 14px rgba(45, 27, 26, 0.12));
+    filter: drop-shadow(0 4px 8px rgba(26, 35, 50, 0.06));
 }
 
 .profile-picture {
@@ -301,11 +288,11 @@ textarea:focus-visible {
     aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: center;
-    border-radius: 50%;
+    border-radius: 8px;
     box-shadow: var(--shadow-lg);
-    border: 4px solid rgba(212, 165, 116, 0.3);
+    border: 1px solid var(--border-color);
     margin: 0 auto;
-    background: #f3f4f6;
+    background: #f8f9fc;
 }
 
 .mechanism-graphic {
@@ -315,7 +302,7 @@ textarea:focus-visible {
     margin: 24px auto 0 auto;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow);
-    border: 1px solid rgba(232, 223, 214, 0.9);
+    border: 1px solid var(--border-color);
     object-fit: contain;
     background: #ffffff;
 }
@@ -335,6 +322,7 @@ textarea:focus-visible {
 .about-text p {
     margin-bottom: 1.25rem;
     font-size: 1.04rem;
+    color: var(--text-color);
 }
 
 .about-metrics {
@@ -345,9 +333,9 @@ textarea:focus-visible {
 }
 
 .metric-card {
-    background: linear-gradient(135deg, #f5f1ed 0%, #faf8f5 100%);
-    border: 2px solid var(--border-color);
-    border-radius: 14px;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
     padding: 1rem 0.9rem;
     box-shadow: var(--shadow);
     text-align: center;
@@ -356,8 +344,8 @@ textarea:focus-visible {
 .metric-label {
     display: block;
     margin-bottom: 0.35rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--text-light);
     font-weight: 700;
@@ -373,13 +361,13 @@ textarea:focus-visible {
 .research-interests {
     margin-top: 2rem;
     padding-top: 1.5rem;
-    border-top: 2px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
 }
 
 .research-interests h3 {
     margin-bottom: 0.9rem;
     font-size: 1.15rem;
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .research-interests ul {
@@ -392,17 +380,16 @@ textarea:focus-visible {
     position: relative;
     padding: 10px 0 10px 22px;
     line-height: 1.6;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-color);
 }
 
 .research-interests li::before {
-    content: "▶";
+    content: "→";
     position: absolute;
     left: 0;
-    color: var(--accent-color);
+    color: var(--secondary-color);
     font-weight: 700;
-    font-size: 0.8rem;
 }
 
 /* ============================================
@@ -416,18 +403,18 @@ textarea:focus-visible {
 
 .highlight-card {
     display: block;
-    background: var(--panel-bg);
-    border: 2px solid var(--border-color);
+    background: #ffffff;
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     padding: 1.8rem;
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .highlight-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
-    border-color: var(--secondary-color);
+    border-color: var(--accent-color);
 }
 
 .highlight-body {
@@ -455,8 +442,7 @@ textarea:focus-visible {
     font-size: clamp(1.45rem, 2.4vw, 2rem);
     margin-bottom: 0.8rem;
     color: var(--secondary-color);
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
+    font-weight: 700;
 }
 
 .highlight-text p {
@@ -473,36 +459,36 @@ textarea:focus-visible {
     aspect-ratio: 550 / 310;
     object-fit: cover;
     border-radius: var(--radius-md);
-    box-shadow: 0 10px 25px rgba(45, 27, 26, 0.12);
-    background-color: #f8f9fa;
-    border: 2px solid rgba(232, 223, 214, 0.8);
+    box-shadow: 0 8px 16px rgba(26, 35, 50, 0.08);
+    background-color: #f8f9fc;
+    border: 1px solid var(--border-color);
     contain: layout style paint;
     content-visibility: auto;
     backface-visibility: hidden;
     transform: translateZ(0);
     will-change: opacity;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    transition: all 0.35s ease;
 }
 
 .highlight-card:hover .highlight-gif {
     transform: scale(1.02);
-    box-shadow: 0 14px 30px rgba(45, 27, 26, 0.15);
+    box-shadow: 0 12px 24px rgba(26, 35, 50, 0.12);
 }
 
 .paper-preview-card {
     margin-top: 1.2rem;
     padding: 1.1rem 1.2rem 1rem;
-    background: linear-gradient(180deg, #f5f1ed 0%, #faf8f5 100%);
-    border-radius: 12px;
-    border: 2px solid rgba(232, 223, 214, 0.9);
-    border-left: 4px solid var(--accent-color);
+    background: #f8f9fc;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-color);
 }
 
 .preview-tag {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     color: var(--secondary-color);
     display: block;
     margin-bottom: 0.5rem;
@@ -530,22 +516,23 @@ textarea:focus-visible {
     gap: 6px;
     margin-top: 10px;
     padding: 10px 18px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border-radius: 6px;
+    background: var(--accent-color);
     color: #ffffff !important;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.9rem;
-    box-shadow: 0 8px 18px rgba(122, 63, 47, 0.2);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 12px rgba(74, 144, 198, 0.15);
+    transition: all 0.2s ease;
     text-transform: uppercase;
     letter-spacing: 0.02em;
 }
 
 .preview-link:hover,
 .preview-link:focus-visible {
+    background: var(--secondary-color);
     transform: translateY(-1px);
-    box-shadow: 0 12px 24px rgba(122, 63, 47, 0.3);
+    box-shadow: 0 6px 16px rgba(58, 90, 122, 0.18);
 }
 
 .metrics-badge-container {
@@ -572,14 +559,21 @@ textarea:focus-visible {
 }
 
 .media-item {
-    background: linear-gradient(135deg, #f5f1ed 0%, #faf8f5 100%);
+    background: #ffffff;
     padding: 28px 24px 22px;
-    border-radius: var(--radius-md);
-    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
     box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
     height: 100%;
+    transition: all 0.3s ease;
+}
+
+.media-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
 }
 
 .media-header {
@@ -589,9 +583,8 @@ textarea:focus-visible {
 .media-title-group h3 {
     margin-bottom: 0.3rem;
     font-size: 1.5rem;
-    color: var(--secondary-color);
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
+    color: var(--primary-color);
+    font-weight: 700;
 }
 
 .podcast-subtitle {
@@ -611,10 +604,10 @@ textarea:focus-visible {
     padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
-    border-radius: 14px;
-    border: 2px solid rgba(232, 223, 214, 0.8);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
     background: #000;
-    box-shadow: 0 12px 22px rgba(45, 27, 26, 0.1);
+    box-shadow: 0 8px 16px rgba(26, 35, 50, 0.08);
 }
 
 .podcast-embed iframe,
@@ -647,13 +640,13 @@ textarea:focus-visible {
 
 #publications-list li {
     background: #ffffff;
-    border: 2px solid var(--border-color);
-    border-left: 4px solid var(--accent-color);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-color);
     padding: 22px 20px;
     margin-bottom: 16px;
-    border-radius: 12px;
+    border-radius: 8px;
     box-shadow: var(--shadow);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: all 0.25s ease;
 }
 
 #publications-list li:hover {
@@ -681,16 +674,16 @@ textarea:focus-visible {
 }
 
 .link-button-large {
-    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    background: var(--accent-color);
     border: none !important;
     color: #ffffff !important;
     padding: 14px 26px;
-    border-radius: 999px;
-    font-weight: 700;
+    border-radius: 6px;
+    font-weight: 600;
     text-decoration: none;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+    transition: all 0.25s ease;
     display: inline-block;
-    box-shadow: 0 10px 22px rgba(122, 63, 47, 0.2);
+    box-shadow: 0 4px 12px rgba(74, 144, 198, 0.15);
     text-transform: uppercase;
     letter-spacing: 0.02em;
     font-size: 0.95rem;
@@ -698,9 +691,9 @@ textarea:focus-visible {
 
 .link-button-large:hover,
 .link-button-large:focus-visible {
+    background: var(--secondary-color);
     transform: translateY(-2px);
-    box-shadow: 0 14px 30px rgba(122, 63, 47, 0.28);
-    opacity: 0.98;
+    box-shadow: 0 6px 16px rgba(58, 90, 122, 0.2);
 }
 
 .scroll-prompt {
@@ -708,21 +701,21 @@ textarea:focus-visible {
     bottom: 26px;
     left: 50%;
     transform: translateX(-50%);
-    color: #f5f1ed;
+    color: rgba(240, 243, 247, 0.8);
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     opacity: 0.8;
     z-index: 1;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    font-weight: 600;
+    letter-spacing: 0.03em;
+    font-weight: 500;
 }
 
 .scroll-prompt .arrow {
-    width: 18px;
-    height: 18px;
-    border-right: 2px solid #f5f1ed;
-    border-bottom: 2px solid #f5f1ed;
+    width: 16px;
+    height: 16px;
+    border-right: 1.5px solid rgba(240, 243, 247, 0.8);
+    border-bottom: 1.5px solid rgba(240, 243, 247, 0.8);
     transform: rotate(45deg);
     margin: 10px auto 0 auto;
     animation: bounce 2s infinite;
@@ -735,12 +728,11 @@ textarea:focus-visible {
 }
 
 .footer {
-    background: linear-gradient(180deg, var(--primary-color) 0%, #1a0f0e 100%);
-    color: #f5f1ed;
+    background: linear-gradient(180deg, var(--primary-color) 0%, #0f1620 100%);
+    color: rgba(240, 243, 247, 0.9);
     text-align: center;
     padding: 24px 20px;
     font-size: 0.95rem;
-    border-top: 2px solid var(--accent-color);
 }
 
 /* ============================================
