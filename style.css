@@ -381,3 +381,11 @@ footer {
     font-size: 2rem;
   }
 }
+
+/* Disable hover popup on touch devices where hover isn't supported */
+@media (hover: none) {
+  #research-popup,
+  .popup-card {
+    display: none !important;
+  }
+}
