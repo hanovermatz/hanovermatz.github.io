@@ -1,205 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Hanover Matz - Researcher in Evolutionary Immunology & B Cell Germinal Center Mechanisms.">
-  <title>Hanover Matz | Evolutionary Immunology</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="U6N4xh0tvPuwgPdSClvyCWJQ_lFzc8KOzucRw0VmypY" />
+    <meta name="theme-color" content="#1a365d">
+    
+    <!-- SEO Meta Tags -->
+    <title>Hanover Matz, PhD | Evolutionary Immunology</title>
+    <meta name="description" content="Academic portfolio of Hanover Matz, PhD — Investigating adaptive immunity, B cell germinal center responses, shark comparative immunology, and vaccine design.">
+    
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Hanover Matz, PhD | Evolutionary Immunology">
+    <meta property="og:description" content="Advancing our knowledge of the human immune system and B cell evolution.">
+    <meta property="og:image" content="Matz_headshot.jpg">
+    <meta property="og:type" content="website">
 
-  <!-- Preload critical Above-the-Fold LCP image only -->
-  <link rel="preload" href="Matz_headshot.jpg" as="image" fetchpriority="high">
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Schema.org Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Hanover Matz",
-    "jobTitle": "Immunology Researcher",
-    "knowsAbout": ["Evolutionary Immunology", "B Cell Germinal Center Mechanisms", "Vaccine Development"],
-    "sameAs": [
-      "https://x.com/HanoverM",
-      "https://github.com",
-      "https://scholar.google.com"
-    ]
-  }
-  </script>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Preloads Updated for .webp and .jpg Image Assets -->
+    <link rel="preload" as="image" href="banner-antibodies.webp" type="image/webp">
+    <link rel="preload" as="image" href="logo.webp" type="image/webp">
+    <link rel="preload" as="image" href="Matz_headshot.jpg" type="image/jpeg">
+    <link rel="preload" as="image" href="mechanism-graphic.webp" type="image/webp">
+    <link rel="preload" as="image" href="plasma-cell.webp" type="image/webp">
+    <link rel="preload" as="image" href="nurse-shark.webp" type="image/webp">
+    <link rel="preload" as="image" href="virus-and-vaccine.webp" type="image/webp">
+
+    <!-- Preconnect External Servers -->
+    <link rel="preconnect" href="https://pub.orcid.org" crossorigin>
+    <link rel="preconnect" href="https://integration-badge.dimensions.ai">
+    <link rel="preconnect" href="https://d1bxh8uas1mnw7.cloudfront.net">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Hanover Matz",
+      "honorificSuffix": "PhD",
+      "jobTitle": "Immunologist & Researcher",
+      "knowsAbout": [
+        "Evolutionary Immunology",
+        "B Cell Biology",
+        "Germinal Center Mechanisms",
+        "Comparative Immunology",
+        "Vaccine Design"
+      ],
+      "sameAs": [
+        "https://orcid.org/0000-0002-0669-1696",
+        "https://x.com/@HanoverM",
+        "https://www.linkedin.com/in/hanover-matz-a021b0281"
+      ]
+    }
+    </script>
+
+    <!-- External Metrics APIs -->
+    <script async src="https://integration-badge.dimensions.ai/static/ai/badge.js"></script>
+    <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
 </head>
 <body>
 
-  <!-- Accessible Skip Link -->
-  <a href="#main" class="skip-link">Skip to main content</a>
+    <!-- Accessibility Skip Link -->
+    <a href="#about" class="skip-link">Skip to main content</a>
 
-  <!-- Header Navigation -->
-  <header>
-    <nav aria-label="Main Navigation">
-      <div class="nav-container">
-        <a href="#about" class="logo-link">
-          <img src="logo.webp" alt="Hanover Matz Logo" width="40" height="40" decoding="async">
-        </a>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#research">Research</a></li>
-          <li><a href="#publications">Publications</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Main Content Landmark -->
-  <main id="main">
-
-    <!-- About Section -->
-    <section id="about" class="section">
-      <div class="container grid-two-col">
-        <div class="profile-image-container">
-          <img src="Matz_headshot.jpg" alt="Profile headshot of Hanover Matz" width="350" height="350" fetchpriority="high">
-        </div>
-        <div class="bio">
-          <h1>Hanover Matz</h1>
-          <p class="subtitle">Researcher in Evolutionary Immunology &amp; B Cell Mechanisms</p>
-          <p>
-            My research focuses on understanding the evolutionary trajectory of adaptive immune systems, 
-            specifically investigating B cell germinal center dynamics and antibody diversification across diverse vertebrate species.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Research Section -->
-    <section id="research" class="section">
-      <div class="container">
-        <h2>Research Interests</h2>
-        <p class="instruction">Hover over an interest area below to view related mechanism previews:</p>
-
-        <!-- Interactive Research Items -->
-        <ul class="research-list">
-          <li class="research-item" 
-              data-image="plasma-cell.webp" 
-              data-text="Investigating plasma cell longevity and somatic hypermutation selection pathways in germinal centers.">
-            <strong>B Cell Germinal Center Selection</strong>
-          </li>
-          <li class="research-item" 
-              data-image="nurse-shark.webp" 
-              data-text="Comparative immunology analyzing single-domain antibodies (IgNAR) in cartilaginous fishes.">
-            <strong>Evolutionary Origin of Adaptive Immunity</strong>
-          </li>
-          <li class="research-item" 
-              data-image="virus-and-vaccine.webp" 
-              data-text="Engineering immunogens targeting conserved epitopes across rapidly mutating viral pathogens.">
-            <strong>Broadly Neutralizing Vaccine Design</strong>
-          </li>
-        </ul>
-
-        <!-- Static Research Highlight Graphics -->
-        <div class="research-highlights">
-          <h3>Mechanism Spotlight</h3>
-          <div class="graphic-frame">
-            <img src="mechanism-graphic.webp" alt="Diagram detailing B cell selection steps inside the germinal center light and dark zones" width="800" height="450" loading="lazy" decoding="async">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Publications / Media Section -->
-    <section id="publications" class="section">
-      <div class="container">
-        <h2>Featured Presentations</h2>
-        <div class="video-container">
-          <!-- Cleaned deprecated frameborder -->
-          <iframe src="https://www.youtube-nocookie.com/embed/placeholder" title="Research Seminar Presentation" style="border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Connect</h2>
-        <ul class="contact-links">
-          <li>
-            <!-- Corrected Twitter/X URL format -->
-            <a href="https://x.com/HanoverM" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
-          </li>
-          <li>
-            <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-          </li>
-          <li>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Dynamic Research Interest Hover Popup -->
-  <div id="research-popup" class="popup-card" aria-hidden="true">
-    <img id="popup-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Preview graphic for research topic" width="300" height="200" decoding="async">
-    <p id="popup-text"></p>
-  </div>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 Hanover Matz. All rights reserved.</p>
+    <!-- Research Interest Popup -->
+    <div id="research-popup" class="research-popup" aria-label="Research interest image preview" role="region" aria-live="polite">
+        <img id="popup-image" src="" alt="" loading="lazy" width="400" height="300" decoding="async">
     </div>
-  </footer>
 
-  <!-- Fixed Popup Interaction Logic -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const popup = document.getElementById('research-popup');
-      const popupImg = document.getElementById('popup-image');
-      const popupText = document.getElementById('popup-text');
-      const researchItems = document.querySelectorAll('.research-item');
+    <!-- Banner Section -->
+    <header class="banner">
+        <div class="banner-content">
+            <h1 class="fade-in">Hanover Matz, PhD</h1>
+            <p class="fade-in-delay">Advancing our knowledge of the human immune system</p>
+        </div>
+        <div class="scroll-prompt">
+            <span>Scroll to explore</span>
+            <div class="arrow"></div>
+        </div>
+    </header>
 
-      if (!popup || !popupImg || !popupText) return;
+    <!-- Navigation -->
+    <nav class="navbar" aria-label="Main Navigation">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#media">Media</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-      researchItems.forEach(item => {
-        item.addEventListener('mouseenter', (e) => {
-          const imgSrc = item.getAttribute('data-image');
-          const text = item.getAttribute('data-text');
+    <!-- Main Content Area -->
+    <main>
+        <!-- About/Profile Section -->
+        <section id="about" class="section about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="profile-picture-container">
+                        <img src="logo.webp" alt="Site Logo" class="site-logo-gif" width="120" height="120" decoding="async">
+                        <img src="Matz_headshot.jpg" alt="Profile picture of Hanover Matz, PhD" class="profile-picture" fetchpriority="high" width="300" height="300">
+                        <img src="mechanism-graphic.webp" alt="Diagram showing B cell germinal center mechanism" class="mechanism-graphic" loading="lazy" width="800" height="450" decoding="async">
+                    </div>
+                    <div class="about-text slide-in-right">
+                        <h2>Evolutionary Immunology</h2>
+                        <p>
+                            I am an immunologist studying the fundamental principles of adaptive immunity. My work synthesizes molecular biology, immunology, and comparative evolutionary approaches to understand how the immune system works across diverse organisms.
+                        </p>
+                        <p>
+                            The adaptive immune system is the product of millions of years of evolution in jawed vertebrates. Through the coordination of B cells, T cells, and antigen-presenting cells, organisms develop immunity against pathogens. Understanding these mechanisms helps us design better vaccines and therapeutics.
+                        </p>
 
-          if (imgSrc) popupImg.src = imgSrc;
-          if (text) popupText.textContent = text;
+                        <div class="research-interests interest-cards">
+                            <h3>Research Interests</h3>
+                            <ul>
+                                <li data-image="b-cell-selection.webp" data-title="B cell selection">B cell selection</li>
+                                <li data-image="evolution-adaptive-immunity.webp" data-title="Evolution of adaptive immunity">Evolution of adaptive immunity</li>
+                                <li data-image="antibodies.webp" data-title="Antibodies">Antibodies</li>
+                                <li data-image="vaccine-design.webp" data-title="Improving vaccine design">Improving vaccine design</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Research Highlights Section -->
+        <section id="research" class="section research-highlights">
+            <div class="container">
+                <h2>Research Highlights</h2>
+                <div class="highlights-grid">
+                    
+                    <!-- Highlight Card 1 -->
+                    <article class="highlight-card visible active fade-in-up">
+                        <div class="highlight-body">
+                            <div class="highlight-media">
+                                <img 
+                                    src="plasma-cell.webp" 
+                                    alt="Microscopic view of plasma cell" 
+                                    class="highlight-gif" 
+                                    loading="eager" 
+                                    width="500" 
+                                    height="282"
+                                    decoding="async"
+                                >
+                            </div>
+                            <div class="highlight-text">
+                                <h3>Mechanisms of B cell biology</h3>
+                                <p>B cells produce antibodies that defend the host from infectious pathogens. Through the germinal center response, B cells are able to undergo mutation, selection, and differentiation to produce high-affinity antibodies against specific antigens.</p>
+                            </div>
+                        </div>
 
-          popup.classList.add('visible');
-          popup.setAttribute('aria-hidden', 'false');
-          positionPopup(e);
+                        <div class="paper-preview-card">
+                            <span class="preview-tag">Associated Paper</span>
+                            <h4 class="preview-title">mRNA-based influenza vaccine expands the B cell response breadth in humans</h4>
+                            <p class="preview-citation">Matz H. et al. <em>Nature Immunology</em> (2026)</p>
+                            
+                            <div class="metrics-badge-container">
+                                <span class="__dimensions_badge_embed__" data-doi="10.1038/s41590-026-02569-5" data-style="small_circle"></span>
+                                <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1038/s41590-026-02569-5"></div>
+                                <a href="https://doi.org/10.1038/s41590-026-02569-5" target="_blank" rel="noopener noreferrer" class="preview-link">View Publication ↗</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Highlight Card 2 -->
+                    <article class="highlight-card visible active fade-in-up">
+                        <div class="highlight-body">
+                            <div class="highlight-media">
+                                <img 
+                                    src="nurse-shark.webp" 
+                                    alt="Nurse shark swimming" 
+                                    class="highlight-gif" 
+                                    loading="lazy" 
+                                    width="500" 
+                                    height="282"
+                                    decoding="async"
+                                >
+                            </div>
+                            <div class="highlight-text">
+                                <h3>Evolution of B cell selection</h3>
+                                <p>Many vertebrate models can be studied to understand the evolution of the immune system. Sharks are the oldest living organisms with an immune system like humans, providing insights into the fundamental mechanisms of adaptive immunity.</p>
+                            </div>
+                        </div>
+
+                        <div class="paper-preview-card">
+                            <span class="preview-tag">Associated Paper</span>
+                            <h4 class="preview-title">Organized B cell sites in cartilaginous fishes reveal the evolutionary foundation of germinal centers</h4>
+                            <p class="preview-citation">Matz H. et al. <em>Cell Reports</em> (2023)</p>
+                            
+                            <div class="metrics-badge-container">
+                                <span class="__dimensions_badge_embed__" data-doi="10.1016/j.celrep.2023.112664" data-style="small_circle"></span>
+                                <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1016/j.celrep.2023.112664"></div>
+                                <a href="https://doi.org/10.1016/j.celrep.2023.112664" target="_blank" rel="noopener noreferrer" class="preview-link">View Publication ↗</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Highlight Card 3 -->
+                    <article class="highlight-card visible active fade-in-up">
+                        <div class="highlight-body">
+                            <div class="highlight-media">
+                                <img 
+                                    src="virus-and-vaccine.webp" 
+                                    alt="Illustration of virus particles and vaccine" 
+                                    class="highlight-gif" 
+                                    loading="lazy" 
+                                    width="500" 
+                                    height="282"
+                                    decoding="async"
+                                >
+                            </div>
+                            <div class="highlight-text">
+                                <h3>Vaccine design and combating disease</h3>
+                                <p>What we learn from human, mouse, and comparative immunology studies informs how we can modulate vaccines to better induce protective and durable immunity. Many new vaccine strategies are being developed to combat infectious diseases.</p>
+                            </div>
+                        </div>
+
+                        <div class="paper-preview-card">
+                            <span class="preview-tag">Associated Paper</span>
+                            <h4 class="preview-title">Vaccination against influenza viruses annually: Renewing or narrowing the protective shield?</h4>
+                            <p class="preview-citation">Matz H. and Ellebedy A. <em>Journal of Experimental Medicine</em> (2025)</p>
+                            
+                            <div class="metrics-badge-container">
+                                <span class="__dimensions_badge_embed__" data-doi="10.1084/jem.20241283" data-style="small_circle"></span>
+                                <div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1084/jem.20241283"></div>
+                                <a href="https://doi.org/10.1084/jem.20241283" target="_blank" rel="noopener noreferrer" class="preview-link">View Publication ↗</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="section publications">
+            <div class="container">
+                <h2>Publications</h2>
+                <p style="margin-bottom: 2rem; color: #666;">
+                    Automated feed pulled live from my 
+                    <a href="https://orcid.org/0000-0002-0669-1696" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color);">ORCID Profile</a>.
+                </p>
+                
+                <div id="publications-loading" class="loading-status">Loading publications from ORCID...</div>
+                <ul id="publications-list" class="publications-list" style="display: none; list-style: none; padding: 0;">
+                    <!-- Filled Dynamically -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- Media Section -->
+        <section id="media" class="section media">
+            <div class="container">
+                <h2>Media & Outreach</h2>
+                <div class="media-grid">
+                    <article class="media-item">
+                        <header class="media-header">
+                            <div class="media-title-group">
+                                <h3>Podcast Interview</h3>
+                                <p class="podcast-subtitle">The Immunology Podcast • June 2022</p>
+                            </div>
+                        </header>
+                        <div class="media-body">
+                            <div class="podcast-embed">
+                                <iframe title="The Immunology Podcast Episode 30 featuring Dr. Hanover Matz" src="https://open.spotify.com/embed/episode/2Z0nb76KEN9F9ABTcBTzme?utm_source=generator" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            </div>
+                        </div>
+                        <footer class="media-footer">
+                            <a href="https://www.immunologypodcast.com/ep-30-comparative-immunology-and-sharks-featuring-dr-hanover-matz" class="link-button-large" target="_blank" rel="noopener noreferrer">Listen on Podcast Site ↗</a>
+                        </footer>
+                    </article>
+                    
+                    <article class="media-item">
+                        <header class="media-header">
+                            <div class="media-title-group">
+                                <h3>News Feature</h3>
+                                <p class="podcast-subtitle">First Alert 4 • June 2026</p>
+                            </div>
+                        </header>
+                        <div class="media-body">
+                            <div class="video-embed">
+                                <iframe title="WashU Medicine Study First Alert 4 News Feature" src="https://www.youtube.com/embed/9g6w2P0A8d8" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                        </div>
+                        <footer class="media-footer">
+                            <a href="https://www.firstalert4.com/2026/06/16/washu-medicine-study-finds-new-mrna-flu-vaccine-could-reduce-hospitalizations-deaths/" class="link-button-large" target="_blank" rel="noopener noreferrer">Watch News Story ↗</a>
+                        </footer>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <p>Interested in collaborating or learning more about my research? Feel free to reach out!</p>
+                <div class="contact-links">
+                    <a href="mailto:matz@wustl.edu" class="link-button-large">Email Me</a>
+                    <a href="https://www.linkedin.com/in/hanover-matz-a021b0281" class="link-button-large" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://x.com/@HanoverM" class="link-button-large" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Hanover Matz, PhD. All rights reserved.</p>
+    </footer>
+
+    <!-- Safe ORCID Fetch Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const orcidId = "0000-0002-0669-1696"; 
+            const apiUrl = `https://pub.orcid.org/v3.0/${orcidId}/works`;
+            
+            const loadingDiv = document.getElementById("publications-loading");
+            const listUl = document.getElementById("publications-list");
+
+            fetch(apiUrl, {
+                headers: { 'Accept': 'application/vnd.orcid+json' }
+            })
+            .then(response => {
+                if (!response.ok) throw new Error("Could not contact ORCID feed.");
+                return response.json();
+            })
+            .then(data => {
+                const groups = data.group || [];
+                if (groups.length === 0) {
+                    loadingDiv.innerText = "No publications found on this ORCID profile.";
+                    return;
+                }
+
+                let publications = [];
+
+                groups.forEach(group => {
+                    const summary = group['work-summary'] ? group['work-summary'][0] : null;
+                    if (!summary) return;
+
+                    const title = summary.title?.title?.value || "Untitled Work";
+                    const year = summary['publication-date']?.year?.value || "n.d.";
+                    const journal = summary['journal-title'] ? summary['journal-title'].value : null;
+                    
+                    let rawDoi = "";
+                    let doiUrl = "";
+                    if (summary['external-ids'] && summary['external-ids']['external-id']) {
+                        const ids = summary['external-ids']['external-id'];
+                        const doiObj = ids.find(id => id['external-id-type'] === 'doi');
+                        if (doiObj && doiObj['external-id-value']) {
+                            const cleanDoi = doiObj['external-id-value'].trim();
+                            rawDoi = cleanDoi.replace(/^https?:\/\/doi\.org\//, ""); 
+                            doiUrl = cleanDoi.startsWith('http') ? cleanDoi : `https://doi.org/${cleanDoi}`;
+                        }
+                    }
+
+                    publications.push({ title, year, journal, doiUrl, rawDoi });
+                });
+
+                publications.sort((a, b) => {
+                    if (a.year === "n.d.") return 1;
+                    if (b.year === "n.d.") return -1;
+                    return b.year - a.year;
+                });
+
+                listUl.innerHTML = "";
+
+                publications.forEach(pub => {
+                    const li = document.createElement("li");
+                    li.style.marginBottom = "30px";
+                    li.style.lineHeight = "1.6";
+
+                    const titleEl = document.createElement("strong");
+                    titleEl.textContent = pub.title;
+
+                    const dateSpan = document.createElement("span");
+                    dateSpan.textContent = ` (${pub.year})`;
+
+                    li.appendChild(titleEl);
+                    li.appendChild(dateSpan);
+
+                    if (pub.journal) {
+                        const journalEl = document.createElement("div");
+                        journalEl.style.color = "var(--text-light, #555)";
+                        journalEl.style.fontStyle = "italic";
+                        journalEl.textContent = pub.journal;
+                        li.appendChild(journalEl);
+                    }
+
+                    if (pub.rawDoi) {
+                        const metricsDiv = document.createElement("div");
+                        metricsDiv.className = "metrics-badge-container";
+
+                        const dimSpan = document.createElement("span");
+                        dimSpan.className = "__dimensions_badge_embed__";
+                        dimSpan.setAttribute("data-doi", pub.rawDoi);
+                        dimSpan.setAttribute("data-style", "small_circle");
+
+                        const altDiv = document.createElement("div");
+                        altDiv.className = "altmetric-embed";
+                        altDiv.setAttribute("data-badge-type", "donut");
+                        altDiv.setAttribute("data-badge-popover", "right");
+                        altDiv.setAttribute("data-doi", pub.rawDoi);
+
+                        const linkA = document.createElement("a");
+                        linkA.href = pub.doiUrl;
+                        linkA.target = "_blank";
+                        linkA.rel = "noopener noreferrer";
+                        linkA.style.color = "var(--secondary-color, #0066cc)";
+                        linkA.style.fontSize = "0.92rem";
+                        linkA.style.textDecoration = "none";
+                        linkA.style.marginLeft = "auto";
+                        linkA.textContent = "View Publication ↗";
+
+                        metricsDiv.appendChild(dimSpan);
+                        metricsDiv.appendChild(altDiv);
+                        metricsDiv.appendChild(linkA);
+                        li.appendChild(metricsDiv);
+                    } else if (pub.doiUrl) {
+                        const linkDiv = document.createElement("div");
+                        const linkA = document.createElement("a");
+                        linkA.href = pub.doiUrl;
+                        linkA.target = "_blank";
+                        linkA.rel = "noopener noreferrer";
+                        linkA.style.color = "var(--secondary-color, #0066cc)";
+                        linkA.style.fontSize = "0.92rem";
+                        linkA.style.textDecoration = "none";
+                        linkA.textContent = "View Publication ↗";
+                        linkDiv.appendChild(linkA);
+                        li.appendChild(linkDiv);
+                    }
+
+                    listUl.appendChild(li);
+                });
+
+                loadingDiv.style.display = "none";
+                listUl.style.display = "block";
+
+                if (window.__dimensions_embed) {
+                    window.__dimensions_embed.addBadges();
+                }
+
+                if (typeof _altmetric_embed_init === 'function') {
+                    _altmetric_embed_init();
+                } else if (window.altmetric_embed_init) {
+                    window.altmetric_embed_init();
+                }
+            })
+            .catch(error => {
+                console.error("ORCID Fetch Error:", error);
+                loadingDiv.innerHTML = `Unable to pull live feed. View my work directly on <a href="https://orcid.org/${orcidId}" target="_blank" rel="noopener noreferrer">ORCID</a>.`;
+            });
         });
+    </script>
 
-        item.addEventListener('mousemove', (e) => {
-          positionPopup(e);
+    <!-- Scroll Animation Observer Script -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up', 'visible', 'active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.highlight-card, .media-item, .about-content, .about-text, .profile-picture-container, .fade-in, .fade-in-delay').forEach(el => observer.observe(el));
+    </script>
+
+    <!-- Research Interest Popup Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const popup = document.getElementById("research-popup");
+            const popupImage = document.getElementById("popup-image");
+            const interestItems = document.querySelectorAll(".research-interests li");
+
+            interestItems.forEach(item => {
+                item.addEventListener("mouseenter", function() {
+                    const imageSrc = this.getAttribute("data-image");
+                    const imageTitle = this.getAttribute("data-title");
+                    
+                    if (imageSrc) {
+                        popupImage.src = imageSrc;
+                        popupImage.alt = imageTitle;
+                        popup.classList.add("visible");
+                    }
+                });
+
+                item.addEventListener("mouseleave", function() {
+                    popup.classList.remove("visible");
+                });
+            });
+
+            // Hide popup when mouse leaves the popup itself
+            popup.addEventListener("mouseleave", function() {
+                popup.classList.remove("visible");
+            });
         });
-
-        item.addEventListener('mouseleave', () => {
-          popup.classList.remove('visible');
-          popup.setAttribute('aria-hidden', 'true');
-        });
-      });
-
-      function positionPopup(e) {
-        const offset = 18;
-        let left = e.clientX + offset;
-        let top = e.clientY + offset;
-
-        // Keep popup within screen boundaries
-        const popupRect = popup.getBoundingClientRect();
-        if (left + popupRect.width > window.innerWidth - 10) {
-          left = e.clientX - popupRect.width - offset;
-        }
-        if (top + popupRect.height > window.innerHeight - 10) {
-          top = e.clientY - popupRect.height - offset;
-        }
-
-        popup.style.left = `${left}px`;
-        popup.style.top = `${top}px`;
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>
