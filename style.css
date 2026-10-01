@@ -126,44 +126,53 @@ textarea:focus-visible {
 }
 
 /* ============================================
-   3.5. Research Interest Popup - FIXED POSITIONING
+   3.5. Research Interest Popup - MOUSE TRACKING
    ============================================ */
+#research-popup,
 .research-popup {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 90%;
-    max-width: 500px;
-    transform: translate(-50%, -50%) scale(0);
+    top: 0;
+    left: 0;
+    width: 300px;
+    max-width: 90vw;
     background: #ffffff;
-    border-radius: var(--radius-lg);
-    padding: 30px;
-    box-shadow: 0 20px 60px rgba(26, 42, 58, 0.3);
+    border-radius: var(--radius-lg, 12px);
+    padding: 16px;
+    box-shadow: 0 20px 60px rgba(26, 42, 58, 0.25);
     z-index: 9999;
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    border: 2px solid var(--border-color);
+    visibility: hidden;
+    pointer-events: none; /* Must stay 'none' so hover passes through to the list item */
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    border: 1px solid var(--border-color, #e2e8f0);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
 }
 
+#research-popup.visible,
 .research-popup.visible {
     opacity: 1;
-    pointer-events: auto;
-    transform: translate(-50%, -50%) scale(1);
+    visibility: visible;
 }
 
+#research-popup img,
 .research-popup img {
     width: 100%;
     height: auto;
-    max-height: 60vh;
-    border-radius: var(--radius-md);
+    max-height: 180px;
+    border-radius: var(--radius-md, 8px);
     display: block;
-    object-fit: contain;
+    object-fit: cover;
 }
 
+#research-popup p,
+.research-popup p {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--text-color, #333333);
+}
 /* ============================================
    4. Banner & Navigation
    ============================================ */
