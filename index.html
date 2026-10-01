@@ -73,6 +73,11 @@
     <!-- Accessibility Skip Link -->
     <a href="#about" class="skip-link">Skip to main content</a>
 
+    <!-- Research Interest Popup -->
+    <div id="research-popup" class="research-popup" aria-label="Research interest image preview" role="region" aria-live="polite">
+        <img id="popup-image" src="" alt="" loading="lazy" width="400" height="300" decoding="async">
+    </div>
+
     <!-- Banner Section -->
     <header class="banner">
         <div class="banner-content">
@@ -110,19 +115,19 @@
                     <div class="about-text slide-in-right">
                         <h2>Evolutionary Immunology</h2>
                         <p>
-                            I am an immunologist studying the fundamental principles of adaptive immunity. My work synthesizes molecular biology, immunology, and comparative evolutionary approaches to understand how B and T cells respond to pathogens and vaccines. My research explores the evolution of antibody structures and why the human immune system works the way it does.
+                            I am an immunologist studying the fundamental principles of adaptive immunity. My work synthesizes molecular biology, immunology, and comparative evolutionary approaches to understand how the immune system works across diverse organisms.
                         </p>
                         <p>
-                            The adaptive immune system is the product of millions of years of evolution in jawed vertebrates. Through the coordination of B cells, T cells, and antigen-presenting cells, our body can mount specific responses to virtually any pathogen. By understanding these evolutionary principles, we can design better vaccines and therapeutics.
+                            The adaptive immune system is the product of millions of years of evolution in jawed vertebrates. Through the coordination of B cells, T cells, and antigen-presenting cells, organisms develop immunity against pathogens. Understanding these mechanisms helps us design better vaccines and therapeutics.
                         </p>
 
                         <div class="research-interests interest-cards">
                             <h3>Research Interests</h3>
                             <ul>
-                                <li>B cell selection</li>
-                                <li>Evolution of adaptive immunity</li>
-                                <li>Antibodies</li>
-                                <li>Improving vaccine design</li>
+                                <li data-image="b-cell-selection.webp" data-title="B cell selection">B cell selection</li>
+                                <li data-image="evolution-adaptive-immunity.webp" data-title="Evolution of adaptive immunity">Evolution of adaptive immunity</li>
+                                <li data-image="antibodies.webp" data-title="Antibodies">Antibodies</li>
+                                <li data-image="vaccine-design.webp" data-title="Improving vaccine design">Improving vaccine design</li>
                             </ul>
                         </div>
                     </div>
@@ -152,7 +157,7 @@
                             </div>
                             <div class="highlight-text">
                                 <h3>Mechanisms of B cell biology</h3>
-                                <p>B cells produce antibodies that defend the host from infectious pathogens. Through the germinal center response, B cells are able to undergo mutation, selection, and differentiation to produce high-affinity antibodies.</p>
+                                <p>B cells produce antibodies that defend the host from infectious pathogens. Through the germinal center response, B cells are able to undergo mutation, selection, and differentiation to produce high-affinity antibodies against specific antigens.</p>
                             </div>
                         </div>
 
@@ -185,7 +190,7 @@
                             </div>
                             <div class="highlight-text">
                                 <h3>Evolution of B cell selection</h3>
-                                <p>Many vertebrate models can be studied to understand the evolution of the immune system. Sharks are the oldest living organisms with an immune system like humans, making them perfect subjects for comparative immunology research.</p>
+                                <p>Many vertebrate models can be studied to understand the evolution of the immune system. Sharks are the oldest living organisms with an immune system like humans, providing insights into the fundamental mechanisms of adaptive immunity.</p>
                             </div>
                         </div>
 
@@ -218,7 +223,7 @@
                             </div>
                             <div class="highlight-text">
                                 <h3>Vaccine design and combating disease</h3>
-                                <p>What we learn from human, mouse, and comparative immunology studies informs how we can modulate vaccines to better induce protective and durable immunity. Many vaccines can be improved through a deeper understanding of the fundamentals of B cell immunity.</p>
+                                <p>What we learn from human, mouse, and comparative immunology studies informs how we can modulate vaccines to better induce protective and durable immunity. Many new vaccine strategies are being developed to combat infectious diseases.</p>
                             </div>
                         </div>
 
@@ -269,11 +274,11 @@
                         </header>
                         <div class="media-body">
                             <div class="podcast-embed">
-                                <iframe title="The Immunology Podcast Episode 30 featuring Dr. Hanover Matz" src="https://open.spotify.com/embed/episode/2Z0nb76KEN9F9ABTcBTzme?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe title="The Immunology Podcast Episode 30 featuring Dr. Hanover Matz" src="https://open.spotify.com/embed/episode/2Z0nb76KEN9F9ABTcBTzme?utm_source=generator" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                             </div>
                         </div>
                         <footer class="media-footer">
-                            <a href="https://www.immunologypodcast.com/ep-30-comparative-immunology-and-sharks-featuring-dr-hanover-matz" class="link-button-large" target="_blank" rel="noopener noreferrer">Listen on Website</a>
+                            <a href="https://www.immunologypodcast.com/ep-30-comparative-immunology-and-sharks-featuring-dr-hanover-matz" class="link-button-large" target="_blank" rel="noopener noreferrer">Listen on Podcast Site ↗</a>
                         </footer>
                     </article>
                     
@@ -290,7 +295,7 @@
                             </div>
                         </div>
                         <footer class="media-footer">
-                            <a href="https://www.firstalert4.com/2026/06/16/washu-medicine-study-finds-new-mrna-flu-vaccine-could-reduce-hospitalizations-deaths/" class="link-button-large" target="_blank" rel="noopener noreferrer">View News Feature</a>
+                            <a href="https://www.firstalert4.com/2026/06/16/washu-medicine-study-finds-new-mrna-flu-vaccine-could-reduce-hospitalizations-deaths/" class="link-button-large" target="_blank" rel="noopener noreferrer">Watch News Story ↗</a>
                         </footer>
                     </article>
                 </div>
@@ -471,6 +476,37 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.highlight-card, .media-item, .about-content, .about-text, .profile-picture-container, .fade-in, .fade-in-delay').forEach(el => observer.observe(el));
+    </script>
+
+    <!-- Research Interest Popup Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const popup = document.getElementById("research-popup");
+            const popupImage = document.getElementById("popup-image");
+            const interestItems = document.querySelectorAll(".research-interests li");
+
+            interestItems.forEach(item => {
+                item.addEventListener("mouseenter", function() {
+                    const imageSrc = this.getAttribute("data-image");
+                    const imageTitle = this.getAttribute("data-title");
+                    
+                    if (imageSrc) {
+                        popupImage.src = imageSrc;
+                        popupImage.alt = imageTitle;
+                        popup.classList.add("visible");
+                    }
+                });
+
+                item.addEventListener("mouseleave", function() {
+                    popup.classList.remove("visible");
+                });
+            });
+
+            // Hide popup when mouse leaves the popup itself
+            popup.addEventListener("mouseleave", function() {
+                popup.classList.remove("visible");
+            });
+        });
     </script>
 </body>
 </html>
