@@ -73,7 +73,24 @@ p {
 }
 
 /* ============================================
-   2. Accessibility & Focus States
+   2. Font Loading (Prevent Layout Shift)
+   ============================================ */
+@font-face {
+    font-family: "Merriweather";
+    src: url('https://fonts.gstatic.com/s/merriweather/v30/u-440qyriQwlOrhSvowK_l5-cSZEYa8quzojME4EAw.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHAPMtMWiEAvzQHnkFBMp33pXKc7PY.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+/* ============================================
+   2.5. Accessibility & Focus States
    ============================================ */
 .skip-link {
     position: absolute;
@@ -135,20 +152,18 @@ textarea:focus-visible {
     transform: translate(-50%, -50%);
     background: #ffffff;
     border-radius: var(--radius-lg);
-    padding: 16px;
-    box-shadow: 0 20px 60px rgba(26, 42, 58, 0.2);
-    z-index: 500;
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(26, 42, 58, 0.25);
+    z-index: 1000;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    max-width: 450px;
-    width: 90%;
-    max-height: 70vh;
+    transition: opacity 0.2s ease;
+    max-width: min(90vw, 500px);
+    max-height: 75vh;
     border: 2px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
 
 .research-popup.visible {
@@ -159,7 +174,7 @@ textarea:focus-visible {
 .research-popup img {
     width: 100%;
     height: auto;
-    max-height: 65vh;
+    max-height: 70vh;
     border-radius: var(--radius-md);
     display: block;
     object-fit: contain;
@@ -197,6 +212,7 @@ textarea:focus-visible {
     z-index: 1;
     max-width: 900px;
     padding: 50px 30px;
+    width: 100%;
 }
 
 .banner-content h1 {
@@ -207,6 +223,9 @@ textarea:focus-visible {
     color: #ffffff;
     text-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
     line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .banner-content p {
@@ -881,7 +900,7 @@ textarea:focus-visible {
     }
 
     .research-popup {
-        max-width: 80vw;
+        max-width: 85vw;
     }
 }
 
