@@ -197,7 +197,7 @@ textarea:focus-visible {
 }
 
 .banner-content h1 {
-    font-size: clamp(1.8rem, 7vw, 4.5rem);
+    font-size: clamp(1.6rem, 8vw, 5rem);
     white-space: nowrap;
     margin: 0 0 20px 0;
     font-weight: 800;
@@ -208,7 +208,7 @@ textarea:focus-visible {
 }
 
 .banner-content p {
-    font-size: clamp(0.7rem, 3vw, 1.75rem);
+    font-size: clamp(1.3rem, 3.2vw, 2.25rem);
     white-space: nowrap;
     margin: 0;
     font-weight: 400;
@@ -850,6 +850,14 @@ textarea:focus-visible {
 
     .banner {
         min-height: 60vh;
+    }
+
+    /* On tablets/phones the tagline is allowed to wrap so it can stay large and readable */
+    .banner-content p {
+        font-size: clamp(1.3rem, 5vw, 1.7rem);
+        white-space: normal;
+        text-wrap: balance;
+        line-height: 1.4;
     }
 
     .navbar a {
