@@ -73,24 +73,7 @@ p {
 }
 
 /* ============================================
-   2. Font Loading (Prevent Layout Shift)
-   ============================================ */
-@font-face {
-    font-family: "Merriweather";
-    src: url('https://fonts.gstatic.com/s/merriweather/v30/u-440qyriQwlOrhSvowK_l5-cSZEYa8quzojME4EAw.woff2') format('woff2');
-    font-weight: 700;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Inter";
-    src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHAPMtMWiEAvzQHnkFBMp33pXKc7PY.woff2') format('woff2');
-    font-weight: 400;
-    font-display: swap;
-}
-
-/* ============================================
-   2.5. Accessibility & Focus States
+   2. Accessibility & Focus States
    ============================================ */
 .skip-link {
     position: absolute;
@@ -143,23 +126,23 @@ textarea:focus-visible {
 }
 
 /* ============================================
-   3.5. Research Interest Popup
+   3.5. Research Interest Popup - FIXED POSITIONING
    ============================================ */
 .research-popup {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    transform: translate(-50%, -50%) scale(0);
     background: #ffffff;
     border-radius: var(--radius-lg);
-    padding: 20px;
-    box-shadow: 0 20px 60px rgba(26, 42, 58, 0.25);
-    z-index: 1000;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(26, 42, 58, 0.3);
+    z-index: 9999;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease;
-    max-width: min(90vw, 500px);
-    max-height: 75vh;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     border: 2px solid var(--border-color);
     display: flex;
     align-items: center;
@@ -169,12 +152,13 @@ textarea:focus-visible {
 .research-popup.visible {
     opacity: 1;
     pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .research-popup img {
     width: 100%;
     height: auto;
-    max-height: 70vh;
+    max-height: 60vh;
     border-radius: var(--radius-md);
     display: block;
     object-fit: contain;
@@ -196,7 +180,6 @@ textarea:focus-visible {
     text-align: center;
     color: #ffffff;
     overflow: hidden;
-    z-index: 10;
 }
 
 .banner::after {
@@ -212,20 +195,17 @@ textarea:focus-visible {
     z-index: 1;
     max-width: 900px;
     padding: 50px 30px;
-    width: 100%;
 }
 
 .banner-content h1 {
-    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-size: clamp(2.5rem, 8vw, 5rem);
     margin: 0 0 20px 0;
     font-weight: 800;
     letter-spacing: -0.03em;
     color: #ffffff;
     text-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
-    line-height: 1.1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    line-height: 1.2;
+    word-spacing: 100vw;
 }
 
 .banner-content p {
