@@ -126,6 +126,41 @@ textarea:focus-visible {
 }
 
 /* ============================================
+   3.5. Research Interest Popup
+   ============================================ */
+.research-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    box-shadow: 0 20px 60px rgba(26, 42, 58, 0.2);
+    z-index: 500;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    max-width: 450px;
+    width: 90%;
+    border: 2px solid var(--border-color);
+}
+
+.research-popup.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.research-popup img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    display: block;
+    object-fit: cover;
+}
+
+/* ============================================
    4. Banner & Navigation
    ============================================ */
 .banner {
@@ -141,6 +176,7 @@ textarea:focus-visible {
     text-align: center;
     color: #ffffff;
     overflow: hidden;
+    z-index: 10;
 }
 
 .banner::after {
@@ -410,8 +446,10 @@ textarea:focus-visible {
     font-size: 1.05rem;
     box-shadow: 0 8px 20px rgba(74, 144, 226, 0.15);
     transition: all 0.3s ease;
-    cursor: default;
+    cursor: pointer;
     text-align: center;
+    position: relative;
+    z-index: 5;
 }
 
 .research-interests li:hover {
@@ -836,6 +874,10 @@ textarea:focus-visible {
     .research-interests ul {
         grid-template-columns: 1fr;
     }
+
+    .research-popup {
+        max-width: 80vw;
+    }
 }
 
 @media (max-width: 600px) {
@@ -860,6 +902,10 @@ textarea:focus-visible {
     body {
         font-size: 1rem;
     }
+
+    .research-popup {
+        max-width: 90vw;
+    }
 }
 
 /* ============================================
@@ -873,7 +919,8 @@ textarea:focus-visible {
     .video-embed,
     .podcast-embed,
     .metrics-badge-container,
-    .skip-link {
+    .skip-link,
+    .research-popup {
         display: none !important;
     }
 
